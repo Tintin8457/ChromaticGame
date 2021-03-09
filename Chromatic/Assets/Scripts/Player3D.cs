@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-//Complete Work In Progress I just quickly copy and pasted from the original player script, don't think that's gonna work the same for 3D
-
 public class Player3D : MonoBehaviour
 {
+    
     private float horzMovement;
     private float vertMovement;
     private Rigidbody playerRB;
@@ -13,18 +11,12 @@ public class Player3D : MonoBehaviour
 
     private Renderer originalColor;
     public Material currentColor;
-
-    //2D jump functionality
-    /*[Header("Jump Functionality")]
-    public LayerMask allGround;
-    public Transform groundCheck;
-    public float checkRadius;
-    private bool isOnGround = false;*/
-
+    
     public bool canJump = true;
 
+
     //Change jump amount in inspector
-    public float jumpAmount = 30.0f;
+    public float jumpAmount = 1.0f;
 
     void Start()
     {
@@ -47,7 +39,7 @@ public class Player3D : MonoBehaviour
         {
             if((Input.GetKey(KeyCode.Space)))
             {
-                playerRB.AddForce(Vector3.up * jumpAmount);
+                playerRB.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
             }
         }
     }
@@ -61,10 +53,6 @@ public class Player3D : MonoBehaviour
 
         //New player movement
         transform.Translate(new Vector3(horzMovement, 0 , 0) * Time.deltaTime * playerSpeed);
-
-        //2D Ground Check
-        //isOnGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, allGround);
-        //isOnGround = Physics.OverlapSphere(groundCheck.position, checkRadius, allGround);
     }
 
     //////Jump//////
@@ -97,13 +85,7 @@ public class Player3D : MonoBehaviour
         }
     }
 
-    //2D version of changing color
-    // public void ChangeColor(Color paintColor)
-    // {
-    //     currentColor = paintColor;
-    // }
-
-    //Updated way to changing the player's color
+    //Changing the player's color
     public void ChangeColor(Material paintColor)
     {
         currentColor.color = paintColor.color;
