@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Change
   - Moving
+  - Appear
   layers:
   - Default
   - TransparentFX
