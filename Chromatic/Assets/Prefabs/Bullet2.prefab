@@ -475,8 +475,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.134
-  m_Center: {x: 1.3048551e-18, y: 0.45611274, z: -0.00033596158}
+  m_Radius: 0.10930643
+  m_Center: {x: 7.764079e-17, y: 0.45, z: -0.005}
 --- !u!54 &2153281644683852191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -505,6 +505,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11d4a2766b3e4d47bd2ee12b2215ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paintball:
+  - {fileID: 8101023232181778778}
+  - {fileID: 546402347130994219}
+  - {fileID: 7785854221923077891}
+  - {fileID: 1356595567422284798}
+  - {fileID: 6687758254545227688}
+  - {fileID: 5233315275402230372}
   projectileMaxDist: 50
 --- !u!1 &7891498213333810400
 GameObject:

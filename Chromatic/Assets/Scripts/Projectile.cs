@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private Renderer paintball;
+    public Renderer[] paintball; //All renderers from each component of the children
     private Player3D player;
     public float projectileMaxDist = 50.0f;
+    //private int components;
+    Animator ammoMovement;
 
     void Start()
     {
-        paintball = GetComponent<Renderer>();
+        //paintball = GetComponentInChildren<Renderer>();
+        ammoMovement = GetComponent<Animator>();
+        //components = paintball.Length; //Get length of ammo's materials
 
         //Find and get player
         GameObject colorizeAmmo = GameObject.FindGameObjectWithTag("Player");
@@ -28,11 +32,24 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //Match projectile color to player's color
-        paintball.material.color = player.currentColor.color;
+        //Match the projectile color to player's color
+        //paintball.material.color = player.currentColor.color;
+        ComponentIndex();
+        ammoMovement.SetBool("CanLaunch", true); //Play ammo animation
     }
     void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
+    }
+
+    //Contains each part of the projectile
+    public void ComponentIndex()
+    {
+        paintball[0].material.color = player.currentColor.color;
+        paintball[1].material.color = player.currentColor.color;
+        paintball[2].material.color = player.currentColor.color;
+        paintball[3].material.color = player.currentColor.color;
+        paintball[4].material.color = player.currentColor.color;
+        paintball[5].material.color = player.currentColor.color;
     }
 }
