@@ -11,6 +11,8 @@ public class ShootingController : MonoBehaviour
     private Vector3 shootDir;
     public float projectileForce = 10.0f;
     public GameObject projectilePrefab;
+    public Transform shootingOrigin;
+    //Animator ammoMovement;
     
     void Start()
     {
@@ -40,9 +42,9 @@ public class ShootingController : MonoBehaviour
     void Shoot()
     {
         //Spawn projectile and add force to direction vector
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, shootingOrigin.position, transform.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
-         
+        
         rb.AddForce(shootDir.normalized * projectileForce, ForceMode.Impulse);
     }
 }
