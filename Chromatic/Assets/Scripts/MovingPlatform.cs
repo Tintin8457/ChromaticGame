@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script allows the platforms to move left and right
 public class MovingPlatform : MonoBehaviour
 {
     public float speed;
