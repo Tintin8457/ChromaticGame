@@ -13,6 +13,8 @@ public class Player3D : MonoBehaviour
     public float jumpForce = 10.0f; //Change jump force in inspector
     public LayerMask groundLayer;
 
+    private Vector3 currentCheckpoint;
+
     private Renderer originalColor;
     public Material currentColor;
 
@@ -22,6 +24,7 @@ public class Player3D : MonoBehaviour
         playerCol = GetComponent<SphereCollider>();
         originalColor = GetComponent<Renderer>();
         currentColor.color = this.originalColor.material.color;
+        currentCheckpoint = transform.position; //Sets players first checkpoint to player location on start up
     }
 
     void Update()
@@ -53,9 +56,23 @@ public class Player3D : MonoBehaviour
         currentColor.color = paintColor.color;
     }
 
-    //Ground Check Function
+    //Ground check function
     public bool IsGrounded()
     {
         return Physics.CheckCapsule(playerCol.bounds.center, new Vector3(playerCol.bounds.center.x, playerCol.bounds.min.y, playerCol.bounds.center.z), playerCol.radius * 0.9f, groundLayer);
+    }
+
+    //Set checkpoint
+    public void setCheckpoint(Vector3 checkpointPosition)
+    {
+        currentCheckpoint = checkpointPosition;
+        Debug.Log("Checkpoint set to: " + currentCheckpoint);
+    }
+
+    //Reset player position to last checkpoint
+    public void resetToCheckpoint()
+    {
+        Debug.Log("Died.");
+        transform.position = currentCheckpoint;
     }
 }
