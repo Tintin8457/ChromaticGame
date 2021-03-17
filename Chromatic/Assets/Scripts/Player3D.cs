@@ -18,6 +18,11 @@ public class Player3D : MonoBehaviour
     private Renderer originalColor;
     public Material currentColor;
 
+    //This texture will be used during the mid-game, which we may need an array to change into different textures
+    public Texture[] inkyTexture;
+    private int randomTexture = 0; //Use for randomly selecting textures
+
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
@@ -75,4 +80,37 @@ public class Player3D : MonoBehaviour
         Debug.Log("Died.");
         transform.position = currentCheckpoint;
     }
+
+    //Temporarily change Inky's texture only when they collect specific pick-ups
+    //Its texture will be changed during the mid-game once we figured out the mechanic
+    public void ChangeTexture()
+    {
+        //originalColor.material.mainTexture = inkyTexture[0];
+
+        //Randomly select between the textures for Inky's texture to become
+        randomTexture = Random.Range(0,2);
+
+        //Change Inky's texture from its albedo map of its main material
+        //"_MainTex" refers to Albedo (main map) in the material
+        originalColor.material.SetTexture("_MainTex", inkyTexture[randomTexture]);
+    }
+
+    //Test player's texture change by going through a specific cube
+    // public void OnTriggerEnter(Collider form)
+    // {
+    //     if (form.gameObject.tag == "Appear")
+    //     {
+    //         //ChangeTexture();
+    //         originalColor.material.SetTexture("_MainTex", inkyTexture[0]);
+    //     }
+    // }
+
+    // public void OnTriggerExit(Collider form)
+    // {
+    //     if (form.gameObject.tag == "Appear")
+    //     {
+    //         //ChangeTexture();
+    //         originalColor.material.SetTexture("_MainTex", inkyTexture[1]);
+    //     }
+    // }
 }
