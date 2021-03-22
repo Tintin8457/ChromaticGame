@@ -39,7 +39,13 @@ public class Projectile : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        Destroy(gameObject); //Projectiles are destroyed once they hit other objects
+
+        //Destroy breakable walls
+        if (collision.gameObject.tag == "Breakable")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 
     //Contains each part of the projectile
