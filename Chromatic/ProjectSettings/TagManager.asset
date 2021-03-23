@@ -9,6 +9,7 @@ TagManager:
   - Change
   - Moving
   - Appear
+  - Breakable
   layers:
   - Default
   - TransparentFX
