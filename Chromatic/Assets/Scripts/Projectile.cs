@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.magnitude > projectileMaxDist)
+        if ( ((transform.position.magnitude - player.transform.position.magnitude) > projectileMaxDist) || (transform.position.magnitude - player.transform.position.magnitude < (-1.0f * projectileMaxDist)) )
         {
             Destroy(gameObject);
         }
