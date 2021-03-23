@@ -11,7 +11,6 @@ public class ShootingController : MonoBehaviour
     private Vector3 shootDir;
     public float projectileForce = 10.0f;
     public GameObject projectilePrefab;
-    //public Transform shootingOrigin;
     //Animator ammoMovement;
     
     void Start()
