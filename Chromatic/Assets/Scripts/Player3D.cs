@@ -22,6 +22,7 @@ public class Player3D : MonoBehaviour
     public Texture[] inkyTexture;
     private int randomTexture = 0; //Use for randomly selecting textures
 
+    public bool canDestroyFloor; //Destroy a specific floor
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class Player3D : MonoBehaviour
         originalColor = GetComponent<Renderer>();
         currentColor.color = this.originalColor.material.color;
         currentCheckpoint = transform.position; //Sets players first checkpoint to player location on start up
+        canDestroyFloor = false;
     }
 
     void Update()
@@ -45,7 +47,7 @@ public class Player3D : MonoBehaviour
         if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log(Vector3.up * jumpForce);
+            //Debug.Log(Vector3.up * jumpForce);
         }
     }
 
@@ -93,6 +95,15 @@ public class Player3D : MonoBehaviour
         //Change Inky's texture from its albedo map of its main material
         //"_MainTex" refers to Albedo (main map) in the material
         originalColor.material.SetTexture("_MainTex", inkyTexture[randomTexture]);
+    }
+
+    //When the player is on the specific floor, the platform will shortly disappear 
+    void OnCollisionEnter(Collision slow)
+    {
+        if (slow.gameObject.tag == "SlowBreak")
+        {
+            canDestroyFloor = true;
+        }
     }
 
     //Test player's texture change by going through a specific cube
