@@ -48,4 +48,22 @@ public class MovingPlatform : MonoBehaviour
             }
         }
     }
+
+    //Prevent the player from falling off the moving platform
+    void OnCollisionEnter(Collision player)
+    {
+        if (player.gameObject.tag == "Player")
+        {
+            player.gameObject.transform.parent = gameObject.transform;
+        }
+    }
+
+    //The platform should no longer control the player's movement
+    void OnCollisionExit(Collision player)
+    {
+        if (player.gameObject.tag == "Player")
+        {
+            player.gameObject.transform.parent = null;
+        }
+    }
 }
