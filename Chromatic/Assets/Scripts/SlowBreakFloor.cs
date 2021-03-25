@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SlowBreakFloor : MonoBehaviour
 {
-    public float timer = 10f; //Max time
+    public float timer = 10f; //Timer will be used to destroy and bring back the platform
+    public float returnPlat = 3.0f; //Max time to bring back the platform
     public GameObject floor;
     public bool reappear;
     private Player3D player;
@@ -47,7 +48,7 @@ public class SlowBreakFloor : MonoBehaviour
             timer += Time.deltaTime; //Resume timer
 
             //The platform reappears
-            if (timer >= 2.1f)
+            if (timer >= returnPlat)
             {
                 floor.SetActive(true);
                 reappear = false;
