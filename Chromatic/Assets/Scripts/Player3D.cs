@@ -1,23 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Player3D : MonoBehaviour
 {
     //Fixed the jumping and cleaned up by removing old code.
-    
     private float horzMovement;
     private float vertMovement;
     private Rigidbody playerRB;
     private SphereCollider playerCol;
+    
+    [Header("Movement")]
     public float playerSpeed = 3.0f; //Change speed in inspector
     public float jumpForce = 10.0f; //Change jump force in inspector
     public LayerMask groundLayer;
-
+    
     private Vector3 currentCheckpoint;
 
     private Renderer originalColor;
+
+    [Header("Colors")]
     public Material currentColor;
 
     //This texture will be used during the mid-game, which we may need an array to change into different textures
@@ -26,16 +30,22 @@ public class Player3D : MonoBehaviour
 
     public bool canDestroyFloor; //Destroy a specific floor
 
+    [Header("UI")]
     public TextMeshProUGUI cpText; //Will use to update checkpoint UI
+    public TextMeshProUGUI curBristles; //Holds current amount of bristles
+    public int bristles = 0; //Amount of bristles
+    public Image curColor; //Will be used to update the player's current color
 
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
         playerCol = GetComponent<SphereCollider>();
         originalColor = GetComponent<Renderer>();
+
         currentColor.color = this.originalColor.material.color;
         currentCheckpoint = transform.position; //Sets players first checkpoint to player location on start up
         canDestroyFloor = false;
+
         cpText.text = "Checkpoint: Not Met!";
     }
 
@@ -54,6 +64,12 @@ public class Player3D : MonoBehaviour
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             //Debug.Log(Vector3.up * jumpForce);
         }
+
+        //Make sure there is the amount of collected bristles
+        curBristles.text = "Bristles Collected: " + bristles.ToString();
+
+        //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
+        curColor.color = currentColor.color;
     }
 
     void FixedUpdate()
@@ -92,6 +108,18 @@ public class Player3D : MonoBehaviour
     public void UpdateCPUI(int currentCP)
     {
         cpText.text = "Checkpoint: " + currentCP.ToString();
+    }
+
+    //Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
+    // public void GetPlayerColor()
+    // {
+    //     curColor.color = currentColor.color;
+    // }
+
+    //Increase the amount of bristles
+    public void AddBristles(int br)
+    {
+        bristles += br;
     }
 
     //Temporarily change Inky's texture only when they collect specific pick-ups
