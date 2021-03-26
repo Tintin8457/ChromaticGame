@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 public class Player3D : MonoBehaviour
 {
     //Fixed the jumping and cleaned up by removing old code.
@@ -24,6 +26,8 @@ public class Player3D : MonoBehaviour
 
     public bool canDestroyFloor; //Destroy a specific floor
 
+    public TextMeshProUGUI cpText; //Will use to update checkpoint UI
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
@@ -32,6 +36,7 @@ public class Player3D : MonoBehaviour
         currentColor.color = this.originalColor.material.color;
         currentCheckpoint = transform.position; //Sets players first checkpoint to player location on start up
         canDestroyFloor = false;
+        cpText.text = "Checkpoint: Not Met!";
     }
 
     void Update()
@@ -81,6 +86,12 @@ public class Player3D : MonoBehaviour
     {
         Debug.Log("Died.");
         transform.position = currentCheckpoint;
+    }
+
+    //Update the checkpoint UI when the player reaches a specific checkpoint
+    public void UpdateCPUI(int currentCP)
+    {
+        cpText.text = "Checkpoint: " + currentCP.ToString();
     }
 
     //Temporarily change Inky's texture only when they collect specific pick-ups
