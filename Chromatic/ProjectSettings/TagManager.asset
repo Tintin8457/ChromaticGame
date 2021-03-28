@@ -11,6 +11,11 @@ TagManager:
   - Appear
   - Breakable
   - SlowBreak
+  - Swap
+  - ColorManager
+  - Red
+  - Yellow
+  - Blue
   layers:
   - Default
   - TransparentFX

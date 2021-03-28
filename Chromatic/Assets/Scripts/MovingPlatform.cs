@@ -7,26 +7,36 @@ public class MovingPlatform : MonoBehaviour
 {
     public float speed;
     public bool changeDir; //Changes the direction that the platform is moving
+    public bool canMoveHor; //Move platforms horizontally when a red projectile hits it
 
     // Start is called before the first frame update
     void Start()
     {
-        changeDir = true;
+        canMoveHor = false;
+
+        if (canMoveHor == true)
+        {
+            changeDir = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //The platform can move left
-        if (changeDir == true)
+        //Moving platforms only happen when a red projectile hits them
+        if (canMoveHor == true)
         {
-            transform.Translate(-Time.deltaTime * speed, 0, 0, Space.World);
-        }
+            //The platform can move left
+            if (changeDir == true)
+            {
+                transform.Translate(-Time.deltaTime * speed, 0, 0, Space.World);
+            }
 
-        //The platform can move right
-        else if (changeDir == false)
-        {
-            transform.Translate(Time.deltaTime * speed, 0, 0, Space.World);
+            //The platform can move right
+            else if (changeDir == false)
+            {
+                transform.Translate(Time.deltaTime * speed, 0, 0, Space.World);
+            }
         }
     }
 
@@ -49,12 +59,18 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
-    //Prevent the player from falling off the moving platform
     void OnCollisionEnter(Collision player)
     {
+        //Prevent the player from falling off the moving platform
         if (player.gameObject.tag == "Player")
         {
             player.gameObject.transform.parent = gameObject.transform;
+        }
+
+        //The platforms will move once a red projectile hits them
+        if (player.gameObject.tag == "Red")
+        {
+            canMoveHor = true;
         }
     }
 

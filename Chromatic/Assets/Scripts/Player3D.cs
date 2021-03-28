@@ -35,6 +35,7 @@ public class Player3D : MonoBehaviour
     public TextMeshProUGUI curBristles; //Holds current amount of bristles
     public int bristles = 0; //Amount of bristles
     public Image curColor; //Will be used to update the player's current color
+    //public Image colorSwap; //Will be used to show which color will be next
 
     void Start()
     {
@@ -110,10 +111,12 @@ public class Player3D : MonoBehaviour
         cpText.text = "Checkpoint: " + currentCP.ToString();
     }
 
-    //Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
-    // public void GetPlayerColor()
+    //Use it for separate function desc- Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
+    //Use UI indicator to show the next color to change to
+    //Switch between 4 colors from shift in a specific predetermined order and loop around
+    // public void ColorSwaping()
     // {
-    //     curColor.color = currentColor.color;
+    //     colorSwap.color = currentColor.color;
     // }
 
     //Increase the amount of bristles
