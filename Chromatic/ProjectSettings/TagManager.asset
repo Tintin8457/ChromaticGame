@@ -17,6 +17,8 @@ TagManager:
   - Yellow
   - Blue
   - Grayscale
+  - HorClimbable
+  - VerClimbable
   layers:
   - Default
   - TransparentFX
