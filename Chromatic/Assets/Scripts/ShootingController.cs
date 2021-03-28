@@ -12,10 +12,12 @@ public class ShootingController : MonoBehaviour
     public float projectileForce = 10.0f;
     public GameObject projectilePrefab;
     public string colorMode; //Store the color that the player has collected
-    
+    public List<string> colorInventory = new List<string>(); //Store colors that the player gets
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
+        projectilePrefab.tag = "Untagged"; //The projectile not have a specific color tag until the player gets a color
     }
 
     void Update()
@@ -50,10 +52,11 @@ public class ShootingController : MonoBehaviour
         rb.AddForce(shootDir.normalized * projectileForce, ForceMode.Impulse);
     }
 
-    //Change the projectile color type
+    //Change the projectile color type and add the color to the inventory
     public void ColorizeProjectile(string newColor)
     {
         colorMode = newColor;
+        colorInventory.Add(colorMode);
     }
 
     //Once the color mode has been changed, it will change the projectile type
@@ -75,6 +78,12 @@ public class ShootingController : MonoBehaviour
         else if (colorMode == "blue")
         {
             projectilePrefab.tag = "Blue";
+        }
+
+        //Changes to grayscale
+        else if (colorMode == "grayscale")
+        {
+            projectilePrefab.tag = "Grayscale";
         }
     }
 }

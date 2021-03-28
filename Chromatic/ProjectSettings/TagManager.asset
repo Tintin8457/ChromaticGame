@@ -16,6 +16,7 @@ TagManager:
   - Red
   - Yellow
   - Blue
+  - Grayscale
   layers:
   - Default
   - TransparentFX

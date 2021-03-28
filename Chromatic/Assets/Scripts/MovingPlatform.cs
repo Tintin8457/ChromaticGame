@@ -6,8 +6,21 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     public float speed;
+
+    [Header("Bools")]
     public bool changeDir; //Changes the direction that the platform is moving
     public bool canMoveHor; //Move platforms horizontally when a red projectile hits it
+    public bool cooldown;
+
+    [Header("Colored platform timer")]
+    public float tempColorHolder;
+    public float resetColorHolder;
+
+    [Header("Cooldown timer")]
+    public float coolDownTimer;
+    public float resetTimer;
+
+    public Material ogPlatColor; //Holds original color
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +31,18 @@ public class MovingPlatform : MonoBehaviour
         {
             changeDir = true;
         }
+
+        cooldown = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Moving platforms only happen when a red projectile hits them
+        //Moving platforms only happen when a red projectile hits them for a limited time
         if (canMoveHor == true)
         {
+            tempColorHolder -= Time.deltaTime; //Start timer
+
             //The platform can move left
             if (changeDir == true)
             {
@@ -36,6 +53,29 @@ public class MovingPlatform : MonoBehaviour
             else if (changeDir == false)
             {
                 transform.Translate(Time.deltaTime * speed, 0, 0, Space.World);
+            }
+        }
+
+        //Stop timer and reset color
+        if (tempColorHolder <= 0.0f)
+        {
+            canMoveHor = false;
+            tempColorHolder = resetColorHolder;
+            gameObject.GetComponent<Renderer>().material = ogPlatColor;
+
+            //Cool down before the player can paint it again
+            cooldown = true;
+        }
+
+        //Cool down before the player can paint it again
+        if (cooldown == true)
+        {
+            coolDownTimer -= Time.deltaTime;
+
+            if (coolDownTimer <= 0.0f)
+            {
+                coolDownTimer = resetTimer;
+                cooldown = false;
             }
         }
     }
@@ -67,10 +107,11 @@ public class MovingPlatform : MonoBehaviour
             player.gameObject.transform.parent = gameObject.transform;
         }
 
-        //The platforms will move once a red projectile hits them
-        if (player.gameObject.tag == "Red")
+        //The platforms will move once a red projectile hits them and turns them red
+        if (player.gameObject.tag == "Red" && cooldown == false)
         {
             canMoveHor = true;
+            gameObject.GetComponent<Renderer>().material.color = player.gameObject.GetComponentInChildren<Renderer>().material.color;
         }
     }
 
