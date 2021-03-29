@@ -11,6 +11,14 @@ TagManager:
   - Appear
   - Breakable
   - SlowBreak
+  - Swap
+  - ColorManager
+  - Red
+  - Yellow
+  - Blue
+  - Grayscale
+  - HorClimbable
+  - VerClimbable
   layers:
   - Default
   - TransparentFX

@@ -1,21 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 public class Player3D : MonoBehaviour
 {
     //Fixed the jumping and cleaned up by removing old code.
-    
     private float horzMovement;
     private float vertMovement;
     private Rigidbody playerRB;
     private SphereCollider playerCol;
+    
+    [Header("Movement")]
     public float playerSpeed = 3.0f; //Change speed in inspector
     public float jumpForce = 10.0f; //Change jump force in inspector
     public LayerMask groundLayer;
-
+    
     private Vector3 currentCheckpoint;
+    private Vector3 jumpBounds;
+    private float jumpSpeed;
 
     private Renderer originalColor;
+
+    [Header("Colors")]
     public Material currentColor;
 
     //This texture will be used during the mid-game, which we may need an array to change into different textures
@@ -24,21 +32,37 @@ public class Player3D : MonoBehaviour
 
     public bool canDestroyFloor; //Destroy a specific floor
 
+    [Header("UI")]
+    public TextMeshProUGUI cpText; //Will use to update checkpoint UI
+    public TextMeshProUGUI curBristles; //Holds current amount of bristles
+    public int bristles = 0; //Amount of bristles
+    public Image curColor; //Will be used to update the player's current color
+    //public Image colorSwap; //Will be used to show which color will be next
+
+    public bool alterMovement;
+    public bool stickyHor; //Use when the player is on the horizontal sticky floor
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
         playerCol = GetComponent<SphereCollider>();
         originalColor = GetComponent<Renderer>();
+
         currentColor.color = this.originalColor.material.color;
         currentCheckpoint = transform.position; //Sets players first checkpoint to player location on start up
         canDestroyFloor = false;
+
+        cpText.text = "Checkpoint: Not Met!";
+
+        alterMovement = false;
+        stickyHor = false;
     }
 
     void Update()
     {
         //Player directional input
         horzMovement = Input.GetAxis("Horizontal");
-        vertMovement = Input.GetAxis("Vertical"); //Could need this later? 
+        vertMovement = Input.GetAxis("Vertical");
 
         //Initial player color set
         this.originalColor.material.color = currentColor.color;
@@ -46,15 +70,45 @@ public class Player3D : MonoBehaviour
         //Press the spacebar to jump if the player can jump
         if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
         {
-            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            //Debug.Log(Vector3.up * jumpForce);
+            //Player has normal jumping when the player is not on a sticky horizontal floor
+            if (stickyHor == false)
+            {
+                playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+
+            //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            else if (stickyHor == true)
+            {
+                playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+            }
+            
+            //Debug.Log(Vector3.up * jumpForce);        
         }
+
+        //Make sure there is the amount of collected bristles
+        curBristles.text = "Bristles Collected: " + bristles.ToString();
+
+        //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
+        curColor.color = currentColor.color;
+
+        //Debug.Log("vel: " + playerRB.velocity);
     }
 
     void FixedUpdate()
     {
         //Player movement
-        transform.Translate(new Vector3(horzMovement, 0 , 0) * Time.deltaTime * playerSpeed);
+        //The player will move normally in the game
+        if (alterMovement == false)
+        {
+            transform.Translate(new Vector3(horzMovement, 0 , 0) * Time.deltaTime * playerSpeed);
+        }
+
+        //The movement changes when the player is on the wall
+        else if (alterMovement == true || stickyHor == true)
+        {
+            transform.Translate(new Vector3(horzMovement, vertMovement, 0) * Time.deltaTime * playerSpeed);
+        }
     }
 
     //Changing the player's color
@@ -66,7 +120,32 @@ public class Player3D : MonoBehaviour
     //Ground check function
     public bool IsGrounded()
     {
-        return Physics.CheckCapsule(playerCol.bounds.center, new Vector3(playerCol.bounds.center.x, playerCol.bounds.min.y, playerCol.bounds.center.z), playerCol.radius * 0.9f, groundLayer);
+        //Normal jumping
+        if (alterMovement == false)
+        {
+            Vector3 ogCol = new Vector3(playerCol.bounds.center.x, playerCol.bounds.min.y, playerCol.bounds.center.z);
+            jumpBounds = ogCol;
+            jumpSpeed = 0.9f;
+        }
+
+        //Alternative jumping if the player is on a sticky wall
+        else if (alterMovement == true)
+        {
+            Vector3 wallPlayerCol = new Vector3(playerCol.bounds.center.y, playerCol.bounds.min.x, playerCol.bounds.center.z);
+            jumpBounds = wallPlayerCol;
+            jumpSpeed = 0.5f;
+        }
+
+        //Alternative jumping if the player is on the sticky horizontal floor
+        else if (stickyHor == true)
+        {
+            Vector3 horCol = new Vector3(playerCol.bounds.center.x, -playerCol.bounds.min.y, playerCol.bounds.center.z);
+            jumpBounds = horCol;
+            jumpSpeed = 0.9f;
+        }
+
+        //Return jumping result
+        return Physics.CheckCapsule(playerCol.bounds.center, jumpBounds, playerCol.radius * jumpSpeed, groundLayer);
     }
 
     //Set checkpoint
@@ -83,6 +162,26 @@ public class Player3D : MonoBehaviour
         transform.position = currentCheckpoint;
     }
 
+    //Update the checkpoint UI when the player reaches a specific checkpoint
+    public void UpdateCPUI(int currentCP)
+    {
+        cpText.text = "Checkpoint: " + currentCP.ToString();
+    }
+
+    //Use it for separate function desc- Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
+    //Use UI indicator to show the next color to change to
+    //Switch between 4 colors from shift in a specific predetermined order and loop around
+    // public void ColorSwaping()
+    // {
+    //     colorSwap.color = currentColor.color;
+    // }
+
+    //Increase the amount of bristles
+    public void AddBristles(int br)
+    {
+        bristles += br;
+    }
+
     //Temporarily change Inky's texture only when they collect specific pick-ups
     //Its texture will be changed during the mid-game once we figured out the mechanic
     public void ChangeTexture()
@@ -97,12 +196,46 @@ public class Player3D : MonoBehaviour
         originalColor.material.SetTexture("_MainTex", inkyTexture[randomTexture]);
     }
 
-    //When the player is on the specific floor, the platform will shortly disappear 
     void OnCollisionEnter(Collision slow)
     {
+        //When the player is on the specific floor, the platform will shortly disappear 
         if (slow.gameObject.tag == "SlowBreak")
         {
             canDestroyFloor = true;
+        }
+
+        //The player's movement changes when they are on the vertical sticky wall
+        if (slow.gameObject.tag == "VerClimbable")
+        {
+            alterMovement = true;
+            playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
+            playerRB.useGravity = false;
+        }
+
+        //The player's movement changes when they are on the horizontal sticky wall
+        if (slow.gameObject.tag == "HorClimbable")
+        {
+            //alterMovement = true;
+            stickyHor = true;
+            playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
+            playerRB.useGravity = false;
+        }
+    }
+
+    //The player's movement changes back to normal when they are off the sticky wall
+    void OnCollisionExit(Collision back)
+    {
+        if (back.gameObject.tag == "VerClimbable")
+        {
+            alterMovement = false;
+            playerRB.useGravity = true;
+        }
+
+        if (back.gameObject.tag == "HorClimbable")
+        {
+            //alterMovement = false;
+            stickyHor = false;
+            playerRB.useGravity = true;
         }
     }
 

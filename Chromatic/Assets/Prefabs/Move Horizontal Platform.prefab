@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6656650403347516755}
   - component: {fileID: 6656650403347516760}
   m_Layer: 8
-  m_Name: Move Platform
+  m_Name: Move Horizontal Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,6 +111,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   changeDir: 0
+  canMoveHor: 0
+  cooldown: 0
+  tempColorHolder: 10
+  resetColorHolder: 10
+  coolDownTimer: 5
+  resetTimer: 5
+  ogPlatColor: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!54 &6656650403347516760
 Rigidbody:
   m_ObjectHideFlags: 0

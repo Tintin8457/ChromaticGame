@@ -6,27 +6,76 @@ using UnityEngine;
 public class MovingVerPlatform : MonoBehaviour
 {
     public float speed;
+
+    [Header("Bools")]
     public bool changeDir; //Changes the direction that the platform is moving
+    public bool canMoveVer; //Move platforms vertically when a blue projectile hits it
+    public bool cooldown;
+
+    [Header("Colored platform timer")]
+    public float tempColorHolder;
+    public float resetColorHolder;
+
+    [Header("Cooldown timer")]
+    public float coolDownTimer;
+    public float resetTimer;
+
+    public Material ogPlatColor; //Holds original color
 
     // Start is called before the first frame update
     void Start()
     {
-        changeDir = true;
+        canMoveVer = false;
+
+        if (canMoveVer == true)
+        {
+            changeDir = true;
+        }
+
+        cooldown = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //The platform can move down
-        if (changeDir == true)
+        //Moving platforms only happen when a blue projectile hits them for a limited time
+        if (canMoveVer == true)
         {
-            transform.Translate(0, -Time.deltaTime * speed, 0, Space.World);
+            tempColorHolder -= Time.deltaTime; //Start timer
+
+            //The platform can move down
+            if (changeDir == true)
+            {
+                transform.Translate(0, -Time.deltaTime * speed, 0, Space.World);
+            }
+
+            //The platform can move up
+            else if (changeDir == false)
+            {
+                transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
+            }
         }
 
-        //The platform can move up
-        else if (changeDir == false)
+        //Stop timer and reset color
+        if (tempColorHolder <= 0.0f)
         {
-            transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
+            canMoveVer = false;
+            tempColorHolder = resetColorHolder;
+            gameObject.GetComponent<Renderer>().material = ogPlatColor;
+
+            cooldown = true;
+        }
+
+        //Cool down before the player can paint it again
+        if (cooldown == true)
+        {
+            coolDownTimer -= Time.deltaTime;
+
+            if (coolDownTimer <= 0.0f)
+            {
+                coolDownTimer = resetTimer;
+                cooldown = false;
+            }
         }
     }
 
@@ -49,12 +98,19 @@ public class MovingVerPlatform : MonoBehaviour
         }
     }
 
-    //Prevent the player from falling off the moving platform
     void OnCollisionEnter(Collision player)
     {
+        //Prevent the player from falling off the moving platform
         if (player.gameObject.tag == "Player")
         {
             player.gameObject.transform.parent = gameObject.transform;
+        }
+
+        //The platforms will move once a blue projectile hits them and turns them blue
+        if (player.gameObject.tag == "Blue" && cooldown == false)
+        {
+            canMoveVer = true;
+            gameObject.GetComponent<Renderer>().material.color = player.gameObject.GetComponentInChildren<Renderer>().material.color;
         }
     }
 

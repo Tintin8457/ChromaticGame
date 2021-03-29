@@ -11,11 +11,13 @@ public class ShootingController : MonoBehaviour
     private Vector3 shootDir;
     public float projectileForce = 10.0f;
     public GameObject projectilePrefab;
-    //Animator ammoMovement;
-    
+    public string colorMode; //Store the color that the player has collected
+    public List<string> colorInventory = new List<string>(); //Store colors that the player gets
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
+        projectilePrefab.tag = "Untagged"; //The projectile not have a specific color tag until the player gets a color
     }
 
     void Update()
@@ -30,6 +32,9 @@ public class ShootingController : MonoBehaviour
         {
             Shoot();
         }
+
+        //Update the tag of the projectile
+        ChangeProjType();
     }
 
     void FixedUpdate()
@@ -45,5 +50,40 @@ public class ShootingController : MonoBehaviour
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         
         rb.AddForce(shootDir.normalized * projectileForce, ForceMode.Impulse);
+    }
+
+    //Change the projectile color type and add the color to the inventory
+    public void ColorizeProjectile(string newColor)
+    {
+        colorMode = newColor;
+        colorInventory.Add(colorMode);
+    }
+
+    //Once the color mode has been changed, it will change the projectile type
+    public void ChangeProjType()
+    {
+        //Change to red
+        if (colorMode == "red")
+        {
+            projectilePrefab.tag = "Red";
+        }
+
+        //Change to yellow
+        else if (colorMode == "yellow")
+        {
+            projectilePrefab.tag = "Yellow";
+        }
+
+        //Change to blue
+        else if (colorMode == "blue")
+        {
+            projectilePrefab.tag = "Blue";
+        }
+
+        //Changes to grayscale
+        else if (colorMode == "grayscale")
+        {
+            projectilePrefab.tag = "Grayscale";
+        }
     }
 }

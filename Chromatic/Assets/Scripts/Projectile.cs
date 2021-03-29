@@ -42,10 +42,10 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject); //Projectiles are destroyed once they hit other objects
 
         //Destroy breakable walls
-        if (collision.gameObject.tag == "Breakable")
-        {
-            Destroy(collision.gameObject);
-        }
+        // if (collision.gameObject.tag == "Breakable")
+        // {
+        //     Destroy(collision.gameObject);
+        // }
     }
 
     //Contains each part of the projectile
