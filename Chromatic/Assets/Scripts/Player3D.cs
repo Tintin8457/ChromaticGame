@@ -21,6 +21,8 @@ public class Player3D : MonoBehaviour
     private Vector3 jumpBounds;
     private float jumpSpeed;
 
+    public bool stopJumping;
+
     private Renderer originalColor;
 
     [Header("Colors")]
@@ -56,6 +58,7 @@ public class Player3D : MonoBehaviour
 
         alterMovement = false;
         stickyHor = false;
+        stopJumping = false;
     }
 
     void Update()
@@ -68,22 +71,25 @@ public class Player3D : MonoBehaviour
         this.originalColor.material.color = currentColor.color;
 
         //Press the spacebar to jump if the player can jump
-        if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
+        if (stopJumping == false)
         {
-            //Player has normal jumping when the player is not on a sticky horizontal floor
-            if (stickyHor == false)
+            if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
             {
-                playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            }
+                //Player has normal jumping when the player is not on a sticky horizontal floor
+                if (stickyHor == false)
+                {
+                    playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                }
 
-            //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
-            else if (stickyHor == true)
-            {
-                playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
-            }
+                else if (stickyHor == true)
+                {
+                    playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+                }
             
-            //Debug.Log(Vector3.up * jumpForce);        
+                //Debug.Log(Vector3.up * jumpForce);        
+            }
         }
 
         //Make sure there is the amount of collected bristles

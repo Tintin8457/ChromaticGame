@@ -11,6 +11,7 @@ public class ShootingController : MonoBehaviour
     private Vector3 shootDir;
     public float projectileForce = 10.0f;
     public GameObject projectilePrefab;
+    public bool stopShooting;
     public string colorMode; //Store the color that the player has collected
     public List<string> colorInventory = new List<string>(); //Store colors that the player gets
 
@@ -18,6 +19,7 @@ public class ShootingController : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         projectilePrefab.tag = "Untagged"; //The projectile not have a specific color tag until the player gets a color
+        stopShooting = false;
     }
 
     void Update()
@@ -28,9 +30,12 @@ public class ShootingController : MonoBehaviour
         worldPos = cam.ScreenToWorldPoint(mousePos);
 
         //Shoot key
-        if (Input.GetButtonDown("Fire1"))
+        if (stopShooting == false)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+            }
         }
 
         //Update the tag of the projectile

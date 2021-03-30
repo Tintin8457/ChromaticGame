@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     public bool canTime;
 
     private Player3D player;
-
+    private ShootingController shoot;
     public GameObject restartButton;
     public GameObject quitButton;
 
@@ -26,6 +26,14 @@ public class Timer : MonoBehaviour
         {
             player = inky.GetComponent<Player3D>();
         }
+
+        //Find and get player's shooting ability
+        GameObject shooting = GameObject.FindGameObjectWithTag("Player");
+
+        if (shooting != null)
+        {
+            shoot = shooting.GetComponent<ShootingController>();
+        }
     }
 
     // Update is called once per frame
@@ -38,12 +46,14 @@ public class Timer : MonoBehaviour
         {
             maxTime -= Time.deltaTime;
         }
-
+        
         //End the game at the end of the timer
         //Lose the game
         if (maxTime <= 0f)
         {
             player.playerSpeed = 0f; //Stop player from moving
+            player.stopJumping = true; //Stop player from jumping
+            shoot.stopShooting = true; //Stop player from shooting
             canTime = false; //Stop timer
             restartButton.SetActive(true); //Summon restart button
             quitButton.SetActive(true); //Summon quit button

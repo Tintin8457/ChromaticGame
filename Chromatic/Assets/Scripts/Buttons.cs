@@ -8,7 +8,17 @@ public class Buttons : MonoBehaviour
     //Restart level
     public void Restart()
     {
-        SceneManager.LoadScene("3D Prototype");
+        //For programmers
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Prototyping"))
+        {
+            SceneManager.LoadScene("Prototyping");
+        }
+
+        //For level designers and eventually the final look of the game?
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ChromaticVertSlice"))
+        {
+            SceneManager.LoadScene("ChromaticVertSlice");
+        }
     }
 
     //Exit game
