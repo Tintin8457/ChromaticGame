@@ -29,11 +29,13 @@ public class PaintController3D : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered Pick Up.");
-        if (playerShooting != null)
+        if(other.gameObject.tag == "Player")
         {
-            playerShooting.AddColorMode(colorType);
-            Destroy(gameObject);
+            if (playerShooting != null)
+            {
+                playerShooting.AddColorMode(colorType);
+                Destroy(gameObject);
+            }
         }
     }
 }

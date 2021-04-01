@@ -13,8 +13,8 @@ public class ShootingController : MonoBehaviour
     public float projectileForce = 10.0f;
     public GameObject projectilePrefab;
     public bool stopShooting;
-    public string colorMode; //Store the color that the player has collected
-    public List<string> colorInventory = new List<string>(); //Store colors that the player gets
+    //public string colorMode; //Store the color that the player has collected
+    //public List<string> colorInventory = new List<string>(); //Store colors that the player gets
     private static bool grayscaleEnabled = true;
     private static bool redEnabled = false;
     private static bool blueEnabled = false;
@@ -78,7 +78,6 @@ public class ShootingController : MonoBehaviour
     //Unlocks a Color Mode and changes the player's material to the corresponding material
     public void AddColorMode(string newColorMode)
     {
-        Debug.Log("Got to AddColorMode.");
         switch(newColorMode)
         {
             case "red":
