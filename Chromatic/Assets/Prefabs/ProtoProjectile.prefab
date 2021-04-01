@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1005778126764744093}
   - component: {fileID: 4643223853236364525}
   m_Layer: 9
-  m_Name: Projectile
-  m_TagString: Untagged
+  m_Name: ProtoProjectile
+  m_TagString: Grayscale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11d4a2766b3e4d47bd2ee12b2215ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paintball: []
   projectileMaxDist: 50
