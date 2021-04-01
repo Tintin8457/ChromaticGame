@@ -9,7 +9,7 @@ public class DamagePlayer : MonoBehaviour
         Player3D player = collision.gameObject.GetComponent<Player3D>();
         if (player != null)
         {
-            player.resetToCheckpoint();
+            player.ResetToCheckpoint();
         }
     }
 }

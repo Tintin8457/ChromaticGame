@@ -12,7 +12,7 @@ public class Checkpoint : MonoBehaviour
 
         if(player != null)
         {
-            player.setCheckpoint(transform.position);
+            player.SetCheckpoint(transform.position);
             player.UpdateCPUI(cpNum);
         }
     }

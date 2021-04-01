@@ -6,9 +6,9 @@ public class Projectile : MonoBehaviour
 {
     public Renderer[] paintball; //All renderers from each component of the children
     private Player3D player;
+    Animator ammoMovement;
     public float projectileMaxDist = 50.0f;
     //private int components;
-    Animator ammoMovement;
 
     void Start()
     {
@@ -40,12 +40,6 @@ public class Projectile : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject); //Projectiles are destroyed once they hit other objects
-
-        //Destroy breakable walls
-        // if (collision.gameObject.tag == "Breakable")
-        // {
-        //     Destroy(collision.gameObject);
-        // }
     }
 
     //Contains each part of the projectile

@@ -10,7 +10,7 @@ public class ChangeTexture : MonoBehaviour
     {
         if (player.gameObject.tag == "Player")
         {
-            player.GetComponent<Player3D>().ChangeTexture();
+            //player.GetComponent<Player3D>().ChangeTexture();
             Destroy(gameObject);
         }
     }
