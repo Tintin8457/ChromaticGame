@@ -82,23 +82,33 @@ public class ShootingController : MonoBehaviour
         {
             case "red":
                 activatedColorModes[1] = true;
+                projectilePrefab.tag = "Red";
+                ColorizeProjectile();
                 playerController.ChangeMaterial(1);
                 break;
             case "blue":
                 activatedColorModes[2] = true;
-                
+                projectilePrefab.tag = "Blue";
+                ColorizeProjectile();
                 playerController.ChangeMaterial(2);
                 break;
             case "yellow":
                 activatedColorModes[3] = true;
+                projectilePrefab.tag = "Yellow";
+                ColorizeProjectile();
                 playerController.ChangeMaterial(3);
                 break;
             default:
                 activatedColorModes[0] = true;
+                projectilePrefab.tag = "Grayscale";
+                ColorizeProjectile();
                 playerController.ChangeMaterial(0);
                 break;
         }
     }
+
+    //Added the color projectile tags into the AddColorMode function to fix the earlier bug when the 
+    //projectiles' tags would only have the grayscale tag only when the player has not pressed shift to change colors 
 
     //Once the Color Mode has been changed, it will change the projectile type
     public void ChangeProjType(int givenMode)
@@ -107,19 +117,33 @@ public class ShootingController : MonoBehaviour
         {
             case 0:
                 projectilePrefab.tag = "Grayscale";
+                ColorizeProjectile();
                 break;
             case 1:
                 projectilePrefab.tag = "Red";
+                ColorizeProjectile();
                 break;
             case 2:
                 projectilePrefab.tag = "Blue";
+                ColorizeProjectile();
                 break;
             case 3:
                 projectilePrefab.tag = "Yellow";
+                ColorizeProjectile();
                 break;
             default:
                 projectilePrefab.tag = "Grayscale";
+                ColorizeProjectile();
                 break;
+        }
+    }
+
+    //Changes the projectile color to match Inky's color
+    public void ColorizeProjectile()
+    {
+        if (projectilePrefab == null)
+        {
+            projectilePrefab.GetComponent<Projectile>().ComponentIndex();
         }
     }
 }
