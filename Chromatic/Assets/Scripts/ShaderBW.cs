@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShaderBW : MonoBehaviour
 {
     public Material[] bwShader; //Attch all necessary materials for the shader and change the size in inspector
-    public bool canDestroy; //This is just for demo
+    //public bool canDestroy; //This is just for demo
 
     //public MeshRenderer shaderBw;
     //public Shader bw;
@@ -27,7 +27,7 @@ public class ShaderBW : MonoBehaviour
             mat.SetFloat("_Saturation", 0f);
         }
 
-        canDestroy = false;
+        //canDestroy = false;
     }
 
     // Update is called once per frame
@@ -36,10 +36,10 @@ public class ShaderBW : MonoBehaviour
         //bwShader.GetVector("_Saturation");
 
         //Destroy for demo only
-        if (canDestroy == true)
-        {
-            StartCoroutine("WaitToDestroy");
-        }
+        // if (canDestroy == true)
+        // {
+        //     StartCoroutine("WaitToDestroy");
+        // }
     }
 
     //The object will turn the object back into its colored form
@@ -52,13 +52,13 @@ public class ShaderBW : MonoBehaviour
                 mat.SetFloat("_Saturation", 1f);
             }
 
-            canDestroy = true;
+            //canDestroy = true;
         }
     }
 
-    IEnumerator WaitToDestroy()
-    {
-        yield return new WaitForSeconds(7f);
-        Destroy(gameObject);
-    }
+    // IEnumerator WaitToDestroy()
+    // {
+    //     yield return new WaitForSeconds(7f);
+    //     Destroy(gameObject);
+    // }
 }
