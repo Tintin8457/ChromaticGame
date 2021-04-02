@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class PaintController3D : MonoBehaviour
 {
-    private Renderer mesh;
-    public Material currentColor;
     //private InkyColorChange colorSwap; Look at og script
-    private ShootingController projColor;
+    private ShootingController playerShooting;
     public string colorType; //Stores color type for each paint pickup
     
     void Start()
     {
-        mesh = GetComponent<Renderer>();
-        currentColor.color = this.mesh.material.color;
 
         // GameObject coloring = GameObject.FindGameObjectWithTag("Swap");
 
@@ -27,20 +23,19 @@ public class PaintController3D : MonoBehaviour
 
         if (proj != null)
         {
-            projColor = proj.GetComponent<ShootingController>();
+            playerShooting = proj.GetComponent<ShootingController>();
         }
     }
     
     void OnTriggerEnter(Collider other)
     {
-        Player3D player = other.GetComponent<Player3D>();
-        
-        if (player != null)
+        if(other.gameObject.tag == "Player")
         {
-            player.ChangeColor(currentColor);
-            //colorSwap.AddToColorCollection(); 
-            projColor.ColorizeProjectile(colorType);
-            Destroy(gameObject);
+            if (playerShooting != null)
+            {
+                playerShooting.AddColorMode(colorType);
+                Destroy(gameObject);
+            }
         }
     }
 }

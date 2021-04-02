@@ -97,7 +97,7 @@ public class StickyWall : MonoBehaviour
         if(paintball.gameObject.tag == "Yellow" && cooldown == false)
         {
             isSticky = true;
-            gameObject.GetComponent<Renderer>().material.color = paintball.gameObject.GetComponentInChildren<Renderer>().material.color;
+            gameObject.GetComponent<Renderer>().material.color = Color.yellow;
             climbablePart.tag = stickyIdentity;
             climbablePart.layer = 8;
             // gameObject.tag = "Climbable";

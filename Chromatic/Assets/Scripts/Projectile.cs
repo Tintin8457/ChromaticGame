@@ -5,10 +5,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Renderer[] paintball; //All renderers from each component of the children
+    public Texture[] projColors; //Holds different projectile color textures
     private Player3D player;
+    Animator ammoMovement;
     public float projectileMaxDist = 50.0f;
     //private int components;
-    Animator ammoMovement;
 
     void Start()
     {
@@ -40,22 +41,42 @@ public class Projectile : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject); //Projectiles are destroyed once they hit other objects
-
-        //Destroy breakable walls
-        // if (collision.gameObject.tag == "Breakable")
-        // {
-        //     Destroy(collision.gameObject);
-        // }
     }
 
-    //Contains each part of the projectile
+    //The projectile's texture becomes colorized to match the player's color
     public void ComponentIndex()
     {
-        paintball[0].material.color = player.currentColor.color;
-        paintball[1].material.color = player.currentColor.color;
-        paintball[2].material.color = player.currentColor.color;
-        paintball[3].material.color = player.currentColor.color;
-        paintball[4].material.color = player.currentColor.color;
-        paintball[5].material.color = player.currentColor.color;
+        foreach (var paint in paintball)
+        {
+            //Changes to gray
+            if (gameObject.tag == "Grayscale")
+            {
+                //paint.material.color = new Color(1f, 1f, 1f, 1f);
+                //paint.material.color = new Color(0.4622642f, 0.4208348f, 0.4208348f, 1f);
+                paint.material.mainTexture = projColors[0];
+            }
+
+            //Changes to red
+            else if (gameObject.tag == "Red")
+            {
+                //paint.material.color = new Color(0.9215686f, 0.1607843f, 0.1921569f, 1f);
+                paint.material.mainTexture = projColors[1];
+            }
+
+            //Changes to blue
+            else if (gameObject.tag == "Blue")
+            {
+                //paint.material.color = new Color(0.2980392f, 0.3490196f, 0.6588235f, 1f);
+                //paint.material.color = Color.blue;
+                paint.material.mainTexture = projColors[2];
+            }
+
+            //Changes to yellow
+            else if (gameObject.tag == "Yellow")
+            {
+                //paint.material.color = new Color(0.9294118f, 0.9058824f, 0.08235294f, 1f);
+                paint.material.mainTexture = projColors[3];
+            }
+        }
     }
 }

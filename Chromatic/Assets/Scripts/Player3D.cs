@@ -6,11 +6,12 @@ using TMPro;
 
 public class Player3D : MonoBehaviour
 {
-    //Fixed the jumping and cleaned up by removing old code.
     private float horzMovement;
     private float vertMovement;
     private Rigidbody playerRB;
-    private SphereCollider playerCol;
+    private BoxCollider playerCol;
+    private Renderer playerRend;
+    private ShootingController playerShoot;
     
     [Header("Movement")]
     public float playerSpeed = 3.0f; //Change speed in inspector
@@ -23,14 +24,13 @@ public class Player3D : MonoBehaviour
 
     public bool stopJumping;
 
-    private Renderer originalColor;
-
     [Header("Colors")]
     public Material currentColor;
+    private int currentColorMode = 0; //Defaults player Color Mode to Greyscale
 
     //This texture will be used during the mid-game, which we may need an array to change into different textures
-    public Texture[] inkyTexture;
-    private int randomTexture = 0; //Use for randomly selecting textures
+    public Material[] inkyMaterials = new Material[4];
+    //private int randomTexture = 0; //Use for randomly selecting textures
 
     public bool canDestroyFloor; //Destroy a specific floor
 
@@ -47,11 +47,12 @@ public class Player3D : MonoBehaviour
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-        playerCol = GetComponent<SphereCollider>();
-        originalColor = GetComponent<Renderer>();
-
-        currentColor.color = this.originalColor.material.color;
-        currentCheckpoint = transform.position; //Sets players first checkpoint to player location on start up
+        playerCol = GetComponent<BoxCollider>();
+        playerRend = GetComponent<Renderer>();
+        playerShoot = GetComponent<ShootingController>();
+        
+        playerRend.material = inkyMaterials[0]; //Sets player's starting material to Greyscale
+        currentCheckpoint = transform.position; //Sets player's first checkpoint to player location on start up
         canDestroyFloor = false;
 
         cpText.text = "Checkpoint: Not Met!";
@@ -67,10 +68,7 @@ public class Player3D : MonoBehaviour
         horzMovement = Input.GetAxis("Horizontal");
         vertMovement = Input.GetAxis("Vertical");
 
-        //Initial player color set
-        this.originalColor.material.color = currentColor.color;
-
-        //Press the spacebar to jump if the player can jump
+        //Press spacebar to jump if the player can jump
         if (stopJumping == false)
         {
             if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
@@ -92,22 +90,33 @@ public class Player3D : MonoBehaviour
             }
         }
 
+        //Press shift to change colors and projectile type
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
+            ChangeMaterial(currentColorMode);
+            playerShoot.ChangeProjType(currentColorMode);
+        }
+
         //Make sure there is the amount of collected bristles
         curBristles.text = "Bristles Collected: " + bristles.ToString();
 
         //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
         curColor.color = currentColor.color;
-
-        //Debug.Log("vel: " + playerRB.velocity);
     }
 
     void FixedUpdate()
     {
         //Player movement
+        
+        Vector2 position = playerRB.position;
+        
         //The player will move normally in the game
         if (alterMovement == false)
         {
-            transform.Translate(new Vector3(horzMovement, 0 , 0) * Time.deltaTime * playerSpeed);
+            position.x = position.x + playerSpeed * horzMovement * Time.deltaTime;
+            playerRB.MovePosition(position);
+            //Old movement code: transform.Translate(new Vector3(horzMovement, 0 , 0) * Time.deltaTime * playerSpeed);
         }
 
         //The movement changes when the player is on the wall
@@ -115,12 +124,6 @@ public class Player3D : MonoBehaviour
         {
             transform.Translate(new Vector3(horzMovement, vertMovement, 0) * Time.deltaTime * playerSpeed);
         }
-    }
-
-    //Changing the player's color
-    public void ChangeColor(Material paintColor)
-    {
-        currentColor.color = paintColor.color;
     }
 
     //Ground check function
@@ -150,19 +153,19 @@ public class Player3D : MonoBehaviour
             jumpSpeed = 0.9f;
         }
 
-        //Return jumping result
-        return Physics.CheckCapsule(playerCol.bounds.center, jumpBounds, playerCol.radius * jumpSpeed, groundLayer);
+        //Return jumping result using a box centered at the bottom of the player's collider and whose dimensions are slightly smaller than the collider's x axis size, and is 0.1 units in the y and z
+        return Physics.CheckBox(new Vector3(playerCol.bounds.center.x, playerCol.bounds.min.y, playerCol.bounds.center.z), new Vector3 (playerCol.bounds.size.x * 0.4f, 0.1f, 0.1f), Quaternion.identity, groundLayer);
     }
 
     //Set checkpoint
-    public void setCheckpoint(Vector3 checkpointPosition)
+    public void SetCheckpoint(Vector3 checkpointPosition)
     {
         currentCheckpoint = checkpointPosition;
         Debug.Log("Checkpoint set to: " + currentCheckpoint);
     }
 
     //Reset player position to last checkpoint
-    public void resetToCheckpoint()
+    public void ResetToCheckpoint()
     {
         Debug.Log("Died.");
         transform.position = currentCheckpoint;
@@ -187,22 +190,13 @@ public class Player3D : MonoBehaviour
     {
         bristles += br;
     }
-
-    //Temporarily change Inky's texture only when they collect specific pick-ups
-    //Its texture will be changed during the mid-game once we figured out the mechanic
-    public void ChangeTexture()
+    public void ChangeMaterial(int switchingToColorMode)
     {
-        //originalColor.material.mainTexture = inkyTexture[0];
-
-        //Randomly select between the textures for Inky's texture to become
-        randomTexture = Random.Range(0,2);
-
-        //Change Inky's texture from its albedo map of its main material
-        //"_MainTex" refers to Albedo (main map) in the material
-        originalColor.material.SetTexture("_MainTex", inkyTexture[randomTexture]);
+            currentColorMode = switchingToColorMode;
+            playerRend.material = inkyMaterials[switchingToColorMode];
     }
 
-    void OnCollisionEnter(Collision slow)
+    private void OnCollisionEnter(Collision slow)
     {
         //When the player is on the specific floor, the platform will shortly disappear 
         if (slow.gameObject.tag == "SlowBreak")
@@ -229,7 +223,7 @@ public class Player3D : MonoBehaviour
     }
 
     //The player's movement changes back to normal when they are off the sticky wall
-    void OnCollisionExit(Collision back)
+    private void OnCollisionExit(Collision back)
     {
         if (back.gameObject.tag == "VerClimbable")
         {
@@ -263,4 +257,24 @@ public class Player3D : MonoBehaviour
     //         originalColor.material.SetTexture("_MainTex", inkyTexture[1]);
     //     }
     // }
+
+    /*//Changing the player's color
+    public void ChangeColor(Material paintColor)
+    {
+        currentColor.color = paintColor.color;
+    }*/
+    
+    //Temporarily change Inky's texture only when they collect specific pick-ups
+    //Its texture will be changed during the mid-game once we figured out the mechanic
+    /*public void ChangeTexture()
+    {
+        //originalColor.material.mainTexture = inkyTexture[0];
+
+        //Randomly select between the textures for Inky's texture to become
+        randomTexture = Random.Range(0,2);
+
+        //Change Inky's texture from its albedo map of its main material
+        //"_MainTex" refers to Albedo (main map) in the material
+        originalColor.material.SetTexture("_MainTex", inkyTexture[randomTexture]);
+    }*/
 }
