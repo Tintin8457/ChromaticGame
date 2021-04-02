@@ -95,7 +95,7 @@ public class ShootingController : MonoBehaviour
                 break;
             default:
                 activatedColorModes[0] = true;
-                playerController.ChangeMaterial(4);
+                playerController.ChangeMaterial(0);
                 break;
         }
     }
