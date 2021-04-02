@@ -128,15 +128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   projectileForce: 10
-  projectilePrefab: {fileID: 6535817516649218137, guid: 20bff61f3f55fa746990a100dbb5e1ba, type: 3}
+  projectilePrefab: {fileID: 3359815881395312666, guid: 9991ba9d760e1e14ea196b4a40e7e7f6, type: 3}
   stopShooting: 0
-  colorMode: 
-  colorInventory:
-  - 
-  - 
-  - 
-  - 
-  activatedColorModes: 01000000
+  activatedColorModes: 00000000
 --- !u!114 &3663061835501922446
 MonoBehaviour:
   m_ObjectHideFlags: 0
