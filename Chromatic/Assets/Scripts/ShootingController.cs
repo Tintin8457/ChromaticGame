@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    private Rigidbody playerRB;
+    [Header("Shooting Functionality")]
     public Camera cam;
+    private Rigidbody playerRB;
     private Player3D playerController;
     private Vector3 mousePos;
     private Vector3 worldPos;
@@ -19,6 +20,8 @@ public class ShootingController : MonoBehaviour
     private static bool redEnabled = false;
     private static bool blueEnabled = false;
     private static bool yellowEnabled = false;
+
+    [Header("Color Modes")]
     public bool[] activatedColorModes = new bool[4] {grayscaleEnabled, redEnabled, blueEnabled, yellowEnabled};
 
     void Start()
@@ -74,8 +77,7 @@ public class ShootingController : MonoBehaviour
         return 0;
     }
 
-
-    //Unlocks a Color Mode and changes the player's material to the corresponding material
+    //Unlocks a Color Mode, changes the player's material to the corresponding material, and updates the current color UI
     public void AddColorMode(string newColorMode)
     {
         switch(newColorMode)
@@ -85,24 +87,28 @@ public class ShootingController : MonoBehaviour
                 projectilePrefab.tag = "Red";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(1);
+                playerController.UpdateCurColorUI(1);
                 break;
             case "blue":
                 activatedColorModes[2] = true;
                 projectilePrefab.tag = "Blue";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(2);
+                playerController.UpdateCurColorUI(2);
                 break;
             case "yellow":
                 activatedColorModes[3] = true;
                 projectilePrefab.tag = "Yellow";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(3);
+                playerController.UpdateCurColorUI(3);
                 break;
             default:
                 activatedColorModes[0] = true;
                 projectilePrefab.tag = "Grayscale";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(0);
+                playerController.UpdateCurColorUI(0);
                 break;
         }
     }

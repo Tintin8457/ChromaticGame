@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6991346141289553569}
   - component: {fileID: 6991346141289553570}
+  - component: {fileID: 1869874652}
+  - component: {fileID: 1869874653}
   m_Layer: 0
   m_Name: Sticky
   m_TagString: Untagged
@@ -42,8 +44,46 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.25273308}
-  m_Center: {x: -6.168706e-16, y: 0, z: -0.37363353}
+  m_Size: {x: 1, y: 1, z: 0.21032707}
+  m_Center: {x: -1.600276e-16, y: 0, z: -0.44504368}
+--- !u!114 &1869874652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991346141289553568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 6991346141907537071}
+  paintable: 1
+  canBePainted: 1
+--- !u!114 &1869874653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991346141289553568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f682c1d225e2f664eb29502fa6ffcd8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ogWallColor: {fileID: 2100000, guid: 9986b19d59c26424db13aaef85af0b0b, type: 2}
+  climbablePart: {fileID: 6991346141289553568}
+  platform: {fileID: 6991346141907537068}
+  stickyIdentity: VerClimbable
+  isSticky: 0
+  cooldown: 0
+  stickable: 7
+  resetStickable: 7
+  coolDownTimer: 5
+  resetCooldown: 5
 --- !u!1 &6991346141907537068
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +96,6 @@ GameObject:
   - component: {fileID: 6991346141907537056}
   - component: {fileID: 6991346141907537071}
   - component: {fileID: 6991346141907537070}
-  - component: {fileID: 6991346141907537057}
   m_Layer: 0
   m_Name: Vertical Climbable Wall
   m_TagString: Untagged
@@ -73,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 6991346141907537068}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 20.89, y: 5.1, z: 5.03}
-  m_LocalScale: {x: 1.25, y: 6.2736306, z: 0.25000003}
+  m_LocalScale: {x: 1.2499998, y: 6.2736306, z: 0.25000003}
   m_Children:
   - {fileID: 6991346141289553569}
   m_Father: {fileID: 0}
@@ -106,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9986b19d59c26424db13aaef85af0b0b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,24 +180,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6991346141907537057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6991346141907537068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f682c1d225e2f664eb29502fa6ffcd8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ogWallColor: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  climbablePart: {fileID: 6991346141289553568}
-  stickyIdentity: VerClimbable
-  isSticky: 0
-  cooldown: 0
-  stickable: 7
-  resetStickable: 7
-  coolDownTimer: 5
-  resetCooldown: 5

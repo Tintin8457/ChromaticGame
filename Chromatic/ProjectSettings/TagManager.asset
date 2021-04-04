@@ -19,6 +19,8 @@ TagManager:
   - Grayscale
   - HorClimbable
   - VerClimbable
+  - Current
+  - Stick
   layers:
   - Default
   - TransparentFX

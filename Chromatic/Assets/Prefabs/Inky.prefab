@@ -149,6 +149,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   stopJumping: 0
+  alterMovement: 0
+  stickyHor: 0
   currentColor: {fileID: 2100000, guid: b5ab85c626fffc24b97e805754c275fc, type: 2}
   inkyMaterials:
   - {fileID: 2100000, guid: b5ab85c626fffc24b97e805754c275fc, type: 2}
@@ -160,5 +162,8 @@ MonoBehaviour:
   curBristles: {fileID: 0}
   bristles: 0
   curColor: {fileID: 0}
-  alterMovement: 0
-  stickyHor: 0
+  uiColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.92156863, g: 0.16078432, b: 0.19215687, a: 1}
+  - {r: 0.29803923, g: 0.34901962, b: 0.65882355, a: 1}
+  - {r: 0.92941177, g: 0.90588236, b: 0.08235294, a: 1}

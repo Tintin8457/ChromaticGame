@@ -21,10 +21,12 @@ public class RedMovingHorzPlatform : MonoBehaviour
     public float resetTimer;
 
     public Material ogPlatColor; //Holds original color
+    private ShaderBW bwShader; //Holds bw shader
 
     // Start is called before the first frame update
     void Start()
     {
+        bwShader = GetComponent<ShaderBW>();
         canMoveHor = false;
 
         if (canMoveHor == true)
@@ -56,12 +58,13 @@ public class RedMovingHorzPlatform : MonoBehaviour
             }
         }
 
-        //Stop timer and reset color
+        //Stop timer and reset color/transparency
         if (tempColorHolder <= 0.0f)
         {
             canMoveHor = false;
             tempColorHolder = resetColorHolder;
             gameObject.GetComponent<Renderer>().material = ogPlatColor;
+            bwShader.canBePainted = true;
 
             //Cool down before the player can paint it again
             cooldown = true;
@@ -111,6 +114,7 @@ public class RedMovingHorzPlatform : MonoBehaviour
         if (player.gameObject.tag == "Red" && cooldown == false)
         {
             canMoveHor = true;
+            bwShader.canBePainted = false; //Make visible and colorized
             gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
     }

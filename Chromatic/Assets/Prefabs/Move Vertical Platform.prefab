@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6869907368345077376}
   - component: {fileID: 231931119082049321}
   - component: {fileID: 5272624708998835801}
+  - component: {fileID: 1280014230}
   m_Layer: 8
   m_Name: Move Vertical Platform
   m_TagString: Ground
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b308deda0c96f7744a06483b06a7cf57, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,7 +118,7 @@ MonoBehaviour:
   resetColorHolder: 10
   coolDownTimer: 5
   resetTimer: 5
-  ogPlatColor: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  ogPlatColor: {fileID: 2100000, guid: b308deda0c96f7744a06483b06a7cf57, type: 2}
 --- !u!54 &5272624708998835801
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,3 +135,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1280014230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869907368345077389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 6869907368345077377}
+  paintable: 1
+  canBePainted: 1

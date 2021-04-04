@@ -24,6 +24,10 @@ public class Player3D : MonoBehaviour
 
     public bool stopJumping;
 
+    [Header("Bools")]
+    public bool alterMovement;
+    public bool stickyHor; //Use when the player is on the horizontal sticky floor
+
     [Header("Colors")]
     public Material currentColor;
     private int currentColorMode = 0; //Defaults player Color Mode to Greyscale
@@ -34,15 +38,16 @@ public class Player3D : MonoBehaviour
 
     public bool canDestroyFloor; //Destroy a specific floor
 
-    [Header("UI")]
+    [Header("Checkpoint UI")]
     public TextMeshProUGUI cpText; //Will use to update checkpoint UI
     public TextMeshProUGUI curBristles; //Holds current amount of bristles
     public int bristles = 0; //Amount of bristles
-    public Image curColor; //Will be used to update the player's current color
-    //public Image colorSwap; //Will be used to show which color will be next
 
-    public bool alterMovement;
-    public bool stickyHor; //Use when the player is on the horizontal sticky floor
+    [Header("Current Color UI")]
+    public Image curColor; //Will be used to update the player's current color
+    public Color[] uiColors = new Color[4]; //Changes the current color image from the player's current color 
+    private int colorCurUI = 0; //Use for changing the current color UI
+    //public Image colorSwap; //Will be used to show which color will be next
 
     void Start()
     {
@@ -96,13 +101,16 @@ public class Player3D : MonoBehaviour
             currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
             ChangeMaterial(currentColorMode);
             playerShoot.ChangeProjType(currentColorMode);
+            //colorCurUI = pUpdateCurColorUI(colorCurUI);
+            UpdateCurColorUI(currentColorMode);
+
         }
 
         //Make sure there is the amount of collected bristles
         curBristles.text = "Bristles Collected: " + bristles.ToString();
 
         //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
-        curColor.color = currentColor.color;
+        //curColor.color = currentColor.color;
     }
 
     void FixedUpdate()
@@ -190,10 +198,18 @@ public class Player3D : MonoBehaviour
     {
         bristles += br;
     }
+
     public void ChangeMaterial(int switchingToColorMode)
     {
-            currentColorMode = switchingToColorMode;
-            playerRend.material = inkyMaterials[switchingToColorMode];
+        currentColorMode = switchingToColorMode;
+        playerRend.material = inkyMaterials[switchingToColorMode];
+    }
+
+    //Update the current color UI based on the current color of the player
+    public void UpdateCurColorUI(int newColor)
+    {
+        colorCurUI = newColor;
+        curColor.color = uiColors[newColor];
     }
 
     private void OnCollisionEnter(Collision slow)

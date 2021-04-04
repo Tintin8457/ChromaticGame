@@ -21,10 +21,12 @@ public class BlueMovingVerPlatform : MonoBehaviour
     public float resetTimer;
 
     public Material ogPlatColor; //Holds original color
+    private ShaderBW bwShader; //Holds bw shader
 
     // Start is called before the first frame update
     void Start()
     {
+        bwShader = GetComponent<ShaderBW>();
         canMoveVer = false;
 
         if (canMoveVer == true)
@@ -56,12 +58,13 @@ public class BlueMovingVerPlatform : MonoBehaviour
             }
         }
 
-        //Stop timer and reset color
+        //Stop timer and reset color/transparency
         if (tempColorHolder <= 0.0f)
         {
             canMoveVer = false;
             tempColorHolder = resetColorHolder;
             gameObject.GetComponent<Renderer>().material = ogPlatColor;
+            bwShader.canBePainted = true;
 
             cooldown = true;
         }
@@ -110,6 +113,7 @@ public class BlueMovingVerPlatform : MonoBehaviour
         if (player.gameObject.tag == "Blue" && cooldown == false)
         {
             canMoveVer = true;
+            bwShader.canBePainted = false; //Make visible and colorized
             gameObject.GetComponent<Renderer>().material.color = Color.blue;
         }
     }
