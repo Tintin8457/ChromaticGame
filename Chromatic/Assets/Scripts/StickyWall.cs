@@ -5,8 +5,14 @@ using UnityEngine;
 public class StickyWall : MonoBehaviour
 {
     public Material ogWallColor; //Stores original wall color
+
+    [Header("Sticky Components")]
     public GameObject climbablePart;
+    public GameObject platform;
     private Player3D player;
+    private ShaderBW bwShader; //Holds bw shader
+
+    [Header("Sticky Wall Type")]
     public string stickyIdentity; //Stores the sticky wall type string: horziontal and vertical
 
     [Header("Bools")]
@@ -24,6 +30,8 @@ public class StickyWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bwShader = GetComponent<ShaderBW>();
+
         isSticky = false;
         cooldown = false;
 
@@ -48,9 +56,10 @@ public class StickyWall : MonoBehaviour
             if (stickable <= 0.0f)
             {
                 stickable = resetStickable;
-                gameObject.GetComponent<Renderer>().material = ogWallColor;
+                platform.GetComponent<Renderer>().material = ogWallColor;
                 climbablePart.tag = "Untagged";
                 climbablePart.layer = 0;
+                bwShader.canBePainted = true; //Make visible and colorized
 
                 // gameObject.tag = "Untagged";
                 // gameObject.layer = 0;
@@ -91,17 +100,25 @@ public class StickyWall : MonoBehaviour
         }
     }
 
-    //Turn the wall yellow so the player can stick to it
     void OnCollisionEnter(Collision paintball)
     {
+        //Turn the wall yellow so the player can stick to it
         if(paintball.gameObject.tag == "Yellow" && cooldown == false)
         {
             isSticky = true;
-            gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+            platform.GetComponent<Renderer>().material.color = Color.yellow;
             climbablePart.tag = stickyIdentity;
             climbablePart.layer = 8;
+            bwShader.canBePainted = false; //Make visible and colorized
+
             // gameObject.tag = "Climbable";
             // gameObject.layer = 8;
+        }
+
+        //Prevent the player from shooting from above the sticky wall/platform
+        else if(paintball.gameObject.tag == "Yellow" && (platform.tag == "Ground" || platform.tag == "Untagged"))
+        {
+            Destroy(paintball.gameObject);
         }
     }
 }

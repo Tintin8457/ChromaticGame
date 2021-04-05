@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    private Rigidbody playerRB;
+    [Header("Shooting Functionality")]
     public Camera cam;
+    private Rigidbody playerRB;
     private Player3D playerController;
     private Vector3 mousePos;
     private Vector3 worldPos;
@@ -19,7 +20,10 @@ public class ShootingController : MonoBehaviour
     private static bool redEnabled = false;
     private static bool blueEnabled = false;
     private static bool yellowEnabled = false;
+
+    [Header("Color Modes")]
     public bool[] activatedColorModes = new bool[4] {grayscaleEnabled, redEnabled, blueEnabled, yellowEnabled};
+    private int colorModes = 0; //Will be used to change the next color UI
 
     void Start()
     {
@@ -74,41 +78,58 @@ public class ShootingController : MonoBehaviour
         return 0;
     }
 
-
-    //Unlocks a Color Mode and changes the player's material to the corresponding material
+    //Unlocks a Color Mode, changes the player's material to the corresponding material, colorizes the projectile, and updates the current/new color UI
     public void AddColorMode(string newColorMode)
     {
         switch(newColorMode)
         {
+            case "grayscale":
+                activatedColorModes[0] = true;
+                projectilePrefab.tag = "Grayscale";
+                ColorizeProjectile();
+                playerController.ChangeMaterial(0);
+                playerController.UpdateCurColorUI(0);
+                //playerController.ColorSwaping(0);
+                playerController.ChangeNewColorUI(1);
+                break;
             case "red":
                 activatedColorModes[1] = true;
                 projectilePrefab.tag = "Red";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(1);
+                playerController.UpdateCurColorUI(1);
+                //playerController.ColorSwaping(1);
+                playerController.ChangeNewColorUI(2);
                 break;
             case "blue":
                 activatedColorModes[2] = true;
                 projectilePrefab.tag = "Blue";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(2);
+                playerController.UpdateCurColorUI(2);
+                //playerController.ColorSwaping(2);
+                playerController.ChangeNewColorUI(3);
                 break;
             case "yellow":
                 activatedColorModes[3] = true;
                 projectilePrefab.tag = "Yellow";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(3);
+                playerController.UpdateCurColorUI(3);
+                //playerController.ColorSwaping(3);
+                playerController.ChangeNewColorUI(0);
                 break;
             default:
                 activatedColorModes[0] = true;
                 projectilePrefab.tag = "Grayscale";
                 ColorizeProjectile();
                 playerController.ChangeMaterial(0);
+                playerController.UpdateCurColorUI(0);
+                //playerController.ColorSwaping(0);
+                playerController.ChangeNewColorUI(1);
                 break;
         }
     }
-
-    //Added the color projectile tags into the AddColorMode function to fix the earlier bug when the 
-    //projectiles' tags would only have the grayscale tag only when the player has not pressed shift to change colors 
 
     //Once the Color Mode has been changed, it will change the projectile type
     public void ChangeProjType(int givenMode)
@@ -118,22 +139,27 @@ public class ShootingController : MonoBehaviour
             case 0:
                 projectilePrefab.tag = "Grayscale";
                 ColorizeProjectile();
+                // playerController.colorSwap.color = playerController.uiColors[0];
                 break;
             case 1:
                 projectilePrefab.tag = "Red";
                 ColorizeProjectile();
+                // playerController.colorSwap.color = playerController.uiColors[1];
                 break;
             case 2:
                 projectilePrefab.tag = "Blue";
                 ColorizeProjectile();
+                // playerController.colorSwap.color = playerController.uiColors[2];
                 break;
             case 3:
                 projectilePrefab.tag = "Yellow";
                 ColorizeProjectile();
+                // playerController.colorSwap.color = playerController.uiColors[3];
                 break;
             default:
                 projectilePrefab.tag = "Grayscale";
                 ColorizeProjectile();
+                // playerController.colorSwap.color = playerController.uiColors[0];
                 break;
         }
     }
@@ -147,3 +173,93 @@ public class ShootingController : MonoBehaviour
         }
     }
 }
+
+// //Check when the next color UI can change
+    // public int CheckForNextColorUI(int nColor)
+    // {
+    //     for (int c = 0; c < nColor; c++)
+    //     {
+    //         //playerController.colorSwap.color = playerController.colorInventory[nColor + 1];
+    //         //nColor += c;
+    //         // playerController.uiColors[c];
+    //         //nColor = c;
+
+    //         if (c == 0)
+    //         {
+    //             playerController.colorSwap.color = playerController.colorInventory[c + 1];
+    //             Debug.Log("color: " + c);
+    //         }
+
+    //         else if (c == 1)
+    //         {
+    //             playerController.colorSwap.color = playerController.colorInventory[c + 1];
+    //             Debug.Log("color: " + c);
+    //         }
+
+    //         else if (c == 2)
+    //         {
+    //             playerController.colorSwap.color = playerController.colorInventory[c + 1];
+    //             Debug.Log("color: " + c);
+    //         }
+
+    //         else if (c == 3)
+    //         {
+    //             playerController.colorSwap.color = playerController.colorInventory[c - 3];
+    //             Debug.Log("color: " + c);    
+    //         }
+    //     }
+
+    //     // foreach (var c in playerController.colorInventory)
+    //     // {   
+    //     //     playerController.colorInventory[c] += 1;
+    //     // }
+    //     return 0;
+    // }
+
+// public void ChangeNewColorUI(int nColor)
+    // {
+    //     if (activatedColorModes[0] == true && activatedColorModes[1] == true && activatedColorModes[2] == true && activatedColorModes[3] == true)
+    //     {
+    //         switch(nColor)
+    //         {
+    //             case 0:
+    //                 playerController.colorSwap.color = playerController.uiColors[1];
+    //                 break;
+    //             case 1:
+    //                 playerController.colorSwap.color = playerController.uiColors[2];
+    //                 break;
+    //             case 2:
+    //                 playerController.colorSwap.color = playerController.uiColors[3];
+    //                 break;
+    //             case 3:
+    //                 playerController.colorSwap.color = playerController.uiColors[0];
+    //                 break;
+    //             default:
+    //                 playerController.colorSwap.color = playerController.uiColors[1];
+    //                 break;
+    //         }
+    //     }
+
+    //     // if (activatedColorModes.Length > 1)
+    //     // {   
+    //     //     if (nColor == 1)
+    //     //     {
+    //     //         playerController.colorSwap.color = playerController.uiColors[1];
+    //     //     }
+
+    //     //     else if (nColor == 2)
+    //     //     {
+    //     //         playerController.colorSwap.color = playerController.uiColors[2];
+    //     //     }
+        
+    //     //     else if (nColor == 3)
+    //     //     {
+    //     //         playerController.colorSwap.color = playerController.uiColors[3];
+    //     //     }
+
+    //     //     else if (nColor == 0)
+    //     //     {
+    //     //         playerController.colorSwap.color = playerController.uiColors[0];
+    //     //     }
+    //     // }
+    // }

@@ -5,12 +5,15 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    [Header("Timer")]
     public TextMeshProUGUI timerText;
     public float maxTime = 120.0f; //Max time for the game
     public bool canTime;
 
     private Player3D player;
     private ShootingController shoot;
+
+    [Header("Buttons")]
     public GameObject restartButton;
     public GameObject quitButton;
 

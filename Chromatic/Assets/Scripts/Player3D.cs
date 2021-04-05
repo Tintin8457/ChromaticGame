@@ -24,6 +24,10 @@ public class Player3D : MonoBehaviour
 
     public bool stopJumping;
 
+    [Header("Bools")]
+    public bool alterMovement;
+    public bool stickyHor; //Use when the player is on the horizontal sticky floor
+
     [Header("Colors")]
     public Material currentColor;
     private int currentColorMode = 0; //Defaults player Color Mode to Greyscale
@@ -34,15 +38,18 @@ public class Player3D : MonoBehaviour
 
     public bool canDestroyFloor; //Destroy a specific floor
 
-    [Header("UI")]
+    [Header("Checkpoint UI")]
     public TextMeshProUGUI cpText; //Will use to update checkpoint UI
     public TextMeshProUGUI curBristles; //Holds current amount of bristles
     public int bristles = 0; //Amount of bristles
-    public Image curColor; //Will be used to update the player's current color
-    //public Image colorSwap; //Will be used to show which color will be next
 
-    public bool alterMovement;
-    public bool stickyHor; //Use when the player is on the horizontal sticky floor
+    [Header("Current/New Color UI")]
+    public Image curColor; //Will be used to update the player's current color
+    public Color[] uiColors = new Color[4]; //Changes the current color image from the player's current color 
+    private int colorCurUI = 0; //Use for changing the current color UI
+    private int colorNextUI = 0; //Use to change the next color UI
+    public Image colorSwap; //Will be used to show which color will be next
+    //public List <Color> colorInventory = new List<Color>(); //Store colors in here to see the next color to switch to
 
     void Start()
     {
@@ -90,19 +97,27 @@ public class Player3D : MonoBehaviour
             }
         }
 
-        //Press shift to change colors and projectile type
+        //Press shift to change colors and the projectile type
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
             ChangeMaterial(currentColorMode);
             playerShoot.ChangeProjType(currentColorMode);
+            //colorCurUI = pUpdateCurColorUI(colorCurUI);
+            UpdateCurColorUI(currentColorMode);
+            //CheckForNextColorUI(currentColorMode);
+            //ColorSwaping(currentColorMode);
+            //colorSwap.color = colorInventory[currentColorMode];
+            colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
+            ChangeNewColorUI(colorNextUI);
         }
 
         //Make sure there is the amount of collected bristles
         curBristles.text = "Bristles Collected: " + bristles.ToString();
 
         //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
-        curColor.color = currentColor.color;
+        //curColor.color = currentColor.color;
+        //UpdateCurColorUI(currentColorMode);
     }
 
     void FixedUpdate()
@@ -177,23 +192,49 @@ public class Player3D : MonoBehaviour
         cpText.text = "Checkpoint: " + currentCP.ToString();
     }
 
-    //Use it for separate function desc- Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
-    //Use UI indicator to show the next color to change to
-    //Switch between 4 colors from shift in a specific predetermined order and loop around
-    // public void ColorSwaping()
-    // {
-    //     colorSwap.color = currentColor.color;
-    // }
+    //Use UI indicator to show the next color to change to switch between 4 colors in a specific predetermined order and loop around
+    public void ChangeNewColorUI(int nColor)
+    {
+        colorNextUI = nColor;
+
+        switch(nColor)
+        {
+            case 0:
+                colorSwap.color = uiColors[colorNextUI];
+                break;
+            case 1:
+                colorSwap.color = uiColors[colorNextUI];
+                break;
+            case 2:
+                colorSwap.color = uiColors[colorNextUI];
+                break;
+            case 3:
+                colorSwap.color = uiColors[colorNextUI];
+                break;
+            default:
+                colorSwap.color = uiColors[colorNextUI];
+                break;
+        }
+    }
 
     //Increase the amount of bristles
     public void AddBristles(int br)
     {
         bristles += br;
     }
+
+    //Change between materials
     public void ChangeMaterial(int switchingToColorMode)
     {
-            currentColorMode = switchingToColorMode;
-            playerRend.material = inkyMaterials[switchingToColorMode];
+        currentColorMode = switchingToColorMode;
+        playerRend.material = inkyMaterials[switchingToColorMode];
+    }
+
+    //Update the current color UI based on the current color of the player
+    public void UpdateCurColorUI(int newColor)
+    {
+        colorCurUI = newColor;
+        curColor.color = uiColors[colorCurUI];
     }
 
     private void OnCollisionEnter(Collision slow)
@@ -238,6 +279,69 @@ public class Player3D : MonoBehaviour
             playerRB.useGravity = true;
         }
     }
+
+    //Use it for separate function desc- Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
+    //Use UI indicator to show the next color to change to
+    //Switch between 4 colors from shift in a specific predetermined order and loop around
+    // public void ColorSwaping(int nextColor)
+    // {
+    //     //colorNextUI = nextColor;
+    //     //colorSwap.color = uiColors[colorNextUI];
+
+    //     // colorInventory[colorNextUI] = uiColors[nextColor];
+
+    //     // colorSwap.color = colorInventory[colorNextUI];
+
+    //     // colorInventory.Add(uiColors[nextColor]);
+    //     //colorNextUI = nextColor;
+    //     //colorInventory[colorNextUI] = uiColors[nextColor];
+    //     // colorSwap.color = colorInventory[nextColor];
+
+    //     colorNextUI = nextColor;
+    //     colorSwap.color = uiColors[colorNextUI];
+    // }
+
+    //Check when the next color UI can change
+    // public int CheckForNextColorUI(int nColor)
+    // {
+    //     for (int c = 0; c < uiColors.Length; c++)
+    //     {
+    //         //playerController.colorSwap.color = playerController.colorInventory[nColor + 1];
+    //         //nColor += c;
+    //         // playerController.uiColors[c];
+    //         //nColor = c;
+
+    //         if (c == 0) 
+    //         {
+    //             colorSwap.color = uiColors[1];
+    //             Debug.Log("color: " + c);
+    //         } 
+
+    //         else if (c == 1)
+    //         {
+    //             colorSwap.color = uiColors[2];
+    //             Debug.Log("color: " + c);
+    //         }
+
+    //         else if (c == 2)
+    //         {
+    //             colorSwap.color = uiColors[3];
+    //             Debug.Log("color: " + c);
+    //         }
+
+    //         else if (c == 3)
+    //         {
+    //             colorSwap.color = uiColors[0];
+    //             Debug.Log("color: " + c);    
+    //         }
+    //     }
+
+    //     // foreach (var c in playerController.colorInventory)
+    //     // {   
+    //     //     playerController.colorInventory[c] += 1;
+    //     // }
+    //     return 0;
+    // }
 
     //Test player's texture change by going through a specific cube
     // public void OnTriggerEnter(Collider form)
