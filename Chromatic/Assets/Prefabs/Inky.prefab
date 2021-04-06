@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 3
-  jumpForce: 10
+  jumpForce: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -167,3 +167,4 @@ MonoBehaviour:
   - {r: 0.92156863, g: 0.16078432, b: 0.19215687, a: 1}
   - {r: 0.29803923, g: 0.34901962, b: 0.65882355, a: 1}
   - {r: 0.92941177, g: 0.90588236, b: 0.08235294, a: 1}
+  colorSwap: {fileID: 0}
