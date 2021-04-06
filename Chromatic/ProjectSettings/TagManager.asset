@@ -21,6 +21,7 @@ TagManager:
   - VerClimbable
   - Current
   - Stick
+  - Timer
   layers:
   - Default
   - TransparentFX
