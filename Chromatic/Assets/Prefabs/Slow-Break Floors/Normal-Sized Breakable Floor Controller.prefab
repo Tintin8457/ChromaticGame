@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8636277575944632516
+--- !u!1 &9169200785278687806
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,85 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8636277575944632517}
-  - component: {fileID: 8636277575944632518}
-  - component: {fileID: 8636277575944632520}
-  - component: {fileID: 8636277575944632519}
+  - component: {fileID: 9169200785278687805}
+  - component: {fileID: 9169200785278687804}
   m_Layer: 0
-  m_Name: Sticky
+  m_Name: Normal-Sized Breakable Floor Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8636277575944632517
+--- !u!4 &9169200785278687805
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277575944632516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 9169200785278687806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 79.952675, y: 17.765478, z: -32.406147}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8636277576748767593}
+  m_Children:
+  - {fileID: 9169200785473834597}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8636277575944632518
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277575944632516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.948116, z: 0.25058505}
-  m_Center: {x: 0, y: -0.015104761, z: 0.48256034}
---- !u!114 &8636277575944632520
+--- !u!114 &9169200785278687804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277575944632516}
+  m_GameObject: {fileID: 9169200785278687806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f682c1d225e2f664eb29502fa6ffcd8d, type: 3}
+  m_Script: {fileID: 11500000, guid: ce5331694a8d3eb41b5b284166b5b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ogWallColor: {fileID: 2100000, guid: 9986b19d59c26424db13aaef85af0b0b, type: 2}
-  climbablePart: {fileID: 8636277575944632516}
-  platform: {fileID: 8636277576748767592}
-  stickyIdentity: HorClimbable
-  isSticky: 0
-  cooldown: 0
-  stickable: 7
-  resetStickable: 7
-  coolDownTimer: 5
-  resetCooldown: 5
---- !u!114 &8636277575944632519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277575944632516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bwShader:
-  - {fileID: 8636277576748767595}
-  paintable: 0
-  canBePainted: 0
-  stickyWall: 1
-  paintSticky: 1
---- !u!1 &8636277576748767592
+  timer: 7
+  resetTimer: 7
+  returnPlat: 3
+  resetReturn: 3
+  floor: {fileID: 9169200785473834598}
+  reappear: 0
+--- !u!1 &9169200785473834598
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,47 +58,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8636277576748767593}
-  - component: {fileID: 8636277576748767596}
-  - component: {fileID: 8636277576748767595}
-  - component: {fileID: 8636277576748767594}
+  - component: {fileID: 9169200785473834597}
+  - component: {fileID: 9169200785473834594}
+  - component: {fileID: 9169200785473834595}
+  - component: {fileID: 9169200785473834596}
   m_Layer: 8
-  m_Name: Horizontal Climbable Floor
-  m_TagString: Ground
+  m_Name: Slow-Break Floor
+  m_TagString: SlowBreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8636277576748767593
+--- !u!4 &9169200785473834597
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277576748767592}
+  m_GameObject: {fileID: 9169200785473834598}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 1.5126734, y: 3.2254782, z: -0.003276825}
-  m_LocalScale: {x: 1.25, y: 6.4096622, z: 0.25000003}
-  m_Children:
-  - {fileID: 8636277575944632517}
-  m_Father: {fileID: 0}
+  m_LocalPosition: {x: 44.979996, y: 1.4099998, z: 0}
+  m_LocalScale: {x: 1.25, y: 7.3078475, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 9169200785278687805}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!33 &8636277576748767596
+--- !u!33 &9169200785473834594
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277576748767592}
+  m_GameObject: {fileID: 9169200785473834598}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8636277576748767595
+--- !u!23 &9169200785473834595
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277576748767592}
+  m_GameObject: {fileID: 9169200785473834598}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -147,7 +110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9986b19d59c26424db13aaef85af0b0b, type: 2}
+  - {fileID: 2100000, guid: f7df6af03c9aab54984dd0442ce6ee0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -169,13 +132,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8636277576748767594
+--- !u!65 &9169200785473834596
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636277576748767592}
+  m_GameObject: {fileID: 9169200785473834598}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
