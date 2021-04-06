@@ -19,6 +19,11 @@ public class ShaderBW : MonoBehaviour
     
     private MaterialPropertyBlock bw; //Use to reference the bw shader graph properties
     MeshRenderer components; //Contains all colored elements of the object
+    private Timer timer; //Access timer to change specific objects into toon shader mid-game
+
+    //Use shaders to change from bw to toon shader during the game;
+    Shader bAndW;
+    Shader toon;
 
     //public bool nonPaintable; //Change its value in inspector to indicate what can't be semi-transparent and desaturated
 
@@ -28,6 +33,18 @@ public class ShaderBW : MonoBehaviour
         bw = new MaterialPropertyBlock(); //Set up a new shader property that allows the bw shader to work properly
         
         components = GetComponent<MeshRenderer>(); //Get the object's renderer
+
+        //Find the shaders
+        bAndW = Shader.Find("Shader Graphs/BlackAndWhite");
+        toon = Shader.Find("Shader Graphs/ArnoldStandardSurface");
+
+        //Find and get timer
+        GameObject time = GameObject.FindGameObjectWithTag("Timer");
+
+        if (time != null)
+        {
+            timer = time.GetComponent<Timer>();
+        }
 
         //For objects that use one mesh renderer
         if (components != null)
@@ -150,6 +167,14 @@ public class ShaderBW : MonoBehaviour
                     }
                 }
             }
+        }
+
+        //Change from black and white shader to toon shader during the mid-game
+        if (timer.maxTime <= 60f)
+        {
+            components.material.shader = toon;
+            //components.SetPropertyBlock(bw);
+            //Debug.Log("Shader name: " + components.material.shader.name);
         }
     }
 
