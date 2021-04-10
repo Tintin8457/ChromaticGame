@@ -9,7 +9,7 @@ public class Player3D : MonoBehaviour
     private float horzMovement;
     private float vertMovement;
     private Rigidbody playerRB;
-    private BoxCollider playerCol;
+    private MeshCollider playerCol;
     private Renderer playerRend;
     private ShootingController playerShoot;
     
@@ -54,7 +54,7 @@ public class Player3D : MonoBehaviour
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-        playerCol = GetComponent<BoxCollider>();
+        playerCol = GetComponent<MeshCollider>();
         playerRend = GetComponent<Renderer>();
         playerShoot = GetComponent<ShootingController>();
         

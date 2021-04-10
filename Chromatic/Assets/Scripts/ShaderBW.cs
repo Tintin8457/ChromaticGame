@@ -170,7 +170,7 @@ public class ShaderBW : MonoBehaviour
         }
 
         //Change from black and white shader to toon shader during the mid-game
-        if (timer.maxTime <= 60f)
+        if (timer.maxTime <= timer.halfWay)
         {
             components.material.shader = toon;
             //components.SetPropertyBlock(bw);

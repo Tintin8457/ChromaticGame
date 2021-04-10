@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     [Header("Timer")]
     public TextMeshProUGUI timerText;
     public float maxTime = 120.0f; //Max time for the game
+    public float halfWay; //Use to check for mid-game
     public bool canTime;
 
     private Player3D player;
