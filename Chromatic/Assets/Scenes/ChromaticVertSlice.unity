@@ -2041,10 +2041,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
-    - target: {fileID: 6689824768154823965, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0522057
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
 --- !u!1 &117229453
@@ -13454,10 +13450,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1449071156}
     m_Modifications:
-    - target: {fileID: 2775164711807952184, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: yPos.y
-      value: -3
-      objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2000017
@@ -13502,29 +13494,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4393
-      objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932773, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_Name
       value: Purple Platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713456775296, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: yPos.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: horizontal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: vertical
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: canChange
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
@@ -18006,7 +17978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1009006593}
   maxTime: 120
-  halfWay: 60
   canTime: 0
   restartButton: {fileID: 344251145}
   quitButton: {fileID: 118841604}
@@ -18722,26 +18693,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 232888013}
     m_Modifications:
-    - target: {fileID: 231931119082049321, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
-      propertyPath: coolDownTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 231931119082049321, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
-      propertyPath: ogPlatColor
-      value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 231931119082049321, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
-      propertyPath: resetTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 231931119082049321, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
-      propertyPath: tempColorHolder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 231931119082049321, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
       value: Move Vertical Platform
@@ -18789,10 +18740,6 @@ PrefabInstance:
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
@@ -34399,18 +34346,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1243259597804328496, guid: 4371fb89ab8131748a164d528e838cb7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.846939
-      objectReference: {fileID: 0}
-    - target: {fileID: 1243259597804328496, guid: 4371fb89ab8131748a164d528e838cb7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.571863
-      objectReference: {fileID: 0}
-    - target: {fileID: 1243259597804328496, guid: 4371fb89ab8131748a164d528e838cb7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.571863
-      objectReference: {fileID: 0}
     - target: {fileID: 1876631778841103498, guid: 4371fb89ab8131748a164d528e838cb7, type: 3}
       propertyPath: m_Name
       value: Beam Wall
@@ -34663,30 +34598,6 @@ PrefabInstance:
     - target: {fileID: 6656650403347516754, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6656650403347516754, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6656650403347516755, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
-      propertyPath: coolDownTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6656650403347516755, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
-      propertyPath: ogPlatColor
-      value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6656650403347516755, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
-      propertyPath: resetTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6656650403347516755, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
-      propertyPath: tempColorHolder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6656650403347516755, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}

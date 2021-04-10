@@ -36,7 +36,7 @@ public class ShaderBW : MonoBehaviour
 
         //Find the shaders
         bAndW = Shader.Find("Shader Graphs/BlackAndWhite");
-        toon = Shader.Find("Shader Graphs/ArnoldStandardSurface");
+        toon = Shader.Find("Shader Graphs/ToonCellShader");
 
         //Find and get timer
         GameObject time = GameObject.FindGameObjectWithTag("Timer");
@@ -50,7 +50,7 @@ public class ShaderBW : MonoBehaviour
         if (components != null)
         {
             //The non-paintable object will be black & white and fully visible
-            if (paintable == false /*&& stickyWall == false*/)
+            if (paintable == false)
             {
                 bw.SetFloat("_Saturation", 0f);
                 bw.SetFloat("_Opacity", 1f);
@@ -169,10 +169,24 @@ public class ShaderBW : MonoBehaviour
             }
         }
 
-        //Change from black and white shader to toon shader during the mid-game
-        if (timer.maxTime <= timer.halfWay)
+        //Change the entire environment from black and white shader to toon shader at the end of the game after reaching the super brush with all bristles
+        if (timer.maxTime <= 0.0f)
         {
-            components.material.shader = toon;
+            //For objects that use one mesh renderer
+            if (components != null)
+            {
+                components.material.shader = toon;
+            }
+            
+            //For objects that use more than one mesh renderer
+            else if (components == null)
+            {
+                foreach (var mat in bwShader)
+                {
+                    mat.material.shader = toon;
+                }
+            }
+
             //components.SetPropertyBlock(bw);
             //Debug.Log("Shader name: " + components.material.shader.name);
         }
