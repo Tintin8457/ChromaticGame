@@ -17968,7 +17968,7 @@ GameObject:
   - component: {fileID: 1009006592}
   m_Layer: 5
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18005,7 +18005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1009006593}
-  maxTime: 920
+  maxTime: 120
+  halfWay: 60
   canTime: 0
   restartButton: {fileID: 344251145}
   quitButton: {fileID: 118841604}
