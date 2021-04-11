@@ -592,7 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18876010}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (8)
+  m_Name: Paintable Vertical Moving Platform (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,7 +1245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 69742810}
   m_Layer: 8
-  m_Name: Horizontal Moving Platform (2)
+  m_Name: Paintable Horizontal Moving Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1531,7 +1531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 90646595}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (4)
+  m_Name: Paintable Vertical Moving Platform (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2007,7 +2007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6689824768154823965, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.78
+      value: -0.88
       objectReference: {fileID: 0}
     - target: {fileID: 6689824768154823965, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2053,7 +2053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117229454}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (10)
+  m_Name: Paintable Vertical Moving Platform (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2546,7 +2546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 134970111}
   m_Layer: 0
-  m_Name: Vertical
+  m_Name: Paintable Vertical Moving Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2993,7 +2993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6689824768154823965, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.78
+      value: -0.87999845
       objectReference: {fileID: 0}
     - target: {fileID: 6689824768154823965, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4049,7 +4049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 232888013}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (1)
+  m_Name: Paintable Vertical Moving Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4286,7 +4286,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6656650403347516753, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_Name
-      value: Move Horizontal Platform
+      value: Paintable Move Horizontal Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6656650403347516754, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4418,7 +4418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4917,8 +4917,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294446834}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -164.5, y: -5.4, z: 31.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 912530752}
@@ -4928,7 +4928,7 @@ Transform:
   - {fileID: 563533669}
   - {fileID: 1060608377}
   - {fileID: 1906887941}
-  m_Father: {fileID: 910718491}
+  m_Father: {fileID: 654286243}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &294561440 stripped
@@ -6086,7 +6086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6449,7 +6449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368259313}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (7)
+  m_Name: Paintable Vertical Moving Platform (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6677,7 +6677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374175069}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 86.1, y: 9.3, z: -32.977615}
+  m_LocalPosition: {x: -78.4, y: 3.9, z: -1.4776154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 807196805}
@@ -6698,7 +6698,7 @@ Transform:
   - {fileID: 301397017}
   - {fileID: 608324905}
   - {fileID: 1101966244}
-  m_Father: {fileID: 910718491}
+  m_Father: {fileID: 654286243}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &374217472
@@ -6907,7 +6907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 385315882}
   m_Layer: 8
-  m_Name: Horizontal Moving Platform (3)
+  m_Name: Paintable Horizontal Moving Platform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8045,7 +8045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443370886}
   m_Layer: 8
-  m_Name: Horizontal Moving Platform (4)
+  m_Name: Paintable Horizontal Moving Platform (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9355,7 +9355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515425094}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (3)
+  m_Name: Paintable Vertical Moving Platform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9671,7 +9671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 527012420}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (5)
+  m_Name: Paintable Vertical Moving Platform (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9857,6 +9857,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3457941853273190721, guid: cf38bc9b94c4aac4e94517a960fb2952, type: 3}
   m_PrefabInstance: {fileID: 1063243280}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &533253141
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1449071156}
+    m_Modifications:
+    - target: {fileID: 2775164711807952184, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: xPos.x
+      value: -3.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711807952184, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: yPos.y
+      value: 6.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711807952186, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711807952186, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99997044
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.007698949
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180.882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164711995932773, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_Name
+      value: Paintable Purple Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164713456775296, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: xPos.x
+      value: 2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775164713456775298, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.64
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+--- !u!4 &533253142 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
+  m_PrefabInstance: {fileID: 533253141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &533826963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10026,139 +10112,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
   m_PrefabInstance: {fileID: 1463327947}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &539292855
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1449071156}
-    m_Modifications:
-    - target: {fileID: 2775164711807952184, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: xPos.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711807952184, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: yPos.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711807952184, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: yPos.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711807952186, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711807952186, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0010558069
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.99997044
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.007698949
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180.882
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4393007
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164711995932773, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_Name
-      value: Purple Platform (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713456775296, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: xPos.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713456775296, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: yPos.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713456775296, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: yPos.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713456775298, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713456775298, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726675, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726675, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: horizontal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: vertical
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: canChange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: ogLocation.x
-      value: -1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775164713468726701, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-      propertyPath: ogLocation.z
-      value: -0.04
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
 --- !u!1001 &545205145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10592,7 +10545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579331567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1973257, y: 3.8654785, z: -37.43287}
+  m_LocalPosition: {x: -168.69733, y: -1.5345216, z: -5.932869}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1830937734}
@@ -10606,7 +10559,7 @@ Transform:
   - {fileID: 816742743}
   - {fileID: 1706816745}
   - {fileID: 361162153}
-  m_Father: {fileID: 910718491}
+  m_Father: {fileID: 654286243}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &581057931
@@ -10815,7 +10768,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12017,6 +11970,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2205265319809734858, guid: 56ec4aff827497e47b5c824a67e419d3, type: 3}
   m_PrefabInstance: {fileID: 1115828292}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &654286242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654286243}
+  m_Layer: 8
+  m_Name: Rooms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &654286243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654286242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 164.5, y: 5.4, z: -31.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 579331568}
+  - {fileID: 374175070}
+  - {fileID: 1942088183}
+  - {fileID: 907049450}
+  - {fileID: 294446835}
+  m_Father: {fileID: 910718491}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &654518475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2205265319809734858, guid: 56ec4aff827497e47b5c824a67e419d3, type: 3}
@@ -12698,7 +12686,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13432,7 +13420,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2000017
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13440,7 +13428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0010558069
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_LocalRotation.x
@@ -13460,7 +13448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13476,7 +13464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775164711995932773, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
       propertyPath: m_Name
-      value: Purple Platform
+      value: Paintable Purple Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
@@ -14086,7 +14074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6656650403347516753, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_Name
-      value: Move Horizontal Platform
+      value: Paintable Move Horizontal Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6656650403347516754, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14329,7 +14317,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14952,7 +14940,7 @@ Transform:
   - {fileID: 348044822}
   - {fileID: 1276579500}
   m_Father: {fileID: 910718491}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &835531289 stripped
 Transform:
@@ -16411,11 +16399,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1771974048598254847, guid: 2b2140b84af454443856204fad4124a8, type: 3}
   m_PrefabInstance: {fileID: 900227049}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &894730478 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2775164711995932770, guid: 1932aae2356435f4bb5cd17b42f71075, type: 3}
-  m_PrefabInstance: {fileID: 539292855}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &897627686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16645,8 +16628,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907049449}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -164.5, y: -5.4, z: 31.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1240672855}
@@ -16654,7 +16637,7 @@ Transform:
   - {fileID: 361341690}
   - {fileID: 1110125136}
   - {fileID: 1853641961}
-  m_Father: {fileID: 910718491}
+  m_Father: {fileID: 654286243}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910718490
@@ -16684,15 +16667,10 @@ Transform:
   m_LocalPosition: {x: 11.855161, y: -13.442415, z: 32.406147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 579331568}
-  - {fileID: 374175070}
-  - {fileID: 1942088183}
-  - {fileID: 907049450}
-  - {fileID: 294446835}
+  - {fileID: 654286243}
   - {fileID: 1091743378}
   - {fileID: 1154561386}
   - {fileID: 835382110}
-  - {fileID: 1449071156}
   - {fileID: 1969386474}
   - {fileID: 1652468828}
   m_Father: {fileID: 0}
@@ -16730,7 +16708,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912530751}
   m_LocalRotation: {x: -0, y: 0.70650107, z: -0, w: -0.707712}
-  m_LocalPosition: {x: 282.82266, y: 17.15548, z: -32.422867}
+  m_LocalPosition: {x: 282.8, y: 16.96, z: -32.422867}
   m_LocalScale: {x: 1.25, y: 0.25, z: 5.642956}
   m_Children: []
   m_Father: {fileID: 294446835}
@@ -17712,7 +17690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987598674}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (9)
+  m_Name: Paintable Vertical Moving Platform (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18458,7 +18436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018642677}
   m_Layer: 8
-  m_Name: Horizontal Moving Platform (1)
+  m_Name: Paintable Horizontal Moving Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18737,7 +18715,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19932,7 +19910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091743378}
   m_Layer: 0
-  m_Name: Moving Platforms
+  m_Name: Paintable Moving Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19951,8 +19929,9 @@ Transform:
   m_Children:
   - {fileID: 1860740579}
   - {fileID: 134970111}
+  - {fileID: 1449071156}
   m_Father: {fileID: 910718491}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1092770657 stripped
 Transform:
@@ -20733,7 +20712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1139483686}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (12)
+  m_Name: Paintable Vertical Moving Platform (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20987,7 +20966,7 @@ Transform:
   - {fileID: 1575750661}
   - {fileID: 543450653129023866}
   m_Father: {fileID: 910718491}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1155403305
 PrefabInstance:
@@ -21849,7 +21828,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6656650403347516753, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_Name
-      value: Move Horizontal Platform
+      value: Paintable Move Horizontal Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6656650403347516754, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22760,7 +22739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23136,7 +23115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23994,7 +23973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24394,7 +24373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391553357}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (13)
+  m_Name: Paintable Vertical Moving Platform (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24979,7 +24958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434935407}
   m_Layer: 8
-  m_Name: Vertical Moving Platform
+  m_Name: Paintable Vertical Moving Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25226,7 +25205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25288,7 +25267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1449071156}
   m_Layer: 0
-  m_Name: Purple Platforms
+  m_Name: Paintable Purple Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25305,10 +25284,10 @@ Transform:
   m_LocalPosition: {x: 196.54984, y: 9.937415, z: -32.407204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 894730478}
   - {fileID: 742002067}
-  m_Father: {fileID: 910718491}
-  m_RootOrder: 8
+  - {fileID: 533253142}
+  m_Father: {fileID: 1091743378}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1450420375 stripped
 Transform:
@@ -25539,7 +25518,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25971,7 +25950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514899826}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (6)
+  m_Name: Paintable Vertical Moving Platform (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26338,7 +26317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28373,7 +28352,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6656650403347516753, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_Name
-      value: Move Horizontal Platform
+      value: Paintable Move Horizontal Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6656650403347516754, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29134,7 +29113,7 @@ Transform:
   - {fileID: 1050107225}
   - {fileID: 1339084695}
   m_Father: {fileID: 910718491}
-  m_RootOrder: 10
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1653147432 stripped
 Transform:
@@ -29922,7 +29901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32299,7 +32278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1860740579}
   m_Layer: 0
-  m_Name: Horizontal
+  m_Name: Paintable Horizontal Moving Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32654,7 +32633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912736626}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (14)
+  m_Name: Paintable Vertical Moving Platform (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33133,7 +33112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942088182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 86.1, y: 9.3, z: -32.977615}
+  m_LocalPosition: {x: -78.4, y: 3.9, z: -1.4776154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2136965640}
@@ -33147,7 +33126,7 @@ Transform:
   - {fileID: 1366692089}
   - {fileID: 45452251}
   - {fileID: 1973310006}
-  m_Father: {fileID: 910718491}
+  m_Father: {fileID: 654286243}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1942415983 stripped
@@ -33628,7 +33607,7 @@ Transform:
   - {fileID: 968773529}
   - {fileID: 51687427}
   m_Father: {fileID: 910718491}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969799981
 GameObject:
@@ -34436,7 +34415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077389, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_Name
-      value: Move Vertical Platform
+      value: Paintable Move Vertical Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6869907368345077390, guid: 32f4d17b2df2a264e95298b051d2b27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34746,7 +34725,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6656650403347516753, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_Name
-      value: Move Horizontal Platform
+      value: Paintable Move Horizontal Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6656650403347516754, guid: 5e5f578e39aeae94f93f71d80e36e428, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35072,7 +35051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2030019239}
   m_Layer: 8
-  m_Name: Horizontal Moving Platform
+  m_Name: Paintable Horizontal Moving Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35809,6 +35788,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2038080884, guid: e94dfc75ef4b2e545b7c222e45e92435, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3663061835501922445, guid: e94dfc75ef4b2e545b7c222e45e92435, type: 3}
       propertyPath: cam
       value: 
@@ -35829,6 +35812,10 @@ PrefabInstance:
       propertyPath: colorSwap
       value: 
       objectReference: {fileID: 940244420}
+    - target: {fileID: 3663061835501922447, guid: e94dfc75ef4b2e545b7c222e45e92435, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3845922528404838631, guid: e94dfc75ef4b2e545b7c222e45e92435, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.28
@@ -36503,7 +36490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2123943112}
   m_Layer: 8
-  m_Name: Vertical Moving Platform (2)
+  m_Name: Paintable Vertical Moving Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

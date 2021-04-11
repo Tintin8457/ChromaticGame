@@ -89,8 +89,8 @@ MonoBehaviour:
   cooldown: 0
   stickable: 7
   resetStickable: 7
-  coolDownTimer: 3
-  resetCooldown: 3
+  coolDownTimer: 5
+  resetCooldown: 5
 --- !u!1 &6313158831225059239
 GameObject:
   m_ObjectHideFlags: 0
