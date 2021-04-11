@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7795786353836133124}
   - component: {fileID: 7795786353836133127}
   - component: {fileID: 7795786353836133126}
+  - component: {fileID: 1659714815936003300}
   m_Layer: 0
   m_Name: Bristle
   m_TagString: Untagged
@@ -109,3 +110,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a4a9698ad330546a73feec7f24d762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1659714815936003300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795786353836133129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 7795786353836133124}
+  paintable: 0
+  canBePainted: 0
+  stickyWall: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
