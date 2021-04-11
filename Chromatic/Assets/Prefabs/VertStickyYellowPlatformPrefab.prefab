@@ -63,7 +63,9 @@ MonoBehaviour:
   paintable: 0
   canBePainted: 0
   stickyWall: 1
-  paintSticky: 1
+  purplePlat: 0
+  red: 0
+  blue: 0
 --- !u!114 &3784724751145686019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ogWallColor: {fileID: 2100000, guid: 9986b19d59c26424db13aaef85af0b0b, type: 2}
+  stickyParts:
+  - {fileID: 6650121920518639068}
+  - {fileID: 6927746903735292619}
   climbablePart: {fileID: 830889542652523186}
   platform: {fileID: 6313158831225059239}
   stickyIdentity: VerClimbable
@@ -114,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 6313158831225059239}
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
   m_LocalPosition: {x: 30.996, y: -5.82, z: 0}
-  m_LocalScale: {x: 1.0522057, y: 1, z: 1}
+  m_LocalScale: {x: 1.0661999, y: 1, z: 1}
   m_Children:
   - {fileID: 7413403109509924913}
   m_Father: {fileID: 0}

@@ -5,7 +5,9 @@ using UnityEngine;
 //This script allows the platforms to move left and right
 public class RedMovingHorzPlatform : MonoBehaviour
 {
+    [Header("Red Platform Properties")]
     public float speed;
+    public BoxCollider platCollider;
 
     [Header("Bools")]
     public bool changeDir; //Changes the direction that the platform is moving
@@ -21,12 +23,12 @@ public class RedMovingHorzPlatform : MonoBehaviour
     public float resetTimer;
 
     public Material ogPlatColor; //Holds original color
-    private ShaderBW bwShader; //Holds bw shader
+    private ShaderBW toonShader; //Holds toon shader
 
     // Start is called before the first frame update
     void Start()
     {
-        bwShader = GetComponent<ShaderBW>();
+        toonShader = GetComponent<ShaderBW>();
         canMoveHor = false;
 
         if (canMoveHor == true)
@@ -40,6 +42,19 @@ public class RedMovingHorzPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check for when the blue platform can have collision when its transparency changes
+        //Disable collision
+        if (toonShader.canBePainted == true)
+        {
+            platCollider.isTrigger = true;
+        }
+
+        //Enable collision
+        else if (toonShader.canBePainted == false)
+        {
+            platCollider.isTrigger = false;
+        }
+
         //Moving platforms only happen when a red projectile hits them for a limited time
         if (canMoveHor == true)
         {
@@ -64,7 +79,7 @@ public class RedMovingHorzPlatform : MonoBehaviour
             canMoveHor = false;
             tempColorHolder = resetColorHolder;
             gameObject.GetComponent<Renderer>().material = ogPlatColor;
-            bwShader.canBePainted = true;
+            toonShader.canBePainted = true;
 
             //Cool down before the player can paint it again
             cooldown = true;
@@ -83,9 +98,9 @@ public class RedMovingHorzPlatform : MonoBehaviour
         }
     }
 
-    //Changes the platform's direction of movement when it triggers any of the two invisible triggers
     void OnTriggerEnter(Collider change)
     {
+        //Changes the platform's direction of movement when it triggers any of the two invisible triggers
         if (change.gameObject.tag == "Moving")
         {
             //Changes platform's direction to the right
@@ -100,22 +115,22 @@ public class RedMovingHorzPlatform : MonoBehaviour
                 changeDir = true;
             }
         }
+
+        //The platforms will move once a red projectile hits them and turns them red
+        if (change.gameObject.tag == "Red" && cooldown == false)
+        {
+            canMoveHor = true;
+            toonShader.canBePainted = false; //Make visible and colorized
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
     }
 
+    //Prevent the player from falling off the moving platform
     void OnCollisionEnter(Collision player)
     {
-        //Prevent the player from falling off the moving platform
         if (player.gameObject.tag == "Player")
         {
             player.gameObject.transform.parent = gameObject.transform;
-        }
-
-        //The platforms will move once a red projectile hits them and turns them red
-        if (player.gameObject.tag == "Red" && cooldown == false)
-        {
-            canMoveHor = true;
-            bwShader.canBePainted = false; //Make visible and colorized
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
     }
 

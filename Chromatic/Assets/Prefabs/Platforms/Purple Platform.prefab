@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ogLocation: {x: 0, y: 0, z: 0}
   purPlat: {fileID: 2100000, guid: bf32ba5bb339ee0488bbe93e82a68170, type: 2}
+  platCollider: {fileID: 2775164713468726672}
   speed: 2
   canChange: 1
   cooldown: 0

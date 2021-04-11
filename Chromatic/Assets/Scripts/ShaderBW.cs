@@ -82,10 +82,10 @@ public class ShaderBW : MonoBehaviour
                 canBePainted = true;
             }
 
-            //Make the sticky wall paintable and visible
+            //Make the sticky wall paintable and semi-transparent
             if (stickyWall == true)
             {
-                shader.SetFloat("_Opacity", 1f);
+                shader.SetFloat("_Opacity", 0.5f);
                 components.SetPropertyBlock(shader);
                 canBePainted = true;
 
@@ -133,10 +133,10 @@ public class ShaderBW : MonoBehaviour
                     canBePainted = true;
                 }
 
-                //Make the sticky wall paintable and visible
+                //Make the sticky wall paintable and semi-transparent
                 if (stickyWall == true)
                 {
-                    shader.SetFloat("_Opacity", 1f);
+                    shader.SetFloat("_Opacity", 0.5f);
                     mat.SetPropertyBlock(shader);
                     canBePainted = true;
 
@@ -192,17 +192,19 @@ public class ShaderBW : MonoBehaviour
             //Change sticky platform's color
             if (stickyWall == true)
             {
-                //Reset to default color
+                //Reset to default color and semi-transparency
                 if (canBePainted == true)
                 {
                     shader.SetColor("_ShaColor", ogStick);
+                    shader.SetFloat("_Opacity", 0.5f);
                     components.SetPropertyBlock(shader);
                 }
                 
-                //Change to yellow paint
+                //Change to yellow paint and make visible
                 else if (canBePainted == false)
                 {
                     shader.SetColor("_ShaColor", sticky);
+                    shader.SetFloat("_Opacity", 1f);
                     components.SetPropertyBlock(shader);
                 }
             }
@@ -267,17 +269,19 @@ public class ShaderBW : MonoBehaviour
                 //Change sticky platform's color
                 if (stickyWall == true)
                 {
-                    //Reset to default color
+                    //Reset to default color and semi-transparency
                     if (canBePainted == true)
                     {
                         shader.SetColor("_ShaColor", ogStick);
+                        shader.SetFloat("_Opacity", 0.5f);
                         mat.SetPropertyBlock(shader);
                     }
                     
-                    //Change to yellow paint
+                    //Change to indicated color and make visible
                     else if (canBePainted == false)
                     {
                         shader.SetColor("_ShaColor", sticky);
+                        shader.SetFloat("_Opacity", 1f);
                         mat.SetPropertyBlock(shader);
                     }
                 }
@@ -314,6 +318,19 @@ public class ShaderBW : MonoBehaviour
             }
         }
         
+        //Check for when paintables can have collision when their transparency changes
+        //Disable collision
+        // if (canBePainted == true)
+        // {
+
+        // }
+
+        //Enable collision
+        // else if (canBePainted == false)
+        // {
+
+        // }
+
         //Change the entire environment from black and white shader to toon shader at the end of the game after reaching the super brush with all bristles
         if (timer.maxTime <= 0.0f)
         {

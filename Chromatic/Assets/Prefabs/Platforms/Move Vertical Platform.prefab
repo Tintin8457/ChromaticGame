@@ -77,7 +77,9 @@ MonoBehaviour:
   paintable: 1
   canBePainted: 1
   stickyWall: 0
-  paintSticky: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
 --- !u!114 &3723601212836110124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  platCollider: {fileID: 8753152004124542758}
   changeDir: 0
   canMoveVer: 0
   cooldown: 0

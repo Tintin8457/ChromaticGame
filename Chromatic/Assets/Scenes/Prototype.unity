@@ -2041,10 +2041,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
-    - target: {fileID: 6689824768154823965, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0661999
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3aa1c31a5b18f64d9d31779f969dee1, type: 3}
 --- !u!1 &117229453
@@ -20869,12 +20865,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142720168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f682c1d225e2f664eb29502fa6ffcd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ogWallColor: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  stickyParts: []
   climbablePart: {fileID: 1947035396}
   platform: {fileID: 0}
   stickyIdentity: HorClimbable

@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  platCollider: {fileID: 8379687895339803842}
   changeDir: 0
   canMoveHor: 0
   cooldown: 0
@@ -98,7 +99,9 @@ MonoBehaviour:
   paintable: 1
   canBePainted: 1
   stickyWall: 0
-  paintSticky: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
 --- !u!1001 &8218795557456862433
 PrefabInstance:
   m_ObjectHideFlags: 0
