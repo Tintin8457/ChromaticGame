@@ -106,7 +106,7 @@ public class StickyWall : MonoBehaviour
         if(paintball.gameObject.tag == "Yellow" && cooldown == false)
         {
             isSticky = true;
-            platform.GetComponent<Renderer>().material.color = Color.yellow;
+            //platform.GetComponent<Renderer>().material.color = Color.yellow;
             climbablePart.tag = stickyIdentity;
             climbablePart.layer = 8;
             bwShader.canBePainted = false; //Make visible and colorized

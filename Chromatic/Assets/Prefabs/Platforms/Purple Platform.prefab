@@ -306,7 +306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bwShader:
   - {fileID: 2775164713468726673}
-  paintable: 1
+  paintable: 0
   canBePainted: 1
   stickyWall: 0
-  paintSticky: 0
+  purplePlat: 1
+  red: 0
+  blue: 0

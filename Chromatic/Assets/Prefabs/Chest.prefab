@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5556491372764822373}
+  - component: {fileID: 2127919378}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -56,12 +57,33 @@ Transform:
   m_GameObject: {fileID: 5068607704920695263}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 309.0563, y: 41.4498, z: 0}
-  m_LocalScale: {x: 15.418156, y: 24.07757, z: 15.418156}
+  m_LocalScale: {x: 15.418156, y: 24.077572, z: 15.418156}
   m_Children:
   - {fileID: 400991395740064158}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &2127919378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068607704920695263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 6053316418550390165}
+  - {fileID: 7033745587136268134}
+  paintable: 0
+  canBePainted: 0
+  stickyWall: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
 --- !u!1 &5734990953741393715
 GameObject:
   m_ObjectHideFlags: 0

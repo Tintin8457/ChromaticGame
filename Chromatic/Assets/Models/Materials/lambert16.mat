@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: lambert16
-  m_Shader: {fileID: -6465566751694194690, guid: 5bc13f929e531744a860f0b2a3483290, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 7b6fefd1fb01d954fbc475fafe0b7848, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -57,6 +61,7 @@ Material:
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DitherSize: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -64,10 +69,12 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
+    - _Opacity: 1
     - _QueueOffset: 0
     - _RLightBlend: 0
     - _RLightSize: 0
     - _ReceiveShadows: 1
+    - _Saturation: 1
     - _ShaBlend: 0
     - _ShaSize: 1
     - _Smoothness: 0.5
@@ -78,6 +85,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 0.062, g: 0.062, b: 0.062, a: 1}
     - _Color: {r: 0.062, g: 0.062, b: 0.062, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

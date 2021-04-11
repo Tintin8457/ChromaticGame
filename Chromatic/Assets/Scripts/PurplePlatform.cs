@@ -29,12 +29,12 @@ public class PurplePlatform : MonoBehaviour
     public float coolDownTimer = 5f;
     public float resetCooldown = 5f;
 
-    private ShaderBW bwShader; //Holds bw shader
+    private ShaderBW toonShader; //Holds toon shader
     
     // Start is called before the first frame update
     void Start()
     {
-        bwShader = GetComponent<ShaderBW>();
+        toonShader = GetComponent<ShaderBW>();
 
         canChange = true;
         cooldown = false;
@@ -104,7 +104,7 @@ public class PurplePlatform : MonoBehaviour
             timer = resetTimer; //Reset timer
             cooldown = true;
             gameObject.GetComponent<Renderer>().material = purPlat; //Reset original platform color
-            bwShader.canBePainted = true; //Reset color and transparency
+            toonShader.canBePainted = true; //Reset color and transparency
 
             //Stop platform from moving
             if (horizontal == true)
@@ -160,23 +160,25 @@ public class PurplePlatform : MonoBehaviour
         //Changes to red to allow for horizontal direction
         if (changeColor.gameObject.tag == "Red" && canChange == true)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
+            //gameObject.GetComponent<Renderer>().material.color = Color.red;
+            toonShader.red = true;
             canChange = false;
             changedColor = true; //Start timer
             horizontal = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
-            bwShader.canBePainted = false; //Make visible and colorized
+            toonShader.canBePainted = false; //Make visible and colorized
         }
 
         //Changes to blue to allow for vertical direction
         else if (changeColor.gameObject.tag == "Blue" && canChange == true)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            //gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            toonShader.blue = true;
             canChange = false;
             changedColor = true; //Start timer
             vertical = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
-            bwShader.canBePainted = false; //Make visible and colorized
+            toonShader.canBePainted = false; //Make visible and colorized
         }
 
         //Move player with moving platform

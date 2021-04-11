@@ -81,11 +81,11 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 1
     - _Parallax: 0.02
-    - _RLightBlend: 0.275
-    - _RLightSize: 0.094
+    - _RLightBlend: 0.872
+    - _RLightSize: 0.655
     - _Saturation: 1
-    - _ShaBlend: 1
-    - _ShaSize: 0.22
+    - _ShaBlend: 0.509
+    - _ShaSize: 0.37
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -96,5 +96,5 @@ Material:
     - _Color: {r: 0.5245074, g: 0.99215686, b: 0.19215685, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0}
-    - _ShaColor: {r: 0, g: 0.509434, b: 0.012579703, a: 0}
+    - _ShaColor: {r: 0, g: 0.50980395, b: 0.011764706, a: 0}
   m_BuildTextureStacks: []

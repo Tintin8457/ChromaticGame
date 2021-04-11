@@ -83,7 +83,7 @@ Material:
     - _Parallax: 0.02
     - _RLightBlend: 0.112
     - _RLightSize: 0.181
-    - _Saturation: 0
+    - _Saturation: 1
     - _ShaBlend: 1
     - _ShaSize: 0.32
     - _SmoothnessTextureChannel: 0

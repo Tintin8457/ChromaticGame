@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3634285184104080362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HouseRoof3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,6 +33,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7329186666335077910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634285184507566999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 3634285184509756759}
+  paintable: 0
+  canBePainted: 0
+  stickyWall: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
+--- !u!114 &3002411253331358373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634285185018882639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 3634285185020818575}
+  paintable: 0
+  canBePainted: 0
+  stickyWall: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
+--- !u!114 &8900575632996532770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634285185099974758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 3634285185102239398}
+  paintable: 0
+  canBePainted: 0
+  stickyWall: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
 --- !u!1001 &3634285184507469111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43,6 +103,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3e46ab6284f7bc049a1e9f47d30bf31c, type: 3}
       propertyPath: m_Name
       value: roof_border (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3e46ab6284f7bc049a1e9f47d30bf31c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e46ab6284f7bc049a1e9f47d30bf31c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -98,9 +162,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e46ab6284f7bc049a1e9f47d30bf31c, type: 3}
+--- !u!1 &3634285184507566999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3e46ab6284f7bc049a1e9f47d30bf31c, type: 3}
+  m_PrefabInstance: {fileID: 3634285184507469111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3634285184507856823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3e46ab6284f7bc049a1e9f47d30bf31c, type: 3}
+  m_PrefabInstance: {fileID: 3634285184507469111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3634285184509756759 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 3e46ab6284f7bc049a1e9f47d30bf31c, type: 3}
   m_PrefabInstance: {fileID: 3634285184507469111}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3634285185018785007
@@ -113,6 +187,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ba592f5078d40a94397d740bab2a8a8e, type: 3}
       propertyPath: m_Name
       value: block05
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ba592f5078d40a94397d740bab2a8a8e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ba592f5078d40a94397d740bab2a8a8e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -172,9 +250,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba592f5078d40a94397d740bab2a8a8e, type: 3}
+--- !u!1 &3634285185018882639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: ba592f5078d40a94397d740bab2a8a8e, type: 3}
+  m_PrefabInstance: {fileID: 3634285185018785007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3634285185018918511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ba592f5078d40a94397d740bab2a8a8e, type: 3}
+  m_PrefabInstance: {fileID: 3634285185018785007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3634285185020818575 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: ba592f5078d40a94397d740bab2a8a8e, type: 3}
   m_PrefabInstance: {fileID: 3634285185018785007}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3634285185099943622
@@ -187,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3c1c9083911b6eb4b92101a4cb685410, type: 3}
       propertyPath: m_Name
       value: roof02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3c1c9083911b6eb4b92101a4cb685410, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3c1c9083911b6eb4b92101a4cb685410, type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,8 +334,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1c9083911b6eb4b92101a4cb685410, type: 3}
+--- !u!1 &3634285185099974758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3c1c9083911b6eb4b92101a4cb685410, type: 3}
+  m_PrefabInstance: {fileID: 3634285185099943622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3634285185100338246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3c1c9083911b6eb4b92101a4cb685410, type: 3}
+  m_PrefabInstance: {fileID: 3634285185099943622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3634285185102239398 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 3c1c9083911b6eb4b92101a4cb685410, type: 3}
   m_PrefabInstance: {fileID: 3634285185099943622}
   m_PrefabAsset: {fileID: 0}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2805506796238133653}
   - component: {fileID: 75398841543109983}
   - component: {fileID: 5943935189713314208}
+  - component: {fileID: 4807203804975732586}
   m_Layer: 8
   m_Name: Beam Wall
   m_TagString: Ground
@@ -95,3 +96,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4921304, y: 1.8730874, z: 1.5178096}
   m_Center: {x: -0.000000059604645, y: -0.000000029802322, z: -0.000000059604645}
+--- !u!114 &4807203804975732586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876631778841103498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ae7106058d7a64dbf67240aeea6b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bwShader:
+  - {fileID: 75398841543109983}
+  paintable: 0
+  canBePainted: 0
+  stickyWall: 0
+  purplePlat: 0
+  red: 0
+  blue: 0

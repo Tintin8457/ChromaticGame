@@ -80,7 +80,9 @@ MonoBehaviour:
   paintable: 0
   canBePainted: 0
   stickyWall: 0
-  paintSticky: 0
+  purplePlat: 0
+  red: 0
+  blue: 0
 --- !u!1001 &7886990657001532882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,7 +149,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5f2a4d73e8ba8b54f8ef876aca62152a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c10d0f60b492ed448bde4ac3c4f343c4, type: 2}
+      objectReference: {fileID: 2100000, guid: b44ee2ab4401ec146ae420e9155f941d, type: 2}
     - target: {fileID: 919132149155446097, guid: 5f2a4d73e8ba8b54f8ef876aca62152a, type: 3}
       propertyPath: m_Name
       value: slow_break_platform

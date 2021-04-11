@@ -15,28 +15,46 @@ public class ShaderBW : MonoBehaviour
 
     [Header("Sticky Platforms")]
     public bool stickyWall; //Prevents the sticky wall from being semi-transparent
-    public bool paintSticky; //Can only paint sticky platforms
-    
-    private MaterialPropertyBlock bw; //Use to reference the bw shader graph properties
+    //public bool paintSticky; //Can only paint sticky platforms
+
+    [Header("Purple Platforms")]
+    public bool purplePlat; //Changes color when told to
+    public bool red; //Change to red
+    public bool blue; //Change to blue
+
+    private MaterialPropertyBlock shader; //Use to reference the shader graph properties
     MeshRenderer components; //Contains all colored elements of the object
     private Timer timer; //Access timer to change specific objects into toon shader mid-game
 
     //Use shaders to change from bw to toon shader during the game;
-    Shader bAndW;
+    //Shader bAndW;
     Shader toon;
+
+    //Use colors for sticky platforms
+    private Color ogStick;
+    private Color sticky;
+
+    //Uses colors for purple platforms
+    private Color ogPurple;
+    private Color hor;
+    private Color ver;
 
     //public bool nonPaintable; //Change its value in inspector to indicate what can't be semi-transparent and desaturated
 
     // Start is called before the first frame update
     void Start()
     {
-        bw = new MaterialPropertyBlock(); //Set up a new shader property that allows the bw shader to work properly
+        shader = new MaterialPropertyBlock(); //Set up a new shader property that allows the bw shader to work properly
         
         components = GetComponent<MeshRenderer>(); //Get the object's renderer
 
-        //Find the shaders
-        bAndW = Shader.Find("Shader Graphs/BlackAndWhite");
-        toon = Shader.Find("Shader Graphs/ToonCellShader");
+        //Find the toon shader to use for nonpaintables
+        //bAndW = Shader.Find("Shader Graphs/BlackAndWhite");
+
+        if (paintable == false && stickyWall == false && purplePlat == false)
+        {
+            toon = Shader.Find("Shader Graphs/ToonCellShader");
+        }
 
         //Find and get timer
         GameObject time = GameObject.FindGameObjectWithTag("Timer");
@@ -52,27 +70,45 @@ public class ShaderBW : MonoBehaviour
             //The non-paintable object will be black & white and fully visible
             if (paintable == false)
             {
-                bw.SetFloat("_Saturation", 0f);
-                bw.SetFloat("_Opacity", 1f);
-                components.SetPropertyBlock(bw);
+                shader.SetFloat("_Saturation", 0f);
+                components.SetPropertyBlock(shader);
             }
 
             //Only make paintable objects semi-transparent, colored, and paintable
             if (paintable == true)
             {
-                bw.SetFloat("_Opacity", 0.5f);
-                bw.SetFloat("_Saturation", 1f);
-                components.SetPropertyBlock(bw);
+                shader.SetFloat("_Opacity", 0.5f);
+                components.SetPropertyBlock(shader);
                 canBePainted = true;
             }
 
             //Make the sticky wall paintable and visible
             if (stickyWall == true)
             {
-                bw.SetFloat("_Opacity", 1f);
-                bw.SetFloat("_Saturation", 1f);
-                components.SetPropertyBlock(bw);
+                shader.SetFloat("_Opacity", 1f);
+                components.SetPropertyBlock(shader);
                 canBePainted = true;
+
+                //Assign colors for original wall color and yellow painted color
+                ogStick = new Color(0f, 0.509434f, 0.0125797f, 0f);
+                sticky = new Color(0.7372549f, 0.6901961f, 0.0627451f, 0f);
+            }
+
+            //Make purple platforms semi-transparent, colored, and paintable
+            if (purplePlat == true)
+            {
+                shader.SetFloat("_Opacity", 0.5f);
+                components.SetPropertyBlock(shader);
+                canBePainted = true;
+
+                //Does not change to these colors by default
+                red = false;
+                blue = false;
+
+                //Assign colors for purple platform color and direction colors
+                ogPurple = new Color(0.5547814f, 0f, 0.7075472f, 0f);
+                hor = new Color(1f, 0f, 0.07843138f, 0f);
+                ver = new Color(0f, 0.1127396f, 0.7264151f, 0f);
             }
         }
         
@@ -85,28 +121,46 @@ public class ShaderBW : MonoBehaviour
                 //The non-paintable object will be black & white and fully visible
                 if (paintable == false)
                 {
-                    bw.SetFloat("_Saturation", 0f);
-                    bw.SetFloat("_Opacity", 1f);
-                    mat.SetPropertyBlock(bw);
+                    shader.SetFloat("_Saturation", 0f);
+                    mat.SetPropertyBlock(shader);
                 }
 
                 //Only make paintable objects semi-transparent, colored, and paintable
                 if (paintable == true)
                 {
-                    bw.SetFloat("_Opacity", 0.5f);
-                    bw.SetFloat("_Saturation", 1f);
-                    mat.SetPropertyBlock(bw);
+                    shader.SetFloat("_Opacity", 0.5f);
+                    mat.SetPropertyBlock(shader);
                     canBePainted = true;
                 }
 
                 //Make the sticky wall paintable and visible
                 if (stickyWall == true)
                 {
-                    bw.SetFloat("_Opacity", 1f);
-                    bw.SetFloat("_Saturation", 1f);
-                    mat.SetPropertyBlock(bw);
+                    shader.SetFloat("_Opacity", 1f);
+                    mat.SetPropertyBlock(shader);
                     canBePainted = true;
+
+                    //Assign colors for original wall color and yellow painted color
+                    ogStick = new Color(0f, 0.509434f, 0.0125797f, 0f);
+                    sticky = new Color(0.7372549f, 0.6901961f, 0.0627451f, 0f);
                 }  
+
+                //Make purple platforms semi-transparent, colored, and paintable
+                if (purplePlat == true)
+                {
+                    shader.SetFloat("_Opacity", 0.5f);
+                    mat.SetPropertyBlock(shader);
+                    canBePainted = true;
+
+                    //Does not change to these colors by default
+                    red = false;
+                    blue = false;
+
+                    //Assign colors for purple platform color and direction colors
+                    ogPurple = new Color(0.5547814f, 0f, 0.7075472f, 0f);
+                    hor = new Color(1f, 0f, 0.07843138f, 0f);
+                    ver = new Color(0f, 0.1127396f, 0.7264151f, 0f);
+                }
             }
         }
     }
@@ -114,11 +168,83 @@ public class ShaderBW : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Change the paintable's transparency and saturation
-        if (paintable == true)
+        //For objects that use one mesh renderer
+        if (components != null)
         {
-            //For objects that use one mesh renderer
-            if (components != null)
+            //Make paintables semi-transparent/transparent
+            if (paintable == true)
+            {
+                //Make semi-transparent to indicate that it needs to be painted
+                if (canBePainted == true)
+                {
+                    shader.SetFloat("_Opacity", 0.5f);
+                    components.SetPropertyBlock(shader);
+                }
+
+                //Make visible to indicate that it has been painted
+                else if (canBePainted == false)
+                {
+                    shader.SetFloat("_Opacity", 1f);
+                    components.SetPropertyBlock(shader);
+                }
+            }
+
+            //Change sticky platform's color
+            if (stickyWall == true)
+            {
+                //Reset to default color
+                if (canBePainted == true)
+                {
+                    shader.SetColor("_ShaColor", ogStick);
+                    components.SetPropertyBlock(shader);
+                }
+                
+                //Change to yellow paint
+                else if (canBePainted == false)
+                {
+                    shader.SetColor("_ShaColor", sticky);
+                    components.SetPropertyBlock(shader);
+                }
+            }
+
+            //Change purple platform's color and transparency
+            if (purplePlat == true)
+            {
+                //Reset to default color and semi-transparency
+                if (canBePainted == true)
+                {
+                    red = false;
+                    blue = false;
+
+                    shader.SetColor("_ShaColor", ogPurple);
+                    shader.SetFloat("_Opacity", 0.5f);
+                    components.SetPropertyBlock(shader);
+                }
+
+                //Change to indicated color and make visible
+                else if (canBePainted == false)
+                {
+                    if (red == true)
+                    {
+                        shader.SetColor("_ShaColor", hor);
+                        shader.SetFloat("_Opacity", 1f);
+                        components.SetPropertyBlock(shader);
+                    }
+
+                    else if (blue == true)
+                    {
+                        shader.SetColor("_ShaColor", ver);
+                        shader.SetFloat("_Opacity", 1f);
+                        components.SetPropertyBlock(shader);
+                    }
+                }
+            }
+        }
+
+        //For objects that use more than one mesh renderer
+        else if (components == null)
+        {
+            foreach (var mat in bwShader)
             {
                 //Make paintables semi-transparent/transparent
                 if (paintable == true)
@@ -126,64 +252,87 @@ public class ShaderBW : MonoBehaviour
                     //Make semi-transparent to indicate that it needs to be painted
                     if (canBePainted == true)
                     {
-                        bw.SetFloat("_Opacity", 0.5f);
-                        bw.SetFloat("_Saturation", 1f);
-                        components.SetPropertyBlock(bw);
+                        shader.SetFloat("_Opacity", 0.5f);
+                        mat.SetPropertyBlock(shader);
                     }
 
                     //Make visible to indicate that it has been painted
                     else if (canBePainted == false)
                     {
-                        bw.SetFloat("_Opacity", 1f);
-                        bw.SetFloat("_Saturation", 1f);
-                        components.SetPropertyBlock(bw);
+                        shader.SetFloat("_Opacity", 1f);
+                        mat.SetPropertyBlock(shader);
                     }
                 }
-            }
 
-            //For objects that use more than one mesh renderer
-            else if (components == null)
-            {
-                foreach (var mat in bwShader)
+                //Change sticky platform's color
+                if (stickyWall == true)
                 {
-                    //Make paintables semi-transparent/transparent
-                    if (paintable == true)
+                    //Reset to default color
+                    if (canBePainted == true)
                     {
-                        //Make semi-transparent to indicate that it needs to be painted
-                        if (canBePainted == true)
+                        shader.SetColor("_ShaColor", ogStick);
+                        mat.SetPropertyBlock(shader);
+                    }
+                    
+                    //Change to yellow paint
+                    else if (canBePainted == false)
+                    {
+                        shader.SetColor("_ShaColor", sticky);
+                        mat.SetPropertyBlock(shader);
+                    }
+                }
+
+                //Change purple platform's color
+                if (purplePlat == true)
+                {
+                    //Reset to default color
+                    if (canBePainted == true)
+                    {
+                        red = false;
+                        blue = false;
+
+                        shader.SetColor("_ShaColor", ogPurple);
+                        mat.SetPropertyBlock(shader);
+                    }
+
+                    //Change to indicated color
+                    else if (canBePainted == false)
+                    {
+                        if (red == true)
                         {
-                            bw.SetFloat("_Opacity", 0.5f);
-                            bw.SetFloat("_Saturation", 1f);
-                            mat.SetPropertyBlock(bw);
+                            shader.SetColor("_ShaColor", hor);
+                            mat.SetPropertyBlock(shader);
                         }
 
-                        //Make visible to indicate that it has been painted
-                        else if (canBePainted == false)
+                        else if (blue == true)
                         {
-                            bw.SetFloat("_Opacity", 1f);
-                            bw.SetFloat("_Saturation", 1f);
-                            mat.SetPropertyBlock(bw);
+                            shader.SetColor("_ShaColor", ver);
+                            mat.SetPropertyBlock(shader);
                         }
                     }
                 }
             }
         }
-
+        
         //Change the entire environment from black and white shader to toon shader at the end of the game after reaching the super brush with all bristles
         if (timer.maxTime <= 0.0f)
         {
-            //For objects that use one mesh renderer
-            if (components != null)
+            //Affects non-paintables
+            if (paintable == false && stickyWall == false && purplePlat == false)
             {
-                components.material.shader = toon;
-            }
-            
-            //For objects that use more than one mesh renderer
-            else if (components == null)
-            {
-                foreach (var mat in bwShader)
+                //For objects that use one mesh renderer
+                if (components != null)
                 {
-                    mat.material.shader = toon;
+                    components.material.shader = toon;
+                }
+                
+                //For objects that use more than one mesh renderer
+                else if (components == null)
+                {
+                    foreach (var mat in bwShader)
+                    {
+                        mat.material.shader = toon;
+                    }
                 }
             }
 
@@ -194,34 +343,34 @@ public class ShaderBW : MonoBehaviour
 
     //This is used for testing- The nonpaintable object will turn the object back into its colored form
     //Eventually, everything will be full color at the end of the level
-    void OnCollisionEnter(Collision colorize)
-    {
-        if (colorize.gameObject.tag == "Red" || colorize.gameObject.tag == "Yellow" || colorize.gameObject.tag == "Blue" || colorize.gameObject.tag == "Grayscale")
-        {
-            //For objects that use  one mesh renderer
-            if (components != null)
-            {
-                if (paintable == false)
-                {
-                    bw.SetFloat("_Saturation", 1f);
-                    components.SetPropertyBlock(bw);
-                }
-            }
+    // void OnCollisionEnter(Collision colorize)
+    // {
+    //     if (colorize.gameObject.tag == "Red" || colorize.gameObject.tag == "Yellow" || colorize.gameObject.tag == "Blue" || colorize.gameObject.tag == "Grayscale")
+    //     {
+    //         //For objects that use  one mesh renderer
+    //         if (components != null)
+    //         {
+    //             if (paintable == false)
+    //             {
+    //                 shader.SetFloat("_Saturation", 1f);
+    //                 components.SetPropertyBlock(shader);
+    //             }
+    //         }
 
-            //For objects that use more than one mesh renderer
-            else if (components == null)
-            {
-                foreach (var mat in bwShader)
-                {
-                    if (paintable == false)
-                    {
-                        bw.SetFloat("_Saturation", 1f);
-                         mat.SetPropertyBlock(bw);
-                    }
-                }
-            }
-        }
-    }
+    //         //For objects that use more than one mesh renderer
+    //         else if (components == null)
+    //         {
+    //             foreach (var mat in bwShader)
+    //             {
+    //                 if (paintable == false)
+    //                 {
+    //                     shader.SetFloat("_Saturation", 1f);
+    //                     mat.SetPropertyBlock(shader);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 // foreach (var mat in bwShader)
