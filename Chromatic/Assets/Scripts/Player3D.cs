@@ -43,12 +43,13 @@ public class Player3D : MonoBehaviour
     public TextMeshProUGUI curBristles; //Holds current amount of bristles
     public int bristles = 0; //Amount of bristles
 
-    [Header("Current/New Color UI")]
+    [Header("Color UI")]
     public Image curColor; //Will be used to update the player's current color
     public Color[] uiColors = new Color[4]; //Changes the current color image from the player's current color 
     private int colorCurUI = 0; //Use for changing the current color UI
     //private int colorNextUI = 0; //Use to change the next color UI
-    public Image colorSwap; //Will be used to show which color will be next
+    public Image prevColor; //Will be used to show the previous color
+    public Image nextColor; //Will be used to show which color will be next
     //public List <Color> colorInventory = new List<Color>(); //Store colors in here to see the next color to switch to
 
     void Start()
@@ -62,13 +63,14 @@ public class Player3D : MonoBehaviour
         currentCheckpoint = transform.position; //Sets player's first checkpoint to player location on start up
         canDestroyFloor = false;
 
-        cpText.text = "Checkpoint: Not Met!";
+        cpText.enabled = false; //Do not display checkpoint text until the player reaches it
 
         alterMovement = false;
         stickyHor = false;
         stopJumping = false;
 
-        colorSwap.color = uiColors[1]; //Display the default next color from the predetermined color order until the player switches color
+        nextColor.color = uiColors[1]; //Display the default next color from the predetermined color order until the player switches color
+        prevColor.color = uiColors[3]; //Display the default previous color from the predetermined color order until the player switches color
     }
 
     void Update()
@@ -109,6 +111,7 @@ public class Player3D : MonoBehaviour
             //colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
             UpdateCurColorUI(currentColorMode);
             ChangeNewColorUI(currentColorMode);
+            ChangePreviousColorUI(currentColorMode);
         }
 
         //Make sure there is the amount of collected bristles
@@ -185,31 +188,64 @@ public class Player3D : MonoBehaviour
         transform.position = currentCheckpoint;
     }
 
-    //Update the checkpoint UI when the player reaches a specific checkpoint
-    public void UpdateCPUI(int currentCP)
+    //Enable/Disable the checkpoint UI
+    public void ShowCPText(bool cp)
     {
-        cpText.text = "Checkpoint: " + currentCP.ToString();
+        //Shows text when the player gets a checkpoint
+        if (cp == true)
+        {
+            cpText.enabled = true;
+        }
+
+        //Removes text when the player exits the checkpoint
+        if (cp == false)
+        {
+            cpText.enabled = false;
+        }
     }
 
-    //Use UI indicator to show the next color to change to between 4 colors in a specific predetermined order and loop around
+    //Use UI indicator to show the next color
     public void ChangeNewColorUI(int nColor)
     {
         switch(nColor)
         {
             case 0:
-                colorSwap.color = uiColors[1];
+                nextColor.color = uiColors[1];
                 break;
             case 1:
-                colorSwap.color = uiColors[2];
+                nextColor.color = uiColors[2];
                 break;
             case 2:
-                colorSwap.color = uiColors[3];
+                nextColor.color = uiColors[3];
                 break;
             case 3:
-                colorSwap.color = uiColors[0];
+                nextColor.color = uiColors[0];
                 break;
             default:
-                colorSwap.color = uiColors[1];
+                nextColor.color = uiColors[1];
+                break;
+        }
+    }
+
+    //Use UI indicator to show the previous color
+    public void ChangePreviousColorUI(int prColor)
+    {
+        switch(prColor)
+        {
+            case 0:
+                prevColor.color = uiColors[3];
+                break;
+            case 1:
+                prevColor.color = uiColors[0];
+                break;
+            case 2:
+                prevColor.color = uiColors[1];
+                break;
+            case 3:
+                prevColor.color = uiColors[2];
+                break;
+            default:
+                prevColor.color = uiColors[3];
                 break;
         }
     }

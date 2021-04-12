@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public int cpNum; //Will be used to identify each checkpoint for the UI
-
+    //Set checkpoint and show checkpoint text
     void OnTriggerEnter(Collider other)
     {
         Player3D player = other.GetComponent<Player3D>();
@@ -13,7 +12,18 @@ public class Checkpoint : MonoBehaviour
         if(player != null)
         {
             player.SetCheckpoint(transform.position);
-            player.UpdateCPUI(cpNum);
+            player.ShowCPText(true);
+        }
+    }
+
+    //Exit checkpoint and remove checkpoint text
+    void OnTriggerExit(Collider exitCP)
+    {
+        Player3D player = exitCP.GetComponent<Player3D>();
+
+        if(player != null)
+        {
+            player.ShowCPText(false);
         }
     }
 }
