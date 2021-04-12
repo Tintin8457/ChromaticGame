@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class StickyWall : MonoBehaviour
 {
+    [Header("Sticky Wall Properties")]
     public Material ogWallColor; //Stores original wall color
+    public BoxCollider[] stickyParts; //Contains wall and sticky portion colliders
 
     [Header("Sticky Components")]
     public GameObject climbablePart;
     public GameObject platform;
     private Player3D player;
-    private ShaderBW bwShader; //Holds bw shader
+    private ShaderBW toonShader; //Holds toon shader
 
     [Header("Sticky Wall Type")]
     public string stickyIdentity; //Stores the sticky wall type string: horziontal and vertical
@@ -30,7 +32,7 @@ public class StickyWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bwShader = GetComponent<ShaderBW>();
+        toonShader = GetComponent<ShaderBW>();
 
         isSticky = false;
         cooldown = false;
@@ -47,6 +49,25 @@ public class StickyWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check for when the sticky wall can have collision when its transparency changes
+        //Disable collision
+        if (toonShader.canBePainted == true)
+        {
+            foreach (var sWall in stickyParts)
+            {
+                sWall.isTrigger = true;
+            }
+        }
+
+        //Enable collision
+        else if (toonShader.canBePainted == false)
+        {
+            foreach (var sWall in stickyParts)
+            {
+                sWall.isTrigger = false;
+            }
+        }
+
         //Start the countdown that the player can be on the wall
         if (isSticky == true)
         {
@@ -59,7 +80,7 @@ public class StickyWall : MonoBehaviour
                 platform.GetComponent<Renderer>().material = ogWallColor;
                 climbablePart.tag = "Untagged";
                 climbablePart.layer = 0;
-                bwShader.canBePainted = true; //Make visible and colorized
+                toonShader.canBePainted = true; //Make visible and colorized
 
                 // gameObject.tag = "Untagged";
                 // gameObject.layer = 0;
@@ -100,16 +121,16 @@ public class StickyWall : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision paintball)
+    void OnTriggerEnter(Collider paintball)
     {
         //Turn the wall yellow so the player can stick to it
         if(paintball.gameObject.tag == "Yellow" && cooldown == false)
         {
             isSticky = true;
-            platform.GetComponent<Renderer>().material.color = Color.yellow;
+            //platform.GetComponent<Renderer>().material.color = Color.yellow;
             climbablePart.tag = stickyIdentity;
             climbablePart.layer = 8;
-            bwShader.canBePainted = false; //Make visible and colorized
+            toonShader.canBePainted = false; //Make visible and colorized
 
             // gameObject.tag = "Climbable";
             // gameObject.layer = 8;

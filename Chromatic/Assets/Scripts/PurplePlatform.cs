@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PurplePlatform : MonoBehaviour
 {
+    [Header("Purple Platform Properties")]
     public Vector3 ogLocation; //Stores platform's original location
     public Material purPlat;
+    public BoxCollider platCollider;
     public float speed = 2.0f;
 
     [Header("Bools")]
@@ -29,37 +31,37 @@ public class PurplePlatform : MonoBehaviour
     public float coolDownTimer = 5f;
     public float resetCooldown = 5f;
 
-    private ShaderBW bwShader; //Holds bw shader
+    private ShaderBW toonShader; //Holds toon shader
     
     // Start is called before the first frame update
     void Start()
     {
-        bwShader = GetComponent<ShaderBW>();
+        toonShader = GetComponent<ShaderBW>();
 
         canChange = true;
         cooldown = false;
         changedColor = false;
 
-        // if (horizontal == true || vertical == true)
-        // {
-        //     dirChange = true;
-        // }
-
         horizontal = false;
         vertical = false;
-
-        //Find and get the directional indicator script
-        // GameObject orientation = GameObject.FindGameObjectWithTag("Moving");
-
-        // if (orientation != null)
-        // {
-        //     switchDir = orientation.GetComponent<FlipIndicator>();
-        // }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Check for when the purple platform can have collision when its transparency changes
+        //Disable collision
+        if (toonShader.canBePainted == true)
+        {
+            platCollider.isTrigger = true;
+        }
+
+        //Enable collision
+        else if (toonShader.canBePainted == false)
+        {
+            platCollider.isTrigger = false;
+        }
+
         //Start platform's alternative color behavior
         if (changedColor == true)
         {
@@ -104,7 +106,7 @@ public class PurplePlatform : MonoBehaviour
             timer = resetTimer; //Reset timer
             cooldown = true;
             gameObject.GetComponent<Renderer>().material = purPlat; //Reset original platform color
-            bwShader.canBePainted = true; //Reset color and transparency
+            toonShader.canBePainted = true; //Reset color and transparency
 
             //Stop platform from moving
             if (horizontal == true)
@@ -137,10 +139,10 @@ public class PurplePlatform : MonoBehaviour
         }
     }
 
-    //Changes the platform's direction when it triggers one of the two transforms
     void OnTriggerEnter(Collider direction)
     {
-        if(direction.gameObject.tag == "Moving")
+        //Changes the platform's direction when it triggers one of the two transforms
+        if (direction.gameObject.tag == "Moving")
         {
             if (dirChange == true)
             {
@@ -152,35 +154,37 @@ public class PurplePlatform : MonoBehaviour
                 dirChange = true;
             }
         }
-    }
 
-    void OnCollisionEnter(Collision changeColor)
-    {
         //Change the purple platform's color once before resetting
         //Changes to red to allow for horizontal direction
-        if (changeColor.gameObject.tag == "Red" && canChange == true)
+        if (direction.gameObject.tag == "Red" && canChange == true)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
+            //gameObject.GetComponent<Renderer>().material.color = Color.red;
+            toonShader.red = true;
             canChange = false;
             changedColor = true; //Start timer
             horizontal = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
-            bwShader.canBePainted = false; //Make visible and colorized
+            toonShader.canBePainted = false; //Make visible and colorized
         }
 
         //Changes to blue to allow for vertical direction
-        else if (changeColor.gameObject.tag == "Blue" && canChange == true)
+        else if (direction.gameObject.tag == "Blue" && canChange == true)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            //gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            toonShader.blue = true;
             canChange = false;
             changedColor = true; //Start timer
             vertical = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
-            bwShader.canBePainted = false; //Make visible and colorized
+            toonShader.canBePainted = false; //Make visible and colorized
         }
+    }
 
-        //Move player with moving platform
-        else if (changeColor.gameObject.tag == "Player")
+    //Move player with moving platform
+    void OnCollisionEnter(Collision changeColor)
+    {
+        if (changeColor.gameObject.tag == "Player")
         {
             changeColor.gameObject.transform.parent = gameObject.transform;
         }

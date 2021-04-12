@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TestForBW_3
-  m_Shader: {fileID: -6465566751694194690, guid: 7b6fefd1fb01d954fbc475fafe0b7848, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 5bc13f929e531744a860f0b2a3483290, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -63,6 +63,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -77,7 +81,11 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 0.5
     - _Parallax: 0.02
+    - _RLightBlend: 0.222
+    - _RLightSize: 0.105
     - _Saturation: 1
+    - _ShaBlend: 1
+    - _ShaSize: 0.27
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -87,4 +95,6 @@ Material:
     - _AlbedoColor: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 0, g: 0.4778552, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
+    - _ShaColor: {r: 0, g: 0.11273963, b: 0.7264151, a: 0}
   m_BuildTextureStacks: []
