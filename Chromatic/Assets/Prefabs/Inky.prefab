@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4473383420609577565}
-  m_Material: {fileID: 13400000, guid: ccabff2b36026524e80b03f5b5f054ce, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
@@ -168,7 +168,8 @@ MonoBehaviour:
   - {r: 0.92156863, g: 0.16078432, b: 0.19215687, a: 1}
   - {r: 0.29803923, g: 0.34901962, b: 0.65882355, a: 1}
   - {r: 0.92941177, g: 0.90588236, b: 0.08235294, a: 1}
-  colorSwap: {fileID: 0}
+  prevColor: {fileID: 0}
+  nextColor: {fileID: 0}
 --- !u!64 &2038080884
 MeshCollider:
   m_ObjectHideFlags: 0
