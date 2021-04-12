@@ -47,7 +47,7 @@ public class Player3D : MonoBehaviour
     public Image curColor; //Will be used to update the player's current color
     public Color[] uiColors = new Color[4]; //Changes the current color image from the player's current color 
     private int colorCurUI = 0; //Use for changing the current color UI
-    private int colorNextUI = 0; //Use to change the next color UI
+    //private int colorNextUI = 0; //Use to change the next color UI
     public Image colorSwap; //Will be used to show which color will be next
     //public List <Color> colorInventory = new List<Color>(); //Store colors in here to see the next color to switch to
 
@@ -67,6 +67,8 @@ public class Player3D : MonoBehaviour
         alterMovement = false;
         stickyHor = false;
         stopJumping = false;
+
+        colorSwap.color = uiColors[1]; //Display the default next color from the predetermined color order until the player switches color
     }
 
     void Update()
@@ -97,19 +99,16 @@ public class Player3D : MonoBehaviour
             }
         }
 
-        //Press shift to change colors and the projectile type
+        //Press shift to change colors, the projectile type, and update color UIs
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
             ChangeMaterial(currentColorMode);
             playerShoot.ChangeProjType(currentColorMode);
-            //colorCurUI = pUpdateCurColorUI(colorCurUI);
+
+            //colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
             UpdateCurColorUI(currentColorMode);
-            //CheckForNextColorUI(currentColorMode);
-            //ColorSwaping(currentColorMode);
-            //colorSwap.color = colorInventory[currentColorMode];
-            colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
-            ChangeNewColorUI(colorNextUI);
+            ChangeNewColorUI(currentColorMode);
         }
 
         //Make sure there is the amount of collected bristles
@@ -182,7 +181,7 @@ public class Player3D : MonoBehaviour
     //Reset player position to last checkpoint
     public void ResetToCheckpoint()
     {
-        Debug.Log("Died.");
+        //Debug.Log("Died.");
         transform.position = currentCheckpoint;
     }
 
@@ -192,27 +191,25 @@ public class Player3D : MonoBehaviour
         cpText.text = "Checkpoint: " + currentCP.ToString();
     }
 
-    //Use UI indicator to show the next color to change to switch between 4 colors in a specific predetermined order and loop around
+    //Use UI indicator to show the next color to change to between 4 colors in a specific predetermined order and loop around
     public void ChangeNewColorUI(int nColor)
     {
-        colorNextUI = nColor;
-
         switch(nColor)
         {
             case 0:
-                colorSwap.color = uiColors[colorNextUI];
+                colorSwap.color = uiColors[1];
                 break;
             case 1:
-                colorSwap.color = uiColors[colorNextUI];
+                colorSwap.color = uiColors[2];
                 break;
             case 2:
-                colorSwap.color = uiColors[colorNextUI];
+                colorSwap.color = uiColors[3];
                 break;
             case 3:
-                colorSwap.color = uiColors[colorNextUI];
+                colorSwap.color = uiColors[0];
                 break;
             default:
-                colorSwap.color = uiColors[colorNextUI];
+                colorSwap.color = uiColors[1];
                 break;
         }
     }
