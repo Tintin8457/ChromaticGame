@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 466767a3f4b10be4caf166f2c4f85714
+guid: f147e8e56e09adb4686c726b5f02ee06
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,8 +10,7 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Slime Box
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 2088881df24f6184781b093fb294e052, type: 3}
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
