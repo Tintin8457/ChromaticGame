@@ -16,7 +16,7 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-    //Exit checkpoint and remove checkpoint text
+    //Exit and remove last checkpoint
     void OnTriggerExit(Collider exitCP)
     {
         Player3D player = exitCP.GetComponent<Player3D>();
@@ -24,6 +24,7 @@ public class Checkpoint : MonoBehaviour
         if(player != null)
         {
             player.ShowCPText(false);
+            Destroy(gameObject);
         }
     }
 }

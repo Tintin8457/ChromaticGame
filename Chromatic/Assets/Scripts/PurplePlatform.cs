@@ -14,6 +14,8 @@ public class PurplePlatform : MonoBehaviour
     public bool canChange; //Only allows the player to shoot at this platform once
     public bool cooldown;
     public bool changedColor;
+    public bool red; //Change to red once
+    public bool blue; //Change to blue once
 
     [Header("Directional Indicators")]
     public bool horizontal;
@@ -44,6 +46,9 @@ public class PurplePlatform : MonoBehaviour
 
         horizontal = false;
         vertical = false;
+
+        red = true;
+        blue = true;
     }
 
     // Update is called once per frame
@@ -156,8 +161,8 @@ public class PurplePlatform : MonoBehaviour
         }
 
         //Change the purple platform's color once before resetting
-        //Changes to red to allow for horizontal direction
-        if (direction.gameObject.tag == "Red" && canChange == true)
+        //Changes to red to allow for horizontal direction one time
+        if (direction.gameObject.tag == "Red" && canChange == true && red == true)
         {
             //gameObject.GetComponent<Renderer>().material.color = Color.red;
             toonShader.red = true;
@@ -166,10 +171,11 @@ public class PurplePlatform : MonoBehaviour
             horizontal = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
             toonShader.canBePainted = false; //Make visible and colorized
+            red = false; //Prevent player from turning platform into red again
         }
 
-        //Changes to blue to allow for vertical direction
-        else if (direction.gameObject.tag == "Blue" && canChange == true)
+        //Changes to blue to allow for vertical direction one time
+        else if (direction.gameObject.tag == "Blue" && canChange == true && blue == true)
         {
             //gameObject.GetComponent<Renderer>().material.color = Color.blue;
             toonShader.blue = true;
@@ -178,6 +184,7 @@ public class PurplePlatform : MonoBehaviour
             vertical = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
             toonShader.canBePainted = false; //Make visible and colorized
+            blue = false; //Prevent player from turning platform into blue again
         }
     }
 
