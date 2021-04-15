@@ -43,7 +43,7 @@ public class ShootingController : MonoBehaviour
         //Shoot key
         if (stopShooting == false)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Shoot();
             }

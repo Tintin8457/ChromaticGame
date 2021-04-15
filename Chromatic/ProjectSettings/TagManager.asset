@@ -22,6 +22,7 @@ TagManager:
   - Current
   - Stick
   - Timer
+  - Button
   layers:
   - Default
   - TransparentFX
