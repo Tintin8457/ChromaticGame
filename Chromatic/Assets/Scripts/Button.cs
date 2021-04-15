@@ -5,7 +5,7 @@ using TMPro;
 
 public class Button : MonoBehaviour
 {
-    //Animator button;
+    public Animator button;
     public bool canPress; //Only press button once
     private float display = 3.0f;
 
@@ -20,7 +20,6 @@ public class Button : MonoBehaviour
     {
         canPress = true;
         amountPP.SetActive(false);
-        //button = GetComponent<Animator>();
 
         //Get and find Inky
         GameObject inky = GameObject.FindGameObjectWithTag("Player");
@@ -36,7 +35,7 @@ public class Button : MonoBehaviour
     {
         // if (Input.GetKeyDown(KeyCode.E))
         // {
-        //     button.SetBool("push", true);
+        //     button.SetBool("press", true);
         // }
     }
 
@@ -80,6 +79,7 @@ public class Button : MonoBehaviour
         else if (inkyBr.bristles >= br)
         {
             amountText.text = "You have collected all bristles.";
+            button.SetBool("press", true);
         }
     }
 }
