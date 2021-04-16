@@ -105,7 +105,18 @@ public class Button : MonoBehaviour
         else if (inkyBr.bristles < br)
         {
             br -= inkyBr.bristles;
-            amountText.text = "You need to collect " + br.ToString() + " more bristles.";
+
+            //Display higher than 1
+            if (br > 1)
+            {
+                amountText.text = "You need to collect " + br.ToString() + " more bristles.";
+            }
+
+            //Display equal to 1
+            else if (br == 1)
+            {
+                amountText.text = "You need to collect " + br.ToString() + " more bristle.";
+            }
         }
 
         //Display text from after getting all bristles in the stage
