@@ -22,6 +22,10 @@ public class BlueMovingVerPlatform : MonoBehaviour
     public float coolDownTimer;
     public float resetTimer;
 
+    [Header("Audio")]
+    AudioSource platSource;
+    public AudioClip activatedClip; //Play sfx when activated
+
     public Material ogPlatColor; //Holds original color
     private ShaderBW toonShader; //Holds toon shader
 
@@ -37,6 +41,8 @@ public class BlueMovingVerPlatform : MonoBehaviour
         }
 
         cooldown = false;
+
+        platSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -120,6 +126,8 @@ public class BlueMovingVerPlatform : MonoBehaviour
         {
             canMoveVer = true;
             toonShader.canBePainted = false; //Make visible and colorized
+            platSource.clip = activatedClip;
+            platSource.Play();
             gameObject.GetComponent<Renderer>().material.color = Color.blue;
         }
     }

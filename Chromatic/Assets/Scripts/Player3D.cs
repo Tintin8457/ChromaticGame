@@ -50,7 +50,11 @@ public class Player3D : MonoBehaviour
     //private int colorNextUI = 0; //Use to change the next color UI
     public Image prevColor; //Will be used to show the previous color
     public Image nextColor; //Will be used to show which color will be next
-    //public List <Color> colorInventory = new List<Color>(); //Store colors in here to see the next color to switch to
+
+    [Header("Audio")]
+    //public AudioSource worldMusic;
+    public AudioSource inkySound;
+    public AudioClip[] inkySFX;
 
     void Start()
     {
@@ -120,6 +124,19 @@ public class Player3D : MonoBehaviour
         //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
         //curColor.color = currentColor.color;
         //UpdateCurColorUI(currentColorMode);
+
+        //Play walk sound effect
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            inkySound.clip = inkySFX[0];
+            inkySound.Play();
+        }
+
+        //Stop walk sound effect
+        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            inkySound.Stop();
+        }
     }
 
     void FixedUpdate()

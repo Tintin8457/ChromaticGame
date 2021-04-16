@@ -33,6 +33,10 @@ public class PurplePlatform : MonoBehaviour
     public float coolDownTimer = 5f;
     public float resetCooldown = 5f;
 
+    [Header("Audio")]
+    AudioSource platSource;
+    public AudioClip activatedClip; //Play sfx when activated
+
     private ShaderBW toonShader; //Holds toon shader
     
     // Start is called before the first frame update
@@ -49,6 +53,8 @@ public class PurplePlatform : MonoBehaviour
 
         red = true;
         blue = true;
+
+        platSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -171,6 +177,8 @@ public class PurplePlatform : MonoBehaviour
             horizontal = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
             toonShader.canBePainted = false; //Make visible and colorized
+            platSource.clip = activatedClip;
+            platSource.Play();
             red = false; //Prevent player from turning platform into red again
         }
 
@@ -184,6 +192,8 @@ public class PurplePlatform : MonoBehaviour
             vertical = true;
             FlipTransforms(); //Change orientation of the two invisible transforms
             toonShader.canBePainted = false; //Make visible and colorized
+            platSource.clip = activatedClip;
+            platSource.Play();
             blue = false; //Prevent player from turning platform into blue again
         }
     }

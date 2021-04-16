@@ -29,6 +29,10 @@ public class StickyWall : MonoBehaviour
     public float coolDownTimer;
     public float resetCooldown;
 
+    [Header("Audio")]
+    AudioSource swSource;
+    public AudioClip activatedClip; //Play sfx when activated
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,8 @@ public class StickyWall : MonoBehaviour
         {
             player = inky.GetComponent<Player3D>();
         }
+
+        swSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -131,6 +137,9 @@ public class StickyWall : MonoBehaviour
             climbablePart.tag = stickyIdentity;
             climbablePart.layer = 8;
             toonShader.canBePainted = false; //Make visible and colorized
+
+            swSource.clip = activatedClip;
+            swSource.Play();
 
             // gameObject.tag = "Climbable";
             // gameObject.layer = 8;

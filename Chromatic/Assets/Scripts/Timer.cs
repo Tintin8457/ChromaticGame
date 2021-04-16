@@ -59,6 +59,7 @@ public class Timer : MonoBehaviour
             player.stopJumping = true; //Stop player from jumping
             shoot.stopShooting = true; //Stop player from shooting
             canTime = false; //Stop timer
+            //player.worldMusic.Stop(); //Stop world music
             restartButton.SetActive(true); //Summon restart button
             quitButton.SetActive(true); //Summon quit button
         }
