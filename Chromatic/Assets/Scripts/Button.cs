@@ -5,9 +5,21 @@ using TMPro;
 
 public class Button : MonoBehaviour
 {
+    [Header("Button")]
     public Animator button;
     public bool canPress; //Only press button once
+
+    [Header("Interactable Object")]
+    public GameObject interactable;
+
     private float display = 3.0f;
+
+    [Header("Enter Bristle Amount")]
+    public int bristleNum;
+
+    [Header("Open Bools")]
+    public bool open;
+    public bool canOpen;
 
     [Header("Bristle Amount Pop-Up")]
     public GameObject amountPP; //Disable/Enable text when necessary
@@ -33,10 +45,31 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.E))
-        // {
-        //     button.SetBool("press", true);
-        // }
+        //The door will check if the player has a specific amount of bristles before opening, which is dependent on how many are in the current stage
+        if (canPress == false && open == false)
+        {
+            //The door can open after a required amount
+            if (inkyBr.bristles >= bristleNum)
+            {
+                open = true;
+                canOpen = true;
+                UpdateText(bristleNum);
+                canPress = false;
+            }
+
+            //The door cannot open after getting less than the required amount
+            else if (inkyBr.bristles < bristleNum)
+            {
+                UpdateText(bristleNum);
+                canPress = true;
+            }
+        }
+
+        //Open door
+        else if (open == true && canOpen == true)
+        {
+            interactable.GetComponent<Animator>().SetBool("Open", true);
+        }
     }
 
     //The button can only be activated from any of Inky's projectiles
