@@ -163,6 +163,7 @@ MonoBehaviour:
   cpText: {fileID: 0}
   curBristles: {fileID: 0}
   bristles: 0
+  totalBristles: 10
   curColor: {fileID: 0}
   uiColors:
   - {r: 1, g: 1, b: 1, a: 1}

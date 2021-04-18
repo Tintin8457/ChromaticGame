@@ -40,8 +40,11 @@ public class Player3D : MonoBehaviour
 
     [Header("Checkpoint UI")]
     public TextMeshProUGUI cpText; //Will use to update checkpoint UI
+
+    [Header("Bristles UI")]
     public TextMeshProUGUI curBristles; //Holds current amount of bristles
     public int bristles = 0; //Amount of bristles
+    public int totalBristles; //Enter total amount of bristles in level
 
     [Header("Color UI")]
     public Image curColor; //Will be used to update the player's current color
@@ -128,7 +131,7 @@ public class Player3D : MonoBehaviour
         }
 
         //Make sure there is the amount of collected bristles
-        curBristles.text = "Bristles Collected: " + bristles.ToString();
+        curBristles.text = "Bristles: " + bristles.ToString() + "/" + totalBristles.ToString();
 
         //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
         //curColor.color = currentColor.color;
