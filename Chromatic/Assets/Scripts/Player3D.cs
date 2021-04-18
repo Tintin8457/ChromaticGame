@@ -86,36 +86,45 @@ public class Player3D : MonoBehaviour
         //Press spacebar to jump if the player can jump
         if (stopJumping == false)
         {
-            if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
+            if (Time.timeScale == 1)
             {
-                //Player has normal jumping when the player is not on a sticky horizontal floor
-                if (stickyHor == false)
+                if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
                 {
-                    playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                }
+                    //Player has normal jumping when the player is not on a sticky horizontal floor
+                    if (stickyHor == false)
+                    {
+                        playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    }
 
-                //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
-                else if (stickyHor == true)
-                {
-                    playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+                    else if (stickyHor == true)
+                    {
+                        playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+                    }
+                
+                    //Debug.Log(Vector3.up * jumpForce);        
                 }
-            
-                //Debug.Log(Vector3.up * jumpForce);        
             }
         }
 
         //Press shift to change colors, the projectile type, and update color UIs
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (stopJumping == false)
         {
-            currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
-            ChangeMaterial(currentColorMode);
-            playerShoot.ChangeProjType(currentColorMode);
+            if (Time.timeScale == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
+                    ChangeMaterial(currentColorMode);
+                    playerShoot.ChangeProjType(currentColorMode);
 
-            //colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
-            UpdateCurColorUI(currentColorMode);
-            ChangeNewColorUI(currentColorMode);
-            ChangePreviousColorUI(currentColorMode);
+                    //colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
+                    UpdateCurColorUI(currentColorMode);
+                    ChangeNewColorUI(currentColorMode);
+                    ChangePreviousColorUI(currentColorMode);
+                }
+            }
         }
 
         //Make sure there is the amount of collected bristles
