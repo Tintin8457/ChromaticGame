@@ -5,6 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    public GameObject resumePopUp;
+
+    // void Start()
+    // {
+    //     resumePopUp.SetActive(false);
+    // }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        resumePopUp.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        resumePopUp.SetActive(false);
+    }
+
     //Restart level
     public void Restart()
     {

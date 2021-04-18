@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Player3D : MonoBehaviour
@@ -40,8 +41,13 @@ public class Player3D : MonoBehaviour
 
     [Header("Checkpoint UI")]
     public TextMeshProUGUI cpText; //Will use to update checkpoint UI
+
+    [Header("Bristles UI")]
     public TextMeshProUGUI curBristles; //Holds current amount of bristles
     public int bristles = 0; //Amount of bristles
+    public int totalBristles; //Enter total amount of bristles in level
+    public GameObject superbrush; //Will appear after the player collects all bristles in the level
+    private int sbLimit = 1;
 
     [Header("Color UI")]
     public Image curColor; //Will be used to update the player's current color
@@ -86,44 +92,74 @@ public class Player3D : MonoBehaviour
         //Press spacebar to jump if the player can jump
         if (stopJumping == false)
         {
-            if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
+            if (Time.timeScale == 1)
             {
-                //Player has normal jumping when the player is not on a sticky horizontal floor
-                if (stickyHor == false)
+                if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
                 {
-                    playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                }
+                    //Player has normal jumping when the player is not on a sticky horizontal floor
+                    if (stickyHor == false)
+                    {
+                        playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    }
 
-                //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
-                else if (stickyHor == true)
-                {
-                    playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+                    else if (stickyHor == true)
+                    {
+                        playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+                    }
+                
+                    //Debug.Log(Vector3.up * jumpForce);        
                 }
-            
-                //Debug.Log(Vector3.up * jumpForce);        
             }
         }
 
         //Press shift to change colors, the projectile type, and update color UIs
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (stopJumping == false)
         {
-            currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
-            ChangeMaterial(currentColorMode);
-            playerShoot.ChangeProjType(currentColorMode);
+            if (Time.timeScale == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    currentColorMode = playerShoot.CheckNextAvailableColor(currentColorMode);
+                    ChangeMaterial(currentColorMode);
+                    playerShoot.ChangeProjType(currentColorMode);
 
-            //colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
-            UpdateCurColorUI(currentColorMode);
-            ChangeNewColorUI(currentColorMode);
-            ChangePreviousColorUI(currentColorMode);
+                    //colorNextUI = playerShoot.CheckNextAvailableColor(colorNextUI);
+                    UpdateCurColorUI(currentColorMode);
+                    ChangeNewColorUI(currentColorMode);
+                    ChangePreviousColorUI(currentColorMode);
+                }
+            }
         }
 
         //Make sure there is the amount of collected bristles
-        curBristles.text = "Bristles Collected: " + bristles.ToString();
+        curBristles.text = "Bristles: " + bristles.ToString() + "/" + totalBristles.ToString();
 
         //Update the color UI icon when the player's color changes AND eventually when the player chooses which color to shoot with
         //curColor.color = currentColor.color;
         //UpdateCurColorUI(currentColorMode);
+
+        //Get superbrush after collecting all bristles in the level
+        if (bristles == totalBristles)
+        {
+            if (sbLimit == 1)
+            {
+                //For programmers
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Prototype"))
+                {
+                    Instantiate(superbrush, transform.position + (transform.up * 0.5f + -transform.right * 2.5f), transform.rotation);
+                }
+                
+                //For final version/level designers
+                else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ChromaticVertSlice"))
+                {
+                    Instantiate(superbrush, transform.position + (transform.up * 0.5f + -transform.right * 4f), transform.rotation);
+                }
+
+                sbLimit = 0;
+            }
+        }
 
         //Play walk sound effect
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
@@ -290,10 +326,10 @@ public class Player3D : MonoBehaviour
     private void OnCollisionEnter(Collision slow)
     {
         //When the player is on the specific floor, the platform will shortly disappear 
-        if (slow.gameObject.tag == "SlowBreak")
-        {
-            canDestroyFloor = true;
-        }
+        // if (slow.gameObject.tag == "SlowBreak")
+        // {
+        //     canDestroyFloor = true;
+        // }
 
         //The player's movement changes when they are on the vertical sticky wall
         if (slow.gameObject.tag == "VerClimbable")
@@ -304,13 +340,13 @@ public class Player3D : MonoBehaviour
         }
 
         //The player's movement changes when they are on the horizontal sticky wall
-        if (slow.gameObject.tag == "HorClimbable")
-        {
-            //alterMovement = true;
-            stickyHor = true;
-            playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
-            playerRB.useGravity = false;
-        }
+        // if (slow.gameObject.tag == "HorClimbable")
+        // {
+        //     //alterMovement = true;
+        //     stickyHor = true;
+        //     playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
+        //     playerRB.useGravity = false;
+        // }
     }
 
     //The player's movement changes back to normal when they are off the sticky wall
@@ -322,12 +358,12 @@ public class Player3D : MonoBehaviour
             playerRB.useGravity = true;
         }
 
-        if (back.gameObject.tag == "HorClimbable")
-        {
-            //alterMovement = false;
-            stickyHor = false;
-            playerRB.useGravity = true;
-        }
+        // if (back.gameObject.tag == "HorClimbable")
+        // {
+        //     //alterMovement = false;
+        //     stickyHor = false;
+        //     playerRB.useGravity = true;
+        // }
     }
 
     //Use it for separate function desc- Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with

@@ -12,12 +12,14 @@ public class SlowBreakFloor : MonoBehaviour
 
     public GameObject floor;
     public bool reappear;
+    public bool disappear;
     private Player3D player;
 
     // Start is called before the first frame update
     void Start()
     {
         reappear = false;
+        disappear = false;
 
         //Find and get player
         GameObject feelPlayer = GameObject.FindGameObjectWithTag("Player");
@@ -32,7 +34,7 @@ public class SlowBreakFloor : MonoBehaviour
     void Update()
     {
         //The timer is activated from the player touching the floor
-        if (player.canDestroyFloor == true)
+        if (disappear == true)
         {
             timer -= Time.deltaTime; //Start timer
 
@@ -42,7 +44,7 @@ public class SlowBreakFloor : MonoBehaviour
                 timer = resetTimer; //Reset timer
                 floor.SetActive(false);
                 reappear = true;
-                player.canDestroyFloor = false;
+                disappear = false;
             }
         }
 
@@ -58,6 +60,16 @@ public class SlowBreakFloor : MonoBehaviour
                 floor.SetActive(true);
                 reappear = false;
             }
+        }
+    }
+
+    //Start to make the floor disappear
+    void OnTriggerEnter(Collider slow)
+    {
+        //When the player is on the specific floor, the platform will shortly disappear 
+        if (slow.gameObject.tag == "Player")
+        {
+            disappear = true;
         }
     }
 }
