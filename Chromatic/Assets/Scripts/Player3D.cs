@@ -100,16 +100,18 @@ public class Player3D : MonoBehaviour
                 if(IsGrounded() && (Input.GetKeyDown(KeyCode.Space)))
                 {
                     //Player has normal jumping when the player is not on a sticky horizontal floor
-                    if (stickyHor == false)
+                    if (alterMovement == false)
                     {
                         playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                        //inky.SetBool("jump", true); //Play jump anim
                     }
 
                     //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
-                    else if (stickyHor == true)
+                    else if (alterMovement == true)
                     {
                         playerRB.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+                        //inky.SetBool("jump", true); //Play jump anim
                     }
                 
                     //Debug.Log(Vector3.up * jumpForce);        
