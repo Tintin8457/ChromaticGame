@@ -290,10 +290,10 @@ public class Player3D : MonoBehaviour
     private void OnCollisionEnter(Collision slow)
     {
         //When the player is on the specific floor, the platform will shortly disappear 
-        if (slow.gameObject.tag == "SlowBreak")
-        {
-            canDestroyFloor = true;
-        }
+        // if (slow.gameObject.tag == "SlowBreak")
+        // {
+        //     canDestroyFloor = true;
+        // }
 
         //The player's movement changes when they are on the vertical sticky wall
         if (slow.gameObject.tag == "VerClimbable")
@@ -304,13 +304,13 @@ public class Player3D : MonoBehaviour
         }
 
         //The player's movement changes when they are on the horizontal sticky wall
-        if (slow.gameObject.tag == "HorClimbable")
-        {
-            //alterMovement = true;
-            stickyHor = true;
-            playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
-            playerRB.useGravity = false;
-        }
+        // if (slow.gameObject.tag == "HorClimbable")
+        // {
+        //     //alterMovement = true;
+        //     stickyHor = true;
+        //     playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
+        //     playerRB.useGravity = false;
+        // }
     }
 
     //The player's movement changes back to normal when they are off the sticky wall
@@ -322,12 +322,12 @@ public class Player3D : MonoBehaviour
             playerRB.useGravity = true;
         }
 
-        if (back.gameObject.tag == "HorClimbable")
-        {
-            //alterMovement = false;
-            stickyHor = false;
-            playerRB.useGravity = true;
-        }
+        // if (back.gameObject.tag == "HorClimbable")
+        // {
+        //     //alterMovement = false;
+        //     stickyHor = false;
+        //     playerRB.useGravity = true;
+        // }
     }
 
     //Use it for separate function desc- Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
