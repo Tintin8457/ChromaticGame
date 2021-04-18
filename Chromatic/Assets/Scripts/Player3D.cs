@@ -10,7 +10,7 @@ public class Player3D : MonoBehaviour
     private float horzMovement;
     private float vertMovement;
     private Rigidbody playerRB;
-    private MeshCollider playerCol;
+    private BoxCollider playerCol;
     private Renderer playerRend;
     private ShootingController playerShoot;
     
@@ -62,12 +62,15 @@ public class Player3D : MonoBehaviour
     public AudioSource inkySound;
     public AudioClip[] inkySFX;
 
+    Animator inky;
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-        playerCol = GetComponent<MeshCollider>();
+        playerCol = GetComponent<BoxCollider>();
         playerRend = GetComponent<Renderer>();
         playerShoot = GetComponent<ShootingController>();
+        inky = GetComponent<Animator>();
         
         playerRend.material = inkyMaterials[0]; //Sets player's starting material to Greyscale
         currentCheckpoint = transform.position; //Sets player's first checkpoint to player location on start up
@@ -166,12 +169,18 @@ public class Player3D : MonoBehaviour
         {
             inkySound.clip = inkySFX[0];
             inkySound.Play();
+
+            //Play move anim
+            //inky.SetBool("move", true);
         }
 
         //Stop walk sound effect
         else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             inkySound.Stop();
+
+            //Play idle anim
+            //inky.SetBool("move", false);
         }
     }
 
