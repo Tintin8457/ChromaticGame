@@ -157,9 +157,9 @@ public class ShaderBW : MonoBehaviour
                     blue = false;
 
                     //Assign colors for purple platform color and direction colors
-                    ogPurple = new Color(0.5547814f, 0f, 0.7075472f, 0f);
-                    hor = new Color(1f, 0f, 0.07843138f, 0f);
-                    ver = new Color(0f, 0.1127396f, 0.7264151f, 0f);
+                    // ogPurple = new Color(0.5547814f, 0f, 0.7075472f, 0f);
+                    // hor = new Color(1f, 0f, 0.07843138f, 0f);
+                    // ver = new Color(0f, 0.1127396f, 0.7264151f, 0f);
                 }
             }
         }
@@ -218,7 +218,7 @@ public class ShaderBW : MonoBehaviour
                     red = false;
                     blue = false;
 
-                    shader.SetColor("_ShaColor", ogPurple);
+                    //shader.SetColor("_ShaColor", ogPurple);
                     shader.SetFloat("_Opacity", 0.5f);
                     components.SetPropertyBlock(shader);
                 }
@@ -228,14 +228,14 @@ public class ShaderBW : MonoBehaviour
                 {
                     if (red == true)
                     {
-                        shader.SetColor("_ShaColor", hor);
+                        //shader.SetColor("_ShaColor", hor);
                         shader.SetFloat("_Opacity", 1f);
                         components.SetPropertyBlock(shader);
                     }
 
                     else if (blue == true)
                     {
-                        shader.SetColor("_ShaColor", ver);
+                        //shader.SetColor("_ShaColor", ver);
                         shader.SetFloat("_Opacity", 1f);
                         components.SetPropertyBlock(shader);
                     }
@@ -295,7 +295,8 @@ public class ShaderBW : MonoBehaviour
                         red = false;
                         blue = false;
 
-                        shader.SetColor("_ShaColor", ogPurple);
+                        //shader.SetColor("_ShaColor", ogPurple);
+                        shader.SetFloat("_Opacity", 1f);
                         mat.SetPropertyBlock(shader);
                     }
 
@@ -304,13 +305,15 @@ public class ShaderBW : MonoBehaviour
                     {
                         if (red == true)
                         {
-                            shader.SetColor("_ShaColor", hor);
+                            //shader.SetColor("_ShaColor", hor);
+                            shader.SetFloat("_Opacity", 1f);
                             mat.SetPropertyBlock(shader);
                         }
 
                         else if (blue == true)
                         {
-                            shader.SetColor("_ShaColor", ver);
+                            //shader.SetColor("_ShaColor", ver);
+                            shader.SetFloat("_Opacity", 1f);
                             mat.SetPropertyBlock(shader);
                         }
                     }

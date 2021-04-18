@@ -37,6 +37,9 @@ public class PurplePlatform : MonoBehaviour
     AudioSource platSource;
     public AudioClip activatedClip; //Play sfx when activated
 
+    [Header("Colors")]
+    public Texture[] purplePlatColors; //Set purple, red, and blue colors for purple platform events
+
     private ShaderBW toonShader; //Holds toon shader
     
     // Start is called before the first frame update
@@ -116,7 +119,8 @@ public class PurplePlatform : MonoBehaviour
         {
             timer = resetTimer; //Reset timer
             cooldown = true;
-            gameObject.GetComponent<Renderer>().material = purPlat; //Reset original platform color
+            //gameObject.GetComponent<Renderer>().material = purPlat; //Reset original platform color
+            gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[0]);
             toonShader.canBePainted = true; //Reset color and transparency
 
             //Stop platform from moving
@@ -175,6 +179,7 @@ public class PurplePlatform : MonoBehaviour
             canChange = false;
             changedColor = true; //Start timer
             horizontal = true;
+            gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[1]);
             FlipTransforms(); //Change orientation of the two invisible transforms
             toonShader.canBePainted = false; //Make visible and colorized
             platSource.clip = activatedClip;
@@ -190,6 +195,7 @@ public class PurplePlatform : MonoBehaviour
             canChange = false;
             changedColor = true; //Start timer
             vertical = true;
+            gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[2]);
             FlipTransforms(); //Change orientation of the two invisible transforms
             toonShader.canBePainted = false; //Make visible and colorized
             platSource.clip = activatedClip;
