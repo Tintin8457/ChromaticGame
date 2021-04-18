@@ -164,6 +164,7 @@ MonoBehaviour:
   curBristles: {fileID: 0}
   bristles: 0
   totalBristles: 10
+  superbrush: {fileID: 8928328643303538469, guid: fb61e49e123c29b4aa70387101f8e581, type: 3}
   curColor: {fileID: 0}
   uiColors:
   - {r: 1, g: 1, b: 1, a: 1}

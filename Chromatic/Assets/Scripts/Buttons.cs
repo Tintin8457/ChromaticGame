@@ -7,10 +7,10 @@ public class Buttons : MonoBehaviour
 {
     public GameObject resumePopUp;
 
-    void Start()
-    {
-        resumePopUp.SetActive(false);
-    }
+    // void Start()
+    // {
+    //     resumePopUp.SetActive(false);
+    // }
 
     public void Pause()
     {
