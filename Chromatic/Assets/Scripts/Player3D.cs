@@ -28,6 +28,7 @@ public class Player3D : MonoBehaviour
     [Header("Bools")]
     public bool alterMovement;
     public bool stickyHor; //Use when the player is on the horizontal sticky floor
+    public bool onRamp; //Change rotation on ramp
 
     [Header("Colors")]
     public Material currentColor;
@@ -85,6 +86,8 @@ public class Player3D : MonoBehaviour
         nextColor.color = uiColors[1]; //Display the default next color from the predetermined color order until the player switches color
         prevColor.color = uiColors[3]; //Display the default previous color from the predetermined color order until the player switches color
         
+
+        onRamp = false;
     }
 
     void Update()
@@ -144,6 +147,23 @@ public class Player3D : MonoBehaviour
             }
         }
 
+        //Play shooting animation
+        if (stopJumping == false)
+        {
+            if (Time.timeScale == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    inky.SetBool("shoot", true);
+                }
+
+                else if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    inky.SetBool("shoot", false);
+                }
+            }
+        }
+
         //Make sure there is the amount of collected bristles
         curBristles.text = "Bristles: " + bristles.ToString() + "/" + totalBristles.ToString();
 
@@ -172,34 +192,64 @@ public class Player3D : MonoBehaviour
             }
         }
 
-        //Play walk sound effect and anim
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (stopJumping == false)
         {
-            inkySound.clip = inkySFX[0];
-            inkySound.Play();
+            if (Time.timeScale == 1)
+            {
+                //Play walk sound effect and anim
+                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    inkySound.clip = inkySFX[0];
+                    inkySound.Play();
 
-            inky.SetBool("isMoving", true);
-            transform.eulerAngles = new Vector3(0f, 220f, 0f);
-            //inky.SetFloat("Move", -horzMovement);
-        }
+                    inky.SetBool("isMoving", true);
 
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            inkySound.clip = inkySFX[0];
-            inkySound.Play();
+                    //Change to left orientation
+                    if (onRamp == false)
+                    {
+                        transform.eulerAngles = new Vector3(0f, 220f, 0f);
+                    }
 
-            inky.SetBool("isMoving", true);
-            transform.eulerAngles = new Vector3(0f, 140f, 0f);
-            //inky.SetFloat("Move", horzMovement);
-        }
+                    //Change z-axis when player is on ramp
+                    else if (onRamp == true)
+                    {
+                        transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                    }
 
-        //Stop walk sound effect and anim
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            inkySound.Stop();
+                    //inky.SetFloat("Move", -horzMovement);
+                }
 
-            //Play idle anim
-            inky.SetBool("isMoving", false);
+                else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    inkySound.clip = inkySFX[0];
+                    inkySound.Play();
+
+                    inky.SetBool("isMoving", true);
+                    
+                    //Change to right orientation
+                    if (onRamp == false)
+                    {
+                        transform.eulerAngles = new Vector3(0f, 160f, 0f);
+                    }
+
+                    //Change z-axis when player is on ramp
+                    else if (onRamp == true)
+                    {
+                        transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                    }
+
+                    //inky.SetFloat("Move", horzMovement);
+                }
+
+                //Stop walk sound effect and anim
+                else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+                {
+                    inkySound.Stop();
+
+                    //Play idle anim
+                    inky.SetBool("isMoving", false);
+                }
+            }
         }
     }
 
@@ -367,9 +417,17 @@ public class Player3D : MonoBehaviour
             playerRB.useGravity = false;
         }
 
-        if (slow.gameObject.tag == "Ground")
+        //Play land anim after landing on the ground or slow-break floor
+        if (slow.gameObject.tag == "Ground" || slow.gameObject.tag == "SlowBreak")
         {
-            inky.SetBool("jump", false); //Play land anim
+            inky.SetBool("jump", false);
+            onRamp = false;
+        }
+
+        if (slow.gameObject.tag == "Ramp")
+        {
+            inky.SetBool("jump", false);
+            onRamp = true;
         }
 
         //The player's movement changes when they are on the horizontal sticky wall
@@ -382,6 +440,20 @@ public class Player3D : MonoBehaviour
         // }
     }
 
+    //Change rotation z value when the player is on it
+    private void OnCollisionStay(Collision ramp)
+    {
+        if (ramp.gameObject.tag == "Ramp")
+        {
+            onRamp = true;
+        }
+
+        if (ramp.gameObject.tag == "Ground")
+        {
+            onRamp = false;
+        }
+    }
+
     //The player's movement changes back to normal when they are off the sticky wall
     private void OnCollisionExit(Collision back)
     {
@@ -389,6 +461,12 @@ public class Player3D : MonoBehaviour
         {
             alterMovement = false;
             playerRB.useGravity = true;
+        }
+
+        //Change rotation z value when the player is off it
+        if (back.gameObject.tag == "Ramp")
+        {
+            onRamp = false;
         }
 
         // if (back.gameObject.tag == "HorClimbable")

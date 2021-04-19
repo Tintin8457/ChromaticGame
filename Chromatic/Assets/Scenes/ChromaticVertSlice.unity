@@ -22702,7 +22702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f9f8da578c213a4680daec6855abe7a, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Ramp
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f9f8da578c213a4680daec6855abe7a, type: 3}
       propertyPath: m_Layer
@@ -27588,7 +27588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f9f8da578c213a4680daec6855abe7a, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Ramp
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f9f8da578c213a4680daec6855abe7a, type: 3}
       propertyPath: m_Layer

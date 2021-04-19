@@ -18,6 +18,8 @@ public class Timer : MonoBehaviour
     public GameObject restartButton;
     public GameObject quitButton;
 
+    private float wait = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,12 @@ public class Timer : MonoBehaviour
             maxTime -= Time.deltaTime;
         }
         
+        //Dead player anim
+        else if (canTime == false)
+        {
+            StartCoroutine("Dead");
+        }
+
         //End the game at the end of the timer
         //Lose the game
         if (maxTime <= 0f)
@@ -63,5 +71,11 @@ public class Timer : MonoBehaviour
             restartButton.SetActive(true); //Summon restart button
             quitButton.SetActive(true); //Summon quit button
         }
+    }
+
+    IEnumerator Dead()
+    {
+        yield return new WaitForSeconds(wait);
+        player.GetComponent<Animator>().SetBool("isDead", true);
     }
 }

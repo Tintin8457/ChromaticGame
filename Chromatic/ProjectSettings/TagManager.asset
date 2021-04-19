@@ -23,6 +23,7 @@ TagManager:
   - Stick
   - Timer
   - Button
+  - Ramp
   layers:
   - Default
   - TransparentFX
