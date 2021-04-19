@@ -84,6 +84,7 @@ public class Player3D : MonoBehaviour
 
         nextColor.color = uiColors[1]; //Display the default next color from the predetermined color order until the player switches color
         prevColor.color = uiColors[3]; //Display the default previous color from the predetermined color order until the player switches color
+        
     }
 
     void Update()
@@ -103,7 +104,7 @@ public class Player3D : MonoBehaviour
                     if (alterMovement == false)
                     {
                         playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                        //inky.SetBool("jump", true); //Play jump anim
+                        inky.SetBool("jump", true); //Play jump anim
                     }
 
                     //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -116,6 +117,11 @@ public class Player3D : MonoBehaviour
                 
                     //Debug.Log(Vector3.up * jumpForce);        
                 }
+
+                // else if (Input.GetKeyUp(KeyCode.Space))
+                // {
+                //     inky.SetBool("jump", false); //Play land anim
+                // }
             }
         }
 
@@ -166,23 +172,34 @@ public class Player3D : MonoBehaviour
             }
         }
 
-        //Play walk sound effect
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        //Play walk sound effect and anim
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             inkySound.clip = inkySFX[0];
             inkySound.Play();
 
-            //Play move anim
-            //inky.SetBool("move", true);
+            inky.SetBool("isMoving", true);
+            transform.eulerAngles = new Vector3(0f, 220f, 0f);
+            //inky.SetFloat("Move", -horzMovement);
         }
 
-        //Stop walk sound effect
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            inkySound.clip = inkySFX[0];
+            inkySound.Play();
+
+            inky.SetBool("isMoving", true);
+            transform.eulerAngles = new Vector3(0f, 140f, 0f);
+            //inky.SetFloat("Move", horzMovement);
+        }
+
+        //Stop walk sound effect and anim
         else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             inkySound.Stop();
 
             //Play idle anim
-            //inky.SetBool("move", false);
+            inky.SetBool("isMoving", false);
         }
     }
 
@@ -201,7 +218,7 @@ public class Player3D : MonoBehaviour
         }
 
         //The movement changes when the player is on the wall
-        else if (alterMovement == true || stickyHor == true)
+        else if (alterMovement == true)
         {
             transform.Translate(new Vector3(horzMovement, vertMovement, 0) * Time.deltaTime * playerSpeed);
         }
@@ -227,12 +244,12 @@ public class Player3D : MonoBehaviour
         }
 
         //Alternative jumping if the player is on the sticky horizontal floor
-        else if (stickyHor == true)
-        {
-            Vector3 horCol = new Vector3(playerCol.bounds.center.x, -playerCol.bounds.min.y, playerCol.bounds.center.z);
-            jumpBounds = horCol;
-            jumpSpeed = 0.9f;
-        }
+        // else if (stickyHor == true)
+        // {
+        //     Vector3 horCol = new Vector3(playerCol.bounds.center.x, -playerCol.bounds.min.y, playerCol.bounds.center.z);
+        //     jumpBounds = horCol;
+        //     jumpSpeed = 0.9f;
+        // }
 
         //Return jumping result using a box centered at the bottom of the player's collider and whose dimensions are slightly smaller than the collider's x axis size, and is 0.1 units in the y and z
         return Physics.CheckBox(new Vector3(playerCol.bounds.center.x, playerCol.bounds.min.y, playerCol.bounds.center.z), new Vector3 (playerCol.bounds.size.x * 0.4f, 0.1f, 0.1f), Quaternion.identity, groundLayer);
@@ -348,6 +365,11 @@ public class Player3D : MonoBehaviour
             alterMovement = true;
             playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
             playerRB.useGravity = false;
+        }
+
+        if (slow.gameObject.tag == "Ground")
+        {
+            inky.SetBool("jump", false); //Play land anim
         }
 
         //The player's movement changes when they are on the horizontal sticky wall
