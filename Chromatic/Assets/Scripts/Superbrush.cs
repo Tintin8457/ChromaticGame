@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Superbrush : MonoBehaviour
 {
+    public bool superBrushActive = false;
+    public int requiredBristleAmount = 11;
     //Animation sb; //Show repair animation
     //public Camera cameraSweep; //Change camera that shows the entire level in full color horizontally back
 
-    void OnTriggerEnter(Collider player)
+    void OnTriggerEnter(Collider other)
     {
-        if (player.gameObject.tag == "Player")
+        Player3D player = other.GetComponent<Player3D>();
+        if (player != null)
         {
-            Destroy(gameObject);
+            if (player.bristles == requiredBristleAmount)
+            {
+                {
+                    superBrushActive = true;
+                }
+            }
         }
     }
 }

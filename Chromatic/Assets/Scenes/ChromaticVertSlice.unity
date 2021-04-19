@@ -150,8 +150,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &338618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -673,8 +671,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &34867822
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1479,8 +1475,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &114078783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1772,8 +1766,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!114 &131456219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2802,8 +2794,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!114 &208956144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3401,8 +3391,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &233434605
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4234,8 +4222,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &278089388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4427,8 +4413,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &286080347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5451,8 +5435,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &368875993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6100,8 +6082,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &401982108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6142,8 +6122,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &407525136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6750,8 +6728,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &433420446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6869,8 +6845,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &433933578
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7655,8 +7629,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &496339139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8040,6 +8012,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 817532b5a9bb97d49b9057bed0767c48, type: 3}
+--- !u!1 &526095124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 526095125}
+  - component: {fileID: 526095126}
+  m_Layer: 8
+  m_Name: CraneCollision
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &526095125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526095124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.11, y: -7.757, z: -2.582}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1823248075}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &526095126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526095124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.678772, y: 0.3124998, z: 2.451922}
+  m_Center: {x: 0.05697632, y: -0.12724592, z: 0.539335}
 --- !u!1001 &529200597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8144,8 +8160,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &529200601
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8792,8 +8806,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &558998384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3634285184104080362, guid: 817532b5a9bb97d49b9057bed0767c48, type: 3}
@@ -9487,7 +9499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27ef8c5a880c03847ad3f7de35047f83, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27ef8c5a880c03847ad3f7de35047f83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9694,8 +9706,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &601714066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10483,8 +10493,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &704595231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11212,8 +11220,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &765259726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11759,8 +11765,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &822931255
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11813,7 +11817,7 @@ Transform:
   - {fileID: 1233285374}
   - {fileID: 191470246}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &827296907
 GameObject:
@@ -12034,8 +12038,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &832811903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 142fc93af23d9114cb4f97abd525637f, type: 3}
@@ -12063,8 +12065,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &832811906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12715,8 +12715,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &897960071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12762,8 +12760,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &900223397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12923,7 +12919,7 @@ Transform:
   - {fileID: 1969386474}
   - {fileID: 1652468828}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &911377439 stripped
 Transform:
@@ -13471,8 +13467,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &959391829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13638,8 +13632,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &971891501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14118,8 +14110,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &984779342
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14377,8 +14367,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1003590849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14874,8 +14862,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1020856832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15331,8 +15317,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1047109805
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16395,8 +16379,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1101038594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16832,8 +16814,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1128598787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16976,8 +16956,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1133459832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17449,8 +17427,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!114 &1167508129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17703,8 +17679,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1175670197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17950,8 +17924,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1203529717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18072,7 +18044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 839994c0476ba0444811f6fcdc93540e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.4471
+      value: 13.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 839994c0476ba0444811f6fcdc93540e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -18121,6 +18093,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 839994c0476ba0444811f6fcdc93540e, type: 3}
       propertyPath: m_Name
       value: Crane-On-Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 839994c0476ba0444811f6fcdc93540e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 839994c0476ba0444811f6fcdc93540e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 839994c0476ba0444811f6fcdc93540e, type: 3}
@@ -18362,8 +18342,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1240930817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18497,7 +18475,7 @@ Transform:
   - {fileID: 2072637015}
   - {fileID: 1333675039}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1255582178
 PrefabInstance:
@@ -20147,8 +20125,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1384517509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20266,8 +20242,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1391732960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20308,8 +20282,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1397378678
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20838,8 +20810,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1433024113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20900,8 +20870,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &1441225938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2400695154864319388, guid: 03f1f7d65ffb9894e8fdff97a4ba54a2, type: 3}
@@ -21143,8 +21111,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1451073874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21614,8 +21580,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1468424543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21810,8 +21774,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1480538122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22212,8 +22174,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1496933789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22416,8 +22376,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1508704443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22614,8 +22572,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1536536056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22814,8 +22770,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1541607996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23511,7 +23465,7 @@ Transform:
   - {fileID: 304788902}
   - {fileID: 1358433061}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1589297618
 PrefabInstance:
@@ -24087,8 +24041,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1610034825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24470,7 +24422,7 @@ Transform:
   - {fileID: 748533387}
   - {fileID: 1000782674}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1645486694
 GameObject:
@@ -25070,8 +25022,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1684202246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25094,11 +25044,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2520624496638634964, guid: fad952a419fc2bd4e9808cf57c3da788, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.9
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2520624496638634964, guid: fad952a419fc2bd4e9808cf57c3da788, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.671
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2520624496638634964, guid: fad952a419fc2bd4e9808cf57c3da788, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25908,8 +25858,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1735581436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26027,8 +25975,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1736218628
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26930,8 +26876,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1794241871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27500,8 +27444,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1812369221
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27631,7 +27573,7 @@ Transform:
   - {fileID: 532622288}
   - {fileID: 621494187}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1817612445
 PrefabInstance:
@@ -27993,8 +27935,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 612201390}
+  - {fileID: 526095125}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1826476507
 PrefabInstance:
@@ -28236,8 +28179,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!222 &1833016768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28560,8 +28501,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1865844641
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28679,8 +28618,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1877227735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28868,8 +28805,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1898860919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29216,7 +29151,7 @@ Transform:
   m_Children:
   - {fileID: 1575090444}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942088182
 GameObject:
@@ -29482,8 +29417,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1947391971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29598,8 +29531,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &1955103711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29997,8 +29928,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!23 &1970836151 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1970909596773218211, guid: bc6376d3837f4cb44a9128927f787b04, type: 3}
@@ -30723,8 +30652,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &2006924144
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30867,8 +30794,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &2023814840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30915,7 +30840,7 @@ Transform:
   - {fileID: 1031424141}
   - {fileID: 242640134}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2028271204
 PrefabInstance:
@@ -31021,8 +30946,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &2028271208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32270,8 +32193,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &2099295938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32466,8 +32387,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &2115823550
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32586,8 +32505,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &2129743171
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32623,8 +32540,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!65 &2136965638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32812,8 +32727,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &649432971434470428
 GameObject:
   m_ObjectHideFlags: 0
@@ -32851,8 +32764,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!33 &854080486872454509
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32898,8 +32809,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &1005527360919199802
 GameObject:
   m_ObjectHideFlags: 0
@@ -32937,8 +32846,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &1010084468524000625
 Transform:
   m_ObjectHideFlags: 0
@@ -33153,8 +33060,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1771974049260887018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33312,8 +33217,63 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
+--- !u!1001 &2292399839097184295
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1373972079718514565, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_Name
+      value: Super Brush
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 340.887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.782
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.277
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754861236444292415, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e00582b0b40e8042bfad6979ad6ec79, type: 3}
 --- !u!1 &2410156164810244783
 GameObject:
   m_ObjectHideFlags: 0
@@ -33351,8 +33311,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &2580481581869797865
 GameObject:
   m_ObjectHideFlags: 0
@@ -33390,8 +33348,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!33 &2615550859428007020
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33478,8 +33434,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &3204287457070358078
 Transform:
   m_ObjectHideFlags: 0
@@ -33621,8 +33575,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &3634285185439017425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33717,8 +33669,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &3824526791569480423
 Transform:
   m_ObjectHideFlags: 0
@@ -33907,7 +33857,7 @@ Transform:
   - {fileID: 827296908}
   - {fileID: 564733747}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!23 &4862595788301251381
 MeshRenderer:
@@ -34072,8 +34022,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!33 &5432441068925271268
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34412,8 +34360,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!23 &7003313020375839413
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34519,8 +34465,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &7458350982302647875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34681,8 +34625,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!23 &8043935818003124473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34854,8 +34796,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!33 &8861323753152752174
 MeshFilter:
   m_ObjectHideFlags: 0
