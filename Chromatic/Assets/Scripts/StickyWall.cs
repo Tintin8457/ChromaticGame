@@ -87,6 +87,7 @@ public class StickyWall : MonoBehaviour
                 climbablePart.tag = "Untagged";
                 climbablePart.layer = 0;
                 toonShader.canBePainted = true; //Make visible and colorized
+                player.GetComponent<Animator>().SetBool("offStick", true);
 
                 // gameObject.tag = "Untagged";
                 // gameObject.layer = 0;

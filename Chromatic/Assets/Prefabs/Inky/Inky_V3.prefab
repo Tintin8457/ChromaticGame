@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2698139835657154542}
   - component: {fileID: 2698139835657154540}
   - component: {fileID: 2698139835657154543}
+  - component: {fileID: 919132148613504080}
   m_Layer: 10
   m_Name: Inky_V3
   m_TagString: Player
@@ -86,8 +87,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.23850814, y: 0.09764807, z: 0.025769845}
-    m_Extent: {x: 0.8682213, y: 0.5928509, z: 0.483213}
+    m_Center: {x: 0.02, y: 0.01, z: 0.025769845}
+    m_Extent: {x: 0.53, y: 0.42, z: 0.483213}
   m_DirtyAABB: 0
 --- !u!54 &2698139835657154528
 Rigidbody:
@@ -114,7 +115,7 @@ BoxCollider:
   m_GameObject: {fileID: 3004145263909237102}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.9698782, y: 0.80070156, z: 0.966426}
   m_Center: {x: 0.02714014, y: 0.018563002, z: 0.02576983}
@@ -252,7 +253,7 @@ MonoBehaviour:
     m_Bits: 256
   stopJumping: 0
   alterMovement: 0
-  stickyHor: 0
+  onRamp: 0
   currentColor: {fileID: 2100000, guid: b5ab85c626fffc24b97e805754c275fc, type: 2}
   inkyMaterials:
   - {fileID: 2100000, guid: b5ab85c626fffc24b97e805754c275fc, type: 2}
@@ -293,3 +294,17 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3359815881395312666, guid: 9991ba9d760e1e14ea196b4a40e7e7f6, type: 3}
   stopShooting: 0
   activatedColorModes: 01010101
+--- !u!64 &919132148613504080
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004145263909237102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8113608713963863517, guid: c03d1e0d2148d9a44b5373ba122fc041, type: 3}

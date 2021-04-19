@@ -24,6 +24,7 @@ TagManager:
   - Timer
   - Button
   - Ramp
+  - Stop
   layers:
   - Default
   - TransparentFX

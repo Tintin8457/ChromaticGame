@@ -10,7 +10,7 @@ public class Player3D : MonoBehaviour
     private float horzMovement;
     private float vertMovement;
     private Rigidbody playerRB;
-    private BoxCollider playerCol;
+    private MeshCollider playerCol;
     private Renderer playerRend;
     private ShootingController playerShoot;
     
@@ -68,7 +68,7 @@ public class Player3D : MonoBehaviour
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-        playerCol = GetComponent<BoxCollider>();
+        playerCol = GetComponent<MeshCollider>();
         playerRend = GetComponent<Renderer>();
         playerShoot = GetComponent<ShootingController>();
         inky = GetComponent<Animator>();
@@ -482,7 +482,7 @@ public class Player3D : MonoBehaviour
             alterMovement = true;
             playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
             inky.SetBool("mount", true); //Show mount anim
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            transform.eulerAngles = new Vector3(0f, 180f, -90f);
             playerRB.useGravity = false;
         }
 
@@ -490,7 +490,8 @@ public class Player3D : MonoBehaviour
         if (slow.gameObject.tag == "Ground" || slow.gameObject.tag == "SlowBreak")
         {
             inky.SetBool("jump", false);
-            inky.SetBool("isMoving", false);
+            //inky.SetBool("isMoving", false);
+            inky.SetBool("offStick", true);
             onRamp = false;
         }
 
@@ -526,8 +527,8 @@ public class Player3D : MonoBehaviour
         if (ramp.gameObject.tag == "VerClimbable")
         {
             //transform.eulerAngles = new Vector3(0f, 180f, -90f);
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
+            transform.eulerAngles = new Vector3(0f, 180f, -90f);
+            //playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
             inky.SetBool("mount", false);
             inky.SetBool("climb", false);
         }
@@ -540,6 +541,7 @@ public class Player3D : MonoBehaviour
         {
             alterMovement = false;
             playerRB.useGravity = true;
+            //inky.SetBool("offStick", true);
             // inky.SetBool("mount", false);
             // inky.SetBool("climb", false);
         }
@@ -557,6 +559,24 @@ public class Player3D : MonoBehaviour
         //     playerRB.useGravity = true;
         // }
     }
+
+    // private void OnTriggerEnter(Collider land)
+    // {
+    //     if (land.gameObject.tag == "Stop")
+    //     {
+    //         inky.SetTrigger("Norm");
+    //         alterMovement = false;
+    //     }
+    // }
+
+    // private void OnTriggerExit(Collider land)
+    // {
+    //     if (land.gameObject.tag == "Stop")
+    //     {
+    //         inky.SetTrigger("Norm");
+    //         alterMovement = false;
+    //     }
+    // }
 
     //Use it for separate function desc- Update the UI that displays the player's current color AND eventually when the player chooses which color to shoot with
     //Use UI indicator to show the next color to change to
