@@ -11,11 +11,11 @@ public class PurplePlatform : MonoBehaviour
     public float speed = 2.0f;
 
     [Header("Bools")]
-    public bool canChange; //Only allows the player to shoot at this platform once
+    public bool canChange; //Only allows the player to shoot at this platform until the timer runs out
     public bool cooldown;
     public bool changedColor;
-    public bool red; //Change to red once
-    public bool blue; //Change to blue once
+    // public bool red; //Change to red once
+    // public bool blue; //Change to blue once
 
     [Header("Directional Indicators")]
     public bool horizontal;
@@ -54,8 +54,8 @@ public class PurplePlatform : MonoBehaviour
         horizontal = false;
         vertical = false;
 
-        red = true;
-        blue = true;
+        // red = true;
+        // blue = true;
 
         platSource = GetComponent<AudioSource>();
     }
@@ -119,6 +119,7 @@ public class PurplePlatform : MonoBehaviour
         {
             timer = resetTimer; //Reset timer
             cooldown = true;
+            canChange = false;
             //gameObject.GetComponent<Renderer>().material = purPlat; //Reset original platform color
             gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[0]);
             toonShader.canBePainted = true; //Reset color and transparency
@@ -171,12 +172,13 @@ public class PurplePlatform : MonoBehaviour
         }
 
         //Change the purple platform's color once before resetting
-        //Changes to red to allow for horizontal direction one time
-        if (direction.gameObject.tag == "Red" && canChange == true && red == true)
+        //Changes to red to allow for horizontal direction
+        if (direction.gameObject.tag == "Red" && cooldown == false /*&& red == true*/)
         {
             //gameObject.GetComponent<Renderer>().material.color = Color.red;
-            toonShader.red = true;
-            canChange = false;
+            // toonShader.red = true;
+            // toonShader.blue = false;
+            //canChange = false;
             changedColor = true; //Start timer
             horizontal = true;
             gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[1]);
@@ -184,15 +186,16 @@ public class PurplePlatform : MonoBehaviour
             toonShader.canBePainted = false; //Make visible and colorized
             platSource.clip = activatedClip;
             platSource.Play();
-            red = false; //Prevent player from turning platform into red again
+            //blue = false;
         }
 
-        //Changes to blue to allow for vertical direction one time
-        else if (direction.gameObject.tag == "Blue" && canChange == true && blue == true)
+        //Changes to blue to allow for vertical direction
+        if (direction.gameObject.tag == "Blue" && cooldown == false /*&& blue == true*/)
         {
             //gameObject.GetComponent<Renderer>().material.color = Color.blue;
-            toonShader.blue = true;
-            canChange = false;
+            // toonShader.blue = true;
+            // toonShader.red = false;
+            //canChange = false;
             changedColor = true; //Start timer
             vertical = true;
             gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[2]);
@@ -200,7 +203,7 @@ public class PurplePlatform : MonoBehaviour
             toonShader.canBePainted = false; //Make visible and colorized
             platSource.clip = activatedClip;
             platSource.Play();
-            blue = false; //Prevent player from turning platform into blue again
+            //red = false;
         }
     }
 

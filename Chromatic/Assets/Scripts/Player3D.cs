@@ -196,58 +196,102 @@ public class Player3D : MonoBehaviour
         {
             if (Time.timeScale == 1)
             {
-                //Play walk sound effect and anim
-                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+                if (alterMovement == false)
                 {
-                    inkySound.clip = inkySFX[0];
-                    inkySound.Play();
-
-                    inky.SetBool("isMoving", true);
-
-                    //Change to left orientation
-                    if (onRamp == false)
+                    //Play walk sound effect and anim
+                    if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
                     {
-                        transform.eulerAngles = new Vector3(0f, 220f, 0f);
+                        inkySound.clip = inkySFX[0];
+                        inkySound.Play();
+
+                        inky.SetBool("isMoving", true);
+
+                        //Change to left orientation
+                        if (onRamp == false)
+                        {
+                            transform.eulerAngles = new Vector3(0f, 220f, 0f);
+                        }
+
+                        //Change z-axis when player is on ramp
+                        else if (onRamp == true)
+                        {
+                            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                        }
+
+                        //inky.SetFloat("Move", -horzMovement);
                     }
 
-                    //Change z-axis when player is on ramp
-                    else if (onRamp == true)
+                    else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
                     {
-                        transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                        inkySound.clip = inkySFX[0];
+                        inkySound.Play();
+
+                        inky.SetBool("isMoving", true);
+                        
+                        //Change to right orientation
+                        if (onRamp == false)
+                        {
+                            transform.eulerAngles = new Vector3(0f, 160f, 0f);
+                        }
+
+                        //Change z-axis when player is on ramp
+                        else if (onRamp == true)
+                        {
+                            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                        }
+
+                        //inky.SetFloat("Move", horzMovement);
                     }
 
-                    //inky.SetFloat("Move", -horzMovement);
+                    //Stop walk sound effect and anim
+                    else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+                    {
+                        inkySound.Stop();
+
+                        //Play idle anim
+                        inky.SetBool("isMoving", false);
+                    }
                 }
-
-                else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                
+                else if (alterMovement == true)
                 {
-                    inkySound.clip = inkySFX[0];
-                    inkySound.Play();
-
-                    inky.SetBool("isMoving", true);
-                    
-                    //Change to right orientation
-                    if (onRamp == false)
+                    //Play walk sound effect and climb wall anim
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                     {
-                        transform.eulerAngles = new Vector3(0f, 160f, 0f);
+                        inkySound.clip = inkySFX[0];
+                        inkySound.Play();
+
+                        //inky.SetBool("climb", true);
+
+                        //Change to left orientation
+                        // if (onRamp == false)
+                        // {
+                        //     transform.eulerAngles = new Vector3(0f, 220f, 0f);
+                        // }
                     }
 
-                    //Change z-axis when player is on ramp
-                    else if (onRamp == true)
+                    else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
                     {
-                        transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                        inkySound.clip = inkySFX[0];
+                        inkySound.Play();
+
+                        //inky.SetBool("climb", true);
+                        
+                        //Change to right orientation
+                        // if (onRamp == false)
+                        // {
+                        //     transform.eulerAngles = new Vector3(0f, 160f, 0f);
+                        // }
                     }
 
-                    //inky.SetFloat("Move", horzMovement);
-                }
+                    //Stop walk sound effect and anim
+                    else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow))
+                    {
+                        inkySound.Stop();
 
-                //Stop walk sound effect and anim
-                else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-                {
-                    inkySound.Stop();
-
-                    //Play idle anim
-                    inky.SetBool("isMoving", false);
+                        //Play idle anim
+                        //inky.SetBool("climb", false);
+                    }
                 }
             }
         }
@@ -270,7 +314,9 @@ public class Player3D : MonoBehaviour
         //The movement changes when the player is on the wall
         else if (alterMovement == true)
         {
-            transform.Translate(new Vector3(horzMovement, vertMovement, 0) * Time.deltaTime * playerSpeed);
+            //transform.Translate(new Vector3(horzMovement, vertMovement, 0) * Time.deltaTime * playerSpeed);
+            position.y = position.y + playerSpeed * vertMovement * Time.deltaTime;
+            playerRB.MovePosition(position);
         }
     }
 
@@ -414,6 +460,8 @@ public class Player3D : MonoBehaviour
         {
             alterMovement = true;
             playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
+            //inky.SetBool("mount", true); //Show mount anim
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
             playerRB.useGravity = false;
         }
 
@@ -421,6 +469,7 @@ public class Player3D : MonoBehaviour
         if (slow.gameObject.tag == "Ground" || slow.gameObject.tag == "SlowBreak")
         {
             inky.SetBool("jump", false);
+            inky.SetBool("isMoving", false);
             onRamp = false;
         }
 
@@ -440,7 +489,7 @@ public class Player3D : MonoBehaviour
         // }
     }
 
-    //Change rotation z value when the player is on it
+    //Change rotation z value when the player is on ramp or sticky wall
     private void OnCollisionStay(Collision ramp)
     {
         if (ramp.gameObject.tag == "Ramp")
@@ -452,6 +501,13 @@ public class Player3D : MonoBehaviour
         {
             onRamp = false;
         }
+
+        if (ramp.gameObject.tag == "VerClimbable")
+        {
+            //transform.eulerAngles = new Vector3(0f, 180f, -90f);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            //inky.SetBool("mount", true);
+        }
     }
 
     //The player's movement changes back to normal when they are off the sticky wall
@@ -461,6 +517,8 @@ public class Player3D : MonoBehaviour
         {
             alterMovement = false;
             playerRB.useGravity = true;
+            // inky.SetBool("mount", false);
+            // inky.SetBool("climb", false);
         }
 
         //Change rotation z value when the player is off it
