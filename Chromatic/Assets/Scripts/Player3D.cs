@@ -27,7 +27,7 @@ public class Player3D : MonoBehaviour
 
     [Header("Bools")]
     public bool alterMovement;
-    public bool stickyHor; //Use when the player is on the horizontal sticky floor
+    //public bool stickyHor; //Use when the player is on the horizontal sticky floor
     public bool onRamp; //Change rotation on ramp
 
     [Header("Colors")]
@@ -80,7 +80,7 @@ public class Player3D : MonoBehaviour
         cpText.enabled = false; //Do not display checkpoint text until the player reaches it
 
         alterMovement = false;
-        stickyHor = false;
+        //stickyHor = false;
         stopJumping = false;
 
         nextColor.color = uiColors[1]; //Display the default next color from the predetermined color order until the player switches color
@@ -261,7 +261,7 @@ public class Player3D : MonoBehaviour
                         inkySound.clip = inkySFX[0];
                         inkySound.Play();
 
-                        //inky.SetBool("climb", true);
+                        inky.SetBool("climb", true);
 
                         //Change to left orientation
                         // if (onRamp == false)
@@ -275,7 +275,7 @@ public class Player3D : MonoBehaviour
                         inkySound.clip = inkySFX[0];
                         inkySound.Play();
 
-                        //inky.SetBool("climb", true);
+                        inky.SetBool("climb", true);
                         
                         //Change to right orientation
                         // if (onRamp == false)
@@ -290,11 +290,24 @@ public class Player3D : MonoBehaviour
                         inkySound.Stop();
 
                         //Play idle anim
-                        //inky.SetBool("climb", false);
+                        inky.SetBool("climb", false);
                     }
                 }
             }
         }
+
+        //Original collider center and size
+        // if (alterMovement == false)
+        // {
+        //     playerCol.center = new Vector3(0.02714014f, playerCol.center.y, playerCol.center.z);
+        //     playerCol.size = new Vector3(0.9698782f, playerCol.size.y, playerCol.size.z);
+        // }
+
+        // else if (alterMovement == true)
+        // {
+        //     playerCol.center = new Vector3(0.1116056f, playerCol.center.y, playerCol.center.z);
+        //     playerCol.size = new Vector3(0.4929676f, playerCol.size.y, playerCol.size.z);
+        // }
     }
 
     void FixedUpdate()
@@ -324,20 +337,28 @@ public class Player3D : MonoBehaviour
     public bool IsGrounded()
     {
         //Normal jumping
-        if (alterMovement == false)
-        {
-            Vector3 ogCol = new Vector3(playerCol.bounds.center.x, playerCol.bounds.min.y, playerCol.bounds.center.z);
-            jumpBounds = ogCol;
-            jumpSpeed = 0.9f;
-        }
+        // if (alterMovement == false)
+        // {
+        //     //0.02714014- c
+        //     //0.9698782- s
+        //     //Vector3 ogCol = new Vector3(playerCol.bounds.center.x, playerCol.bounds.min.y, playerCol.bounds.center.z);
+        //     // Vector3 ogCol = new Vector3(0.02714014f, playerCol.bounds.min.y, playerCol.bounds.center.z);
+        //     // jumpBounds = ogCol;
+        //     // jumpSpeed = 0.9f;
+        //     //playerCol.center = new Vector3(0.02714014f, playerCol.center.y, playerCol.center.z);
+        // }
 
         //Alternative jumping if the player is on a sticky wall
-        else if (alterMovement == true)
-        {
-            Vector3 wallPlayerCol = new Vector3(playerCol.bounds.center.y, playerCol.bounds.min.x, playerCol.bounds.center.z);
-            jumpBounds = wallPlayerCol;
-            jumpSpeed = 0.5f;
-        }
+        // else if (alterMovement == true)
+        // {
+        //     //0.1116056- c
+        //     //0.4929676- s
+        //     //Vector3 wallPlayerCol = new Vector3(playerCol.bounds.center.y, playerCol.bounds.min.x, playerCol.bounds.center.z);
+        //     // Vector3 wallPlayerCol = new Vector3(0.1116056f, playerCol.bounds.min.y, playerCol.bounds.center.z);
+        //     // jumpBounds = wallPlayerCol;
+        //     // jumpSpeed = 0.5f;
+        //     //playerCol.center = new Vector3(0.1116056f, playerCol.center.y, playerCol.center.z);
+        // }
 
         //Alternative jumping if the player is on the sticky horizontal floor
         // else if (stickyHor == true)
@@ -460,7 +481,7 @@ public class Player3D : MonoBehaviour
         {
             alterMovement = true;
             playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
-            //inky.SetBool("mount", true); //Show mount anim
+            inky.SetBool("mount", true); //Show mount anim
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
             playerRB.useGravity = false;
         }
@@ -506,7 +527,9 @@ public class Player3D : MonoBehaviour
         {
             //transform.eulerAngles = new Vector3(0f, 180f, -90f);
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            //inky.SetBool("mount", true);
+            playerRB.velocity = Vector3.zero; //Prevents player from moving by itself
+            inky.SetBool("mount", false);
+            inky.SetBool("climb", false);
         }
     }
 

@@ -65,8 +65,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 1
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!114 &3784724751145686019
 MonoBehaviour:
   m_ObjectHideFlags: 0

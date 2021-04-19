@@ -103,10 +103,10 @@ public class StickyWall : MonoBehaviour
                 }
 
                 //Prevent horziontal mode from being on
-                if (player.stickyHor == true)
-                {
-                    player.stickyHor = false;
-                }
+                // if (player.stickyHor == true)
+                // {
+                //     player.stickyHor = false;
+                // }
 
                 cooldown = true;
                 isSticky = false;
