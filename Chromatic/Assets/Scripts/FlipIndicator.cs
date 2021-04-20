@@ -8,14 +8,16 @@ public class FlipIndicator : MonoBehaviour
     public Vector3 yPos;
 
     //Flip indicator to the x-axis when horizontal platforms are enabled
-    public void FlipToX()
+    public void FlipToX(Vector3 newXpos)
     {
-        gameObject.transform.localPosition = xPos;
+        //gameObject.transform.localPosition = xPos;
+        gameObject.transform.localPosition = newXpos;
     }
 
     //Flip indicator to the y-axis when horizontal platforms are enabled
-    public void FlipToY()
+    public void FlipToY(Vector3 newYpos)
     {
-        gameObject.transform.localPosition = yPos;
+        //gameObject.transform.localPosition = yPos;
+        gameObject.transform.localPosition = newYpos;
     }
 }

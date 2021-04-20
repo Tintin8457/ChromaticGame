@@ -279,15 +279,15 @@ public class PurplePlatform : MonoBehaviour
         //Flip to horizontal orientation
         if (horizontal == true)
         {
-            transform1.GetComponent<FlipIndicator>().FlipToX();
-            transform2.GetComponent<FlipIndicator>().FlipToX();
+            transform1.GetComponent<FlipIndicator>().FlipToX(new Vector3(transform.localPosition.x + 5.0f, transform.localPosition.y, 0f));
+            transform2.GetComponent<FlipIndicator>().FlipToX(new Vector3(transform.localPosition.x - 5.0f, transform.localPosition.y, 0f));
         }
 
         //Flip to vertical orientation
         else if (vertical == true)
         {
-            transform1.GetComponent<FlipIndicator>().FlipToY();
-            transform2.GetComponent<FlipIndicator>().FlipToY();
+            transform1.GetComponent<FlipIndicator>().FlipToY(new Vector3(transform.localPosition.x, transform.localPosition.y - 1.5f, 0f));
+            transform2.GetComponent<FlipIndicator>().FlipToY(new Vector3(transform.localPosition.x, transform.localPosition.y + 5.0f, 0f));
         }
     }
 }
