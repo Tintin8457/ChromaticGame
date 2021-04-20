@@ -26386,6 +26386,10 @@ PrefabInstance:
       propertyPath: cpText
       value: 
       objectReference: {fileID: 1994417040}
+    - target: {fileID: 2698139835657154540, guid: fad952a419fc2bd4e9808cf57c3da788, type: 3}
+      propertyPath: bristles
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2698139835657154543, guid: fad952a419fc2bd4e9808cf57c3da788, type: 3}
       propertyPath: cam
       value: 
