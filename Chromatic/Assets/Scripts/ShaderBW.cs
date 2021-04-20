@@ -24,7 +24,8 @@ public class ShaderBW : MonoBehaviour
 
     private MaterialPropertyBlock shader; //Use to reference the shader graph properties
     MeshRenderer components; //Contains all colored elements of the object
-    private Timer timer; //Access timer to change specific objects into toon shader mid-game
+    //private Timer timer; //Access timer to change specific objects into toon shader mid-game
+    private Superbrush superBrush;
 
     //Use shaders to change from bw to toon shader during the game;
     //Shader bAndW;
@@ -57,11 +58,19 @@ public class ShaderBW : MonoBehaviour
         }
 
         //Find and get timer
-        GameObject time = GameObject.FindGameObjectWithTag("Timer");
+        /*GameObject time = GameObject.FindGameObjectWithTag("Timer");
 
         if (time != null)
         {
             timer = time.GetComponent<Timer>();
+        }*/
+        
+        //Find and get Superbrush script
+        GameObject sBrush = GameObject.FindGameObjectWithTag("Superbrush");
+
+        if (sBrush != null)
+        {
+            superBrush = sBrush.GetComponent<Superbrush>();
         }
 
         //For objects that use one mesh renderer
@@ -341,7 +350,7 @@ public class ShaderBW : MonoBehaviour
         // }
 
         //Change the entire environment from black and white shader to toon shader at the end of the game after reaching the super brush with all bristles
-        if (timer.maxTime <= 0.0f)
+        if (superBrush.superBrushActive)
         {
             //Affects non-paintables
             if (paintable == false && stickyWall == false && purplePlat == false)

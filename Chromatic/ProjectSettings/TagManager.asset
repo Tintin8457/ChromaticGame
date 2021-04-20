@@ -24,6 +24,7 @@ TagManager:
   - Timer
   - Button
   - Ramp
+  - Superbrush
   layers:
   - Default
   - TransparentFX
