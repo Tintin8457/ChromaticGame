@@ -5605,8 +5605,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &321841593
 GameObject:
   m_ObjectHideFlags: 0
@@ -5755,8 +5753,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &324801459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7282,8 +7278,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!64 &380813998
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10738,8 +10732,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &558998384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3634285184104080362, guid: 817532b5a9bb97d49b9057bed0767c48, type: 3}
@@ -15227,8 +15219,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &835382109
 GameObject:
   m_ObjectHideFlags: 0
@@ -15362,8 +15352,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!64 &835635436
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18686,8 +18674,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1003590849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21446,8 +21432,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &1134210463
 GameObject:
   m_ObjectHideFlags: 0
@@ -25937,8 +25921,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &1437656618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2205265319809734858, guid: 56ec4aff827497e47b5c824a67e419d3, type: 3}
@@ -27912,7 +27894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1636662345861149741, guid: 17dbe48b0b162974e80288db92966f32, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1636662345861149741, guid: 17dbe48b0b162974e80288db92966f32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -29300,8 +29282,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1610034825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33305,8 +33285,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!222 &1833016768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33940,8 +33918,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!114 &1896591861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34808,8 +34784,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &1947035396
 GameObject:
   m_ObjectHideFlags: 0
@@ -35149,8 +35123,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!23 &1970836151 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1970909596773218211, guid: bc6376d3837f4cb44a9128927f787b04, type: 3}
@@ -38198,8 +38170,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &543450652134259213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2205265319809734858, guid: 56ec4aff827497e47b5c824a67e419d3, type: 3}
@@ -38324,8 +38294,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!33 &854080486872454509
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -38386,8 +38354,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &1005527360919199802
 GameObject:
   m_ObjectHideFlags: 0
@@ -38425,8 +38391,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &1010084468524000625
 Transform:
   m_ObjectHideFlags: 0
@@ -38641,8 +38605,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &1771974049260887018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38857,8 +38819,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &2410156164810244783
 GameObject:
   m_ObjectHideFlags: 0
@@ -38896,8 +38856,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &2580481581869797865
 GameObject:
   m_ObjectHideFlags: 0
@@ -38935,8 +38893,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &2601700110931160585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39230,8 +39186,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &3204287457070358078
 Transform:
   m_ObjectHideFlags: 0
@@ -39373,8 +39327,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &3634285185439017425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39469,8 +39421,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!4 &3824526791569480423
 Transform:
   m_ObjectHideFlags: 0
@@ -39829,8 +39779,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &5374525038260537528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40202,8 +40150,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!23 &7003313020375839413
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40309,8 +40255,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1001 &7458350982302647875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40409,8 +40353,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!23 &8043935818003124473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40582,8 +40524,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!33 &8861323753152752174
 MeshFilter:
   m_ObjectHideFlags: 0

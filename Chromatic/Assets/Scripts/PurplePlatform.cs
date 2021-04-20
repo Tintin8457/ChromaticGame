@@ -23,6 +23,10 @@ public class PurplePlatform : MonoBehaviour
     public bool dirChange;
     public GameObject transform1;
     public GameObject transform2;
+
+    [Header("Enter non-negative values in each value set for two barriers. E0 = B1, E1 = B2")]
+    public float [] xValues; //Enter the two x values- element 0 = + t1, element 1 = - t2
+    public float [] yValues; //Enter the two y values- element 0 = - t1, element 1 = + t2
     //private FlipIndicator switchDir;
 
     [Header("Timer")]
@@ -279,15 +283,15 @@ public class PurplePlatform : MonoBehaviour
         //Flip to horizontal orientation
         if (horizontal == true)
         {
-            transform1.GetComponent<FlipIndicator>().FlipToX(new Vector3(transform.localPosition.x + 5.0f, transform.localPosition.y, 0f));
-            transform2.GetComponent<FlipIndicator>().FlipToX(new Vector3(transform.localPosition.x - 5.0f, transform.localPosition.y, 0f));
+            transform1.GetComponent<FlipIndicator>().FlipToX(new Vector3(transform.localPosition.x + xValues[0], transform.localPosition.y, 0f));
+            transform2.GetComponent<FlipIndicator>().FlipToX(new Vector3(transform.localPosition.x - xValues[1], transform.localPosition.y, 0f));
         }
 
         //Flip to vertical orientation
         else if (vertical == true)
         {
-            transform1.GetComponent<FlipIndicator>().FlipToY(new Vector3(transform.localPosition.x, transform.localPosition.y - 1.5f, 0f));
-            transform2.GetComponent<FlipIndicator>().FlipToY(new Vector3(transform.localPosition.x, transform.localPosition.y + 5.0f, 0f));
+            transform1.GetComponent<FlipIndicator>().FlipToY(new Vector3(transform.localPosition.x, transform.localPosition.y - yValues[0], 0f));
+            transform2.GetComponent<FlipIndicator>().FlipToY(new Vector3(transform.localPosition.x, transform.localPosition.y + yValues[1], 0f));
         }
     }
 }

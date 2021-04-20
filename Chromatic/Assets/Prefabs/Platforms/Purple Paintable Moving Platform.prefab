@@ -235,8 +235,6 @@ MonoBehaviour:
   canBePainted: 1
   stickyWall: 0
   purplePlat: 1
-  red: 0
-  blue: 0
 --- !u!114 &6585048950029195698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,13 +254,17 @@ MonoBehaviour:
   canChange: 1
   cooldown: 0
   changedColor: 0
-  red: 0
-  blue: 0
   horizontal: 0
   vertical: 0
   dirChange: 0
   transform1: {fileID: 970316157025857034}
   transform2: {fileID: 8011673175019179622}
+  xValues:
+  - 5
+  - 5
+  yValues:
+  - 1.5
+  - 5
   timer: 10
   resetTimer: 10
   coolDownTimer: 5
