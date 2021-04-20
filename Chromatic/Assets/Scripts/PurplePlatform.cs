@@ -76,6 +76,18 @@ public class PurplePlatform : MonoBehaviour
             platCollider.isTrigger = false;
         }
 
+
+        //Change colors
+        // if (red == true)
+        // {
+        //     gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[1]);
+        // }
+
+        // else if (blue == true)
+        // {
+        //     gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[2]);
+        // }
+
         //Start platform's alternative color behavior
         if (changedColor == true)
         {
@@ -180,12 +192,19 @@ public class PurplePlatform : MonoBehaviour
             // toonShader.blue = false;
             //canChange = false;
             changedColor = true; //Start timer
-            horizontal = true;
-            gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[1]);
-            FlipTransforms(); //Change orientation of the two invisible transforms
-            toonShader.canBePainted = false; //Make visible and colorized
-            platSource.clip = activatedClip;
-            platSource.Play();
+
+            if (canChange == true)
+            {
+                // blue = false;
+                // red = true;
+                horizontal = true;
+                gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[1]);
+                FlipTransforms(); //Change orientation of the two invisible transforms
+                toonShader.canBePainted = false; //Make visible and colorized
+                platSource.clip = activatedClip;
+                platSource.Play();
+            }
+
             //blue = false;
         }
 
@@ -197,12 +216,19 @@ public class PurplePlatform : MonoBehaviour
             // toonShader.red = false;
             //canChange = false;
             changedColor = true; //Start timer
-            vertical = true;
-            gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[2]);
-            FlipTransforms(); //Change orientation of the two invisible transforms
-            toonShader.canBePainted = false; //Make visible and colorized
-            platSource.clip = activatedClip;
-            platSource.Play();
+
+            if (canChange == true)
+            {
+                // red = false;
+                // blue = true;
+                vertical = true;
+                gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[2]);
+                FlipTransforms(); //Change orientation of the two invisible transforms
+                toonShader.canBePainted = false; //Make visible and colorized
+                platSource.clip = activatedClip;
+                platSource.Play();
+            }
+
             //red = false;
         }
     }
@@ -210,9 +236,29 @@ public class PurplePlatform : MonoBehaviour
     //Move player with moving platform
     void OnCollisionEnter(Collision changeColor)
     {
+        //Move player with moving platform
         if (changeColor.gameObject.tag == "Player")
         {
             changeColor.gameObject.transform.parent = gameObject.transform;
+        }
+
+        //Change colors when timer is active
+        if (changeColor.gameObject.tag == "Red" && changedColor == true)
+        {
+            horizontal = true;
+            gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[1]);
+            FlipTransforms(); //Change orientation of the two invisible transforms
+            platSource.clip = activatedClip;
+            platSource.Play();
+        }
+
+        if (changeColor.gameObject.tag == "Blue" && changedColor == true)
+        {
+            vertical = true;
+            gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[2]);
+            FlipTransforms(); //Change orientation of the two invisible transforms
+            platSource.clip = activatedClip;
+            platSource.Play();
         }
     }
 
