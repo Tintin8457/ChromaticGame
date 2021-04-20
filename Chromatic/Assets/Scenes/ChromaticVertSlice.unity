@@ -2527,14 +2527,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -5.6472735
@@ -5164,14 +5156,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8624,14 +8608,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13841,14 +13817,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.5851235
@@ -14744,14 +14712,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16054,7 +16014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 83.11173
+      value: 82.78
       objectReference: {fileID: 0}
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16095,14 +16055,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18175,14 +18127,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -10.687099
@@ -18614,14 +18558,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22447,14 +22383,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.5851235
@@ -23756,14 +23684,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -6.1019506
@@ -24106,14 +24026,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25322,14 +25234,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29379,14 +29283,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34169,14 +34065,6 @@ PrefabInstance:
     - target: {fileID: 7032916049821356332, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: tempColorHolder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913997249072875937, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
-      propertyPath: resetColorHolder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8913997249105819100, guid: 29ade93a51d8eab40a83792419ceff9a, type: 3}
       propertyPath: m_LocalPosition.y

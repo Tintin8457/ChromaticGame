@@ -32,8 +32,6 @@ MonoBehaviour:
   canBePainted: 0
   stickyWall: 0
   purplePlat: 0
-  red: 0
-  blue: 0
 --- !u!1 &8942700671961759072
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5331694a8d3eb41b5b284166b5b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 10
-  resetTimer: 10
+  timer: 5
+  resetTimer: 5
   returnPlat: 3
   resetReturn: 3
   floor: {fileID: 8132290573275281898}
