@@ -47,7 +47,7 @@ public class Player3D : MonoBehaviour
     public TextMeshProUGUI curBristles; //Holds current amount of bristles
     public int bristles = 0; //Amount of bristles
     public int totalBristles; //Enter total amount of bristles in level
-    public GameObject superbrush; //Will appear after the player collects all bristles in the level
+    //public GameObject superbrush; //Will appear after the player collects all bristles in the level
     private int sbLimit = 1;
 
     [Header("Color UI")]
@@ -172,25 +172,25 @@ public class Player3D : MonoBehaviour
         //UpdateCurColorUI(currentColorMode);
 
         //Get superbrush after collecting all bristles in the level
-        if (bristles == totalBristles)
-        {
-            if (sbLimit == 1)
-            {
-                //For programmers
-                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Prototype"))
-                {
-                    Instantiate(superbrush, transform.position + (transform.up * 0.5f + -transform.right * 2.5f), transform.rotation);
-                }
+        // if (bristles == totalBristles)
+        // {
+        //     if (sbLimit == 1)
+        //     {
+        //         //For programmers
+        //         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Prototype"))
+        //         {
+        //             Instantiate(superbrush, transform.position + (transform.up * 0.5f + -transform.right * 2.5f), transform.rotation);
+        //         }
                 
-                //For final version/level designers
-                else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ChromaticVertSlice"))
-                {
-                    Instantiate(superbrush, transform.position + (transform.up * 0.5f + -transform.right * 4f), transform.rotation);
-                }
+        //         //For final version/level designers
+        //         else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ChromaticVertSlice"))
+        //         {
+        //             Instantiate(superbrush, transform.position + (transform.up * 0.5f + -transform.right * 4f), transform.rotation);
+        //         }
 
-                sbLimit = 0;
-            }
-        }
+        //         sbLimit = 0;
+        //     }
+        // }
 
         if (stopJumping == false)
         {
