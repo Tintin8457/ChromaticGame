@@ -295,6 +295,10 @@ public class Player3D : MonoBehaviour
                 }
             }
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void FixedUpdate()
