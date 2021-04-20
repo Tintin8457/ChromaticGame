@@ -131,7 +131,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a0116da8032e847a1701406c89f63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bwShader: []
-  paintable: 0
-  stickyWall: 0
-  purplePlat: 0
+  superBrushActive: 0
+  requiredBristleAmount: 11
+  mainCamera: {fileID: 0}
+  sweepCamera: {fileID: 0}
+  checkpointUI: {fileID: 0}
+  curColorUI: {fileID: 0}
+  nextColorUI: {fileID: 0}
+  prevColorUI: {fileID: 0}
+  bristleUI: {fileID: 0}
+  timerUI: {fileID: 0}
+  pauseUI: {fileID: 0}
+  winUI: {fileID: 0}
