@@ -33230,6 +33230,10 @@ PrefabInstance:
       propertyPath: ogLocation.x
       value: 6.67
       objectReference: {fileID: 0}
+    - target: {fileID: 6585048950029195698, guid: 17dbe48b0b162974e80288db92966f32, type: 3}
+      propertyPath: yValues.Array.data[0]
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7103138927953518271, guid: 17dbe48b0b162974e80288db92966f32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.85
