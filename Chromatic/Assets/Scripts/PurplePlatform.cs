@@ -246,6 +246,7 @@ public class PurplePlatform : MonoBehaviour
         if (changeColor.gameObject.tag == "Red" && changedColor == true)
         {
             horizontal = true;
+            vertical = false;
             gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[1]);
             FlipTransforms(); //Change orientation of the two invisible transforms
             platSource.clip = activatedClip;
@@ -255,6 +256,7 @@ public class PurplePlatform : MonoBehaviour
         if (changeColor.gameObject.tag == "Blue" && changedColor == true)
         {
             vertical = true;
+            horizontal = false;
             gameObject.GetComponent<Renderer>().material.SetTexture("_Texture", purplePlatColors[2]);
             FlipTransforms(); //Change orientation of the two invisible transforms
             platSource.clip = activatedClip;
